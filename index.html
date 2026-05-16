@@ -57,6 +57,10 @@
                     // Estas opciones ahora sí funcionarán porque la molécula ya tiene los átomos en memoria
                     noCarbonSymbols: false,    // Muestra las C
                     explicitHydrogens: true,   // Muestra los H
+
+                    // --- AQUÍ ESTÁ EL ARREGLO PARA EL FONDO ---
+                    clearBackground: false,       // Le dice a RDKit que no pinte un fondo blanco rígido
+                    backgroundColour: [0,0,0,0],  // Fuerza un color transparente en formato [R, G, B, Alfa]
                     
                     bondThickness: 2.2,
                     labelsMaxFontSize: 16,
