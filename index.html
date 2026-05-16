@@ -6,72 +6,70 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    
     <script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
 
     <script>
-        // Variable global para almacenar la instancia del motor químico
-        let RDKitEngine = None;
+        let RDKitEngine = null;
 
-        # Inicializamos el módulo de RDKit al cargar la página
         window.initRDKitModule().then(function (instance) {
             RDKitEngine = instance;
-            console.log("¡Motor RDKit.js (WASM) cargado con éxito!");
-            # Ejecutamos el renderizado inicial
+            console.log("¡RDKit.js cargado!");
             dibujarMoleculasRDKit();
         }).catch(function (err) {
-            console.error("No se pudo cargar RDKit.js: ", err);
+            console.error("Error al cargar RDKit:", err);
         });
 
         function dibujarMoleculasRDKit() {
-            # Si el motor de WebAssembly aún no está listo, abortamos
             if (!RDKitEngine) return;
 
-            # Buscamos todos los contenedores de moléculas en la página
             document.querySelectorAll('[data-smiles]').forEach(contenedor => {
                 const smiles = contenedor.getAttribute('data-smiles');
                 if (!smiles) return;
 
-                # Limpiamos el contenedor para evitar duplicados al cambiar de pestaña
                 contenedor.innerHTML = '';
 
                 try {
-                    # 2. Convertimos el texto SMILES en un objeto Molécula de RDKit
-                    let molBase = RDKitEngine.get_mol(smiles);
-                    if (!molBase) return;
+                    let mol = RDKitEngine.get_mol(smiles);
+                    if (!mol) return;
 
-                    # 3. ¡EL TRUCO CLAVE! Forzamos a RDKit a añadir todos los Hidrógenos explícitos
-                    # Esto es lo que rompe el esqueleto de líneas y obliga a pintar CH3, CH2, CH, etc.
-                    let smilesConH = molBase.get_smiles(); # Extraemos estructura limpia
-                    let molFinal = RDKitEngine.get_mol(smilesConH);
-                    
-                    # Liberamos la memoria de la molécula base (buena práctica en WebAssembly)
-                    molBase.delete(); 
+                    // 1. LEER LA LONGITUD PERSONALIZADA (Si no existe, por defecto es 25)
+                    const longitudIndividual = contenedor.getAttribute('data-longitud') 
+                        ? parseInt(contenedor.getAttribute('data-longitud')) 
+                        : 25;
 
-                    # 4. Configuración estética en formato JSON para RDKit
-                    # Aquí controlamos que los enlaces tengan tamaño fijo y colores negros
+                    // 2. CÁLCULO DINÁMICO DEL LIENZO
+                    // Calculamos el tamaño del recuadro basándonos en la longitud del enlace
+                    // para asegurarnos de que la molécula grande tenga un lienzo más amplio y no se asfixie.
+                    const factorAncho = smiles.length > 8 ? 12 : 8; 
+                    const anchoDinamico = Math.max(200, longitudIndividual * factorAncho);
+                    const altoDinamico = Math.max(120, longitudIndividual * 5);
+
+                    // 3. CONFIGURACIÓN INDIVIDUAL PARA RDKit
                     const opcionesDibujo = {
-                        width: 300,                  # Ancho del lienzo SVG
-                        height: 140,                 # Alto del lienzo SVG
-                        clearBackground: true,       # Fondo transparente para tu tabla
-                        noCarbonSymbols: false,      # OBLIGATORIO: Muestra todas las "C" de la cadena
-                        bondThickness: 2.2,          # Grosor de los enlaces químicos
-                        labelsMaxFontSize: 16,       # Tamaño de letra grande para los alumnos
-                        drawMolsSameScale: true,     # ¡CLAVE!: Hace que todos los enlaces midan exactamente lo mismo
-                        defaultColor: [0, 0, 0, 1]   # Color negro puro (R, G, B, Alfa) para letras y líneas
+                        width: anchoDinamico,
+                        height: altoDinamico,
+                        clearBackground: true,
+                        noCarbonSymbols: false,
+                        explicitHydrogens: true,
+                        bondThickness: 2.2,
+                        labelsMaxFontSize: 16,
+                        
+                        // ¡PASO CRUCIAL!: Apagamos la escala automática global 
+                        // para que RDKit escuche el 'fixedBondLength' individual de cada una.
+                        drawMolsSameScale: false, 
+                        fixedBondLength: longitudIndividual, 
+                        
+                        defaultColor: [0, 0, 0, 1]
                     };
 
-                    # 5. RDKit genera el código SVG vectorial puro en tiempo real
-                    const svgInyectar = molFinal.get_svg_with_highlights(JSON.stringify(opcionesDibujo));
-                    
-                    # Metemos el SVG directamente en tu celda de la tabla
+                    // 4. Renderizar e inyectar el SVG
+                    const svgInyectar = mol.get_svg_with_highlights(JSON.stringify(opcionesDibujo));
                     contenedor.innerHTML = svgInyectar;
 
-                    # Liberamos memoria de la molécula final
-                    molFinal.delete();
+                    mol.delete();
 
                 } catch (error) {
-                    console.error("Error renderizando el SMILES: " + smiles, error);
+                    console.error("Error personalizado en RDKit para: " + smiles, error);
                 }
             });
         }

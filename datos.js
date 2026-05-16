@@ -366,13 +366,13 @@ const baseDatosProblemas = {
                     <tr>
                         <td>a)</td>
                         <td>
-                            <div data-smiles="CC(C)CC" style="width: 300px; height: 140px; margin: 0 auto;"></div>                        
+                            <div data-smiles="CC(C)CC" data-longitud="25" style="margin: 0 auto;"></div>                        
                         </td>
                         <td>b)</td>
                         <td>
-                            <div data-smiles="CCCC(CC)CC=CC=C" style="width: 300px; height: 140px; margin: 0 auto;"></div>
+                            <div data-smiles="C=CC(CC)CC=CC" data-longitud="30" style="margin: 0 auto;"></div>
                         </td>
-                        <td>c)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH2-CH2-CH2-CH3} \\)</td>
+                        <td>c)</td><td><div data-smiles="CC(C)C(C)C" data-longitud="25" style="margin: 0 auto;"></div></td>
                     </tr>
                     
 
