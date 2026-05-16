@@ -365,8 +365,7 @@ const baseDatosProblemas = {
 
                     <tr>
                         <td>a)</td>
-                        <td>
-                            <div data-smiles="CC(C)CC" style="width: 220px; height: 140px; margin: 0 auto;"></div>
+                        <td><div data-smiles="CC(C)CC" style="width: 220px; height: 140px; margin: 0 auto;"></div>                        
                         </td>
                         <td>b)</td><td>
                             <div data-smiles="CC(CC)CC=CC=C" style="width: 320px; height: 140px; margin: 0 auto;"></div>
