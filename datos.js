@@ -393,7 +393,47 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 5: Formulación de compuestos aromáticos y halogenados",
-            enunciado: `Formula los siguientes compuestos aromáticos y halogenados por las reglas IUPAC`,
+            enunciado: `Formula los siguientes compuestos aromáticos y halogenados por las reglas IUPAC. 
+            <br>
+            <table class="tabla-ejercicios">
+                <thead>
+                    <tr>
+                        <th></th><th>Nombre</th>
+                        <th></th><th>Nombre</th>
+                        <th></th><th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a)</td><td>Benceno</td>
+                        <td>b)</td><td>Naftaleno</td>
+                        <td>c)</td><td>Antraceno</td>
+                    
+                    </tr>
+                    <tr>
+                        <td>d)</td><td>2-fenilpentano</td>
+                        <td>e)</td><td>o-dimetilbenceno</td>
+                        <td>f)</td><td>Hexametilbenceno</td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td>m-dimetilbenceno</td>
+                        <td>h)</td><td>p-etilmetilbenceno</td>
+                        <td>i)</td><td>3-fenilhexano</td>
+                    </tr>
+                    <tr>
+                        <td>j)</td><td>p-dipropilbenceno</td>
+                        <td>k)</td><td>Metilbenceno</td>
+                        <td>l)</td><td>Etenilbenceno</td>
+                    </tr>
+                    <tr>
+                        <td>m)</td><td>2-cloropropano</td>
+                        <td>n)</td><td>o-bromoclorobenceno</td>
+                        <td></td><td></td>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>`,
             solucion: `
                 <div class='paso'>
                     
@@ -402,7 +442,39 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 6: Nomenclatura de compuestos aromáticos y halogenados",
-            enunciado: `Nombra los siguientes compuestos aromáticos y halogenados`,
+            enunciado: `Nombra los siguientes compuestos aromáticos y halogenados.
+                        <br>
+            <table class="tabla-ejercicios">
+                <thead>
+                    <tr>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a)</td><td><div data-smiles="CCc1ccccc1C"></div></td>
+                        <td>b)</td><td><div data-smiles="Cc1cc(C)cc(C)c1"></div></td>
+                        <td>c)</td><td><div data-smiles="Cc1ccc(C)cc1"></div></td>
+                    </tr>
+                    <tr>
+                        <td>d)</td><td><div data-smiles="Cc1cc(C)ccc1"></div></td>
+                        <td>e)</td><td><div data-smiles="CCc1cc(CC)ccc1"></div></td>
+                        <td>f)</td><td><div data-smiles="c1ccc2ccccc2c1"></div></td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td><div data-smiles="CCc1c(CC)c(C)ccc1"></div></td>
+                        <td>h)</td><td><div data-smiles="c1ccc2cc3ccccc3cc2c1"></div></td>
+                        <td>i)</td><td><div data-smiles="Clc1ccc(Cl)c(Cl)c1"></div></td>
+                    </tr>
+                    <tr>
+                        <td>j)</td><td><div data-smiles="C=CC(Cl)(Cl)CCl"></div></td>
+                        <td></td><td></td>
+                        <td></td><td></td>
+                    </tr>
+                </tbody>
+            </table>`,
             solucion: `
                 <div class='paso'>
                     
