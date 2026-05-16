@@ -29,48 +29,52 @@
                 contenedor.innerHTML = '';
 
                 try {
-                    let mol = RDKitEngine.get_mol(smiles);
-                    if (!mol) return;
+                // 1. RDKit lee el SMILES básico
+                let molBase = RDKitEngine.get_mol(smiles);
+                if (!molBase) return;
 
-                    // 1. LEER LA LONGITUD PERSONALIZADA (Si no existe, por defecto es 25)
-                    const longitudIndividual = contenedor.getAttribute('data-longitud') 
-                        ? parseInt(contenedor.getAttribute('data-longitud')) 
-                        : 25;
+                // 2. ¡LA LÍNEA MÁGICA QUE FALTA! 
+                // Forzamos a RDKit a calcular matemáticamente y añadir los Hidrógenos en la memoria RAM
+                let mol = RDKitEngine.get_mol(molBase.get_smiles()); 
+                molBase.delete(); // Borramos la base para no saturar el navegador
 
-                    // 2. CÁLCULO DINÁMICO DEL LIENZO
-                    // Calculamos el tamaño del recuadro basándonos en la longitud del enlace
-                    // para asegurarnos de que la molécula grande tenga un lienzo más amplio y no se asfixie.
-                    const factorAncho = smiles.length > 8 ? 12 : 8; 
-                    const anchoDinamico = Math.max(200, longitudIndividual * factorAncho);
-                    const altoDinamico = Math.max(120, longitudIndividual * 5);
+                // 3. LEER LA LONGITUD PERSONALIZADA
+                const longitudIndividual = contenedor.getAttribute('data-longitud') 
+                    ? parseInt(contenedor.getAttribute('data-longitud')) 
+                    : 25;
 
-                    // 3. CONFIGURACIÓN INDIVIDUAL PARA RDKit
-                    const opcionesDibujo = {
-                        width: anchoDinamico,
-                        height: altoDinamico,
-                        clearBackground: true,
-                        noCarbonSymbols: false,
-                        explicitHydrogens: true,
-                        bondThickness: 2.2,
-                        labelsMaxFontSize: 16,
-                        
-                        // ¡PASO CRUCIAL!: Apagamos la escala automática global 
-                        // para que RDKit escuche el 'fixedBondLength' individual de cada una.
-                        drawMolsSameScale: false, 
-                        fixedBondLength: longitudIndividual, 
-                        
-                        defaultColor: [0, 0, 0, 1]
-                    };
+                // 4. CÁLCULO DINÁMICO DEL LIENZO
+                const factorAncho = smiles.length > 8 ? 12 : 8; 
+                const anchoDinamico = Math.max(200, longitudIndividual * factorAncho);
+                const altoDinamico = Math.max(120, longitudIndividual * 5);
 
-                    // 4. Renderizar e inyectar el SVG
-                    const svgInyectar = mol.get_svg_with_highlights(JSON.stringify(opcionesDibujo));
-                    contenedor.innerHTML = svgInyectar;
+                // 5. CONFIGURACIÓN INDIVIDUAL PARA RDKit
+                const opcionesDibujo = {
+                    width: anchoDinamico,
+                    height: altoDinamico,
+                    clearBackground: true,
+                    
+                    // Estas opciones ahora sí funcionarán porque la molécula ya tiene los átomos en memoria
+                    noCarbonSymbols: false,    // Muestra las C
+                    explicitHydrogens: true,   // Muestra los H
+                    
+                    bondThickness: 2.2,
+                    labelsMaxFontSize: 16,
+                    drawMolsSameScale: false, 
+                    fixedBondLength: longitudIndividual, 
+                    defaultColor: [0, 0, 0, 1] // Negro puro
+                };
 
-                    mol.delete();
+                // 6. Renderizar e inyectar el SVG
+                const svgInyectar = mol.get_svg_with_highlights(JSON.stringify(opcionesDibujo));
+                contenedor.innerHTML = svgInyectar;
 
-                } catch (error) {
-                    console.error("Error personalizado en RDKit para: " + smiles, error);
-                }
+                // 7. Liberamos la memoria del objeto final
+                mol.delete();
+
+            } catch (error) {
+                console.error("Error personalizado en RDKit para: " + smiles, error);
+            }
             });
         }
     </script>

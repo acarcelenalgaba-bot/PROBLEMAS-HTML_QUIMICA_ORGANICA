@@ -362,20 +362,11 @@ const baseDatosProblemas = {
                     </tr>
                 </thead>
                 <tbody>
-
                     <tr>
-                        <td>a)</td>
-                        <td>
-                            <div data-smiles="CC(C)CC" data-longitud="25" style="margin: 0 auto;"></div>                        
-                        </td>
-                        <td>b)</td>
-                        <td>
-                            <div data-smiles="C=CC(CC)CC=CC" data-longitud="30" style="margin: 0 auto;"></div>
-                        </td>
+                        <td>a)</td><td><div data-smiles="CC(C)CC" data-longitud="25" style="margin: 0 auto;"></div></td>
+                        <td>b)</td><td><div data-smiles="C=CC(CC)CC=CC" data-longitud="30" style="margin: 0 auto;"></div></td>
                         <td>c)</td><td><div data-smiles="CC(C)C(C)C" data-longitud="25" style="margin: 0 auto;"></div></td>
                     </tr>
-                    
-
                     <tr>
                         <td>d)</td>
                         <td style="text-align:left;">
