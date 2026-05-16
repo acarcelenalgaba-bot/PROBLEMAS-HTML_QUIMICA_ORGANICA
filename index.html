@@ -6,6 +6,58 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <script src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
+    
+    <script>
+        function renderizarEstructurasQuimicas() {
+            if (typeof SmilesDrawer !== 'undefined' && SmilesDrawer.Drawer) {
+                
+                document.querySelectorAll('[data-smiles]').forEach(contenedor => {
+                    let smiles = contenedor.getAttribute('data-smiles');
+                    if (!smiles) return;
+
+                    // 1. LEER LA LONGITUD INDIVIDUAL DESDE DATOS.JS
+                    // Si el div no tiene 'data-longitud', usará 20 por defecto
+                    let longitudIndividual = contenedor.getAttribute('data-longitud') 
+                        ? parseInt(contenedor.getAttribute('data-longitud')) 
+                        : 20; 
+
+                    // 2. CONFIGURACIÓN DINÁMICA POR MOLECULA
+                    const opciones = {
+                        width: 320,
+                        height: 140,
+                        bondLength: longitudIndividual, // <-- Se aplica el tamaño de cada una
+                        bondThickness: 2.2,   
+                        fontSizeLarge: 14,   
+                        sizeIsFixed: true,    
+                        allAtoms: true,
+                        showCarbons: true,
+                        drawCarbons: true,
+                        explicitHydrogens: true,
+                        terminalCarbons: true,
+                        compactDrawing: false
+                    };
+                    
+                    // Instanciamos el dibujante con las opciones específicas de este contenedor
+                    const drawer = new SmilesDrawer.Drawer(opciones);
+
+                    contenedor.innerHTML = '';
+                    const lienzo = document.createElement('canvas');
+                    
+                    // Mantenemos el filtro para el negro intenso
+                    lienzo.style.filter = "contrast(300%) brightness(50%)";
+                    contenedor.appendChild(lienzo);
+
+                    SmilesDrawer.parse(smiles, function (tree) {
+                        drawer.draw(tree, lienzo, 'light', false);
+                    }, function (err) {
+                        console.error("Error al procesar la molécula:", err);
+                    });
+                });
+            }
+        }
+    </script>
+
     <style>
         /* --- ESTILOS GENERALES Y LAYOUT --- */
         html, body {
