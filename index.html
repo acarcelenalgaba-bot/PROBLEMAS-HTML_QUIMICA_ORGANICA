@@ -11,25 +11,19 @@
     <script>
         function renderizarEstructurasQuimicas() {
             if (typeof SmilesDrawer !== 'undefined' && SmilesDrawer.Drawer) {
-                
                 document.querySelectorAll('[data-smiles]').forEach(contenedor => {
                     let smiles = contenedor.getAttribute('data-smiles');
                     if (!smiles) return;
 
-                    // 1. LEER LA LONGITUD INDIVIDUAL DESDE DATOS.JS
-                    // Si el div no tiene 'data-longitud', usará 20 por defecto
-                    let longitudIndividual = contenedor.getAttribute('data-longitud') 
-                        ? parseInt(contenedor.getAttribute('data-longitud')) 
-                        : 20; 
+                    const CELDA_W = 300;
+                    const CELDA_H = 150;
 
-                    // 2. CONFIGURACIÓN DINÁMICA POR MOLECULA
                     const opciones = {
-                        width: 320,
-                        height: 140,
-                        bondLength: longitudIndividual, // <-- Se aplica el tamaño de cada una
-                        bondThickness: 2.2,   
-                        fontSizeLarge: 14,   
-                        sizeIsFixed: true,    
+                        width: 600,
+                        height: 300,
+                        bondLength: 28,
+                        bondThickness: 2.2,
+                        fontSizeLarge: 14,
                         allAtoms: true,
                         showCarbons: true,
                         drawCarbons: true,
@@ -37,21 +31,51 @@
                         terminalCarbons: true,
                         compactDrawing: false
                     };
-                    
-                    // Instanciamos el dibujante con las opciones específicas de este contenedor
+
                     const drawer = new SmilesDrawer.Drawer(opciones);
-
                     contenedor.innerHTML = '';
-                    const lienzo = document.createElement('canvas');
-                    
-                    // Mantenemos el filtro para el negro intenso
-                    lienzo.style.filter = "contrast(300%) brightness(50%)";
-                    contenedor.appendChild(lienzo);
 
-                    SmilesDrawer.parse(smiles, function (tree) {
-                        drawer.draw(tree, lienzo, 'light', false);
-                    }, function (err) {
+                    // Canvas oculto donde SmilesDrawer dibuja a tamaño natural
+                    // Después — fuera de pantalla pero visible para el navegador
+                    const lienzoOculto = document.createElement('canvas');
+                    lienzoOculto.style.position = 'fixed';
+                    lienzoOculto.style.left = '-9999px';
+                    lienzoOculto.style.top  = '-9999px';
+                    document.body.appendChild(lienzoOculto);
+
+                    // Canvas visible de tamaño FIJO → nunca desborda
+                    const lienzoVisible = document.createElement('canvas');
+                    lienzoVisible.width  = CELDA_W;
+                    lienzoVisible.height = CELDA_H;
+                    lienzoVisible.style.filter = "contrast(300%) brightness(50%)";
+                    contenedor.appendChild(lienzoVisible);
+
+                    SmilesDrawer.parse(smiles, function(tree) {
+                        // 1. Dibujar en el canvas oculto con bondLength uniforme
+                        drawer.draw(tree, lienzoOculto, 'light', false);
+
+                        // 2. Calcular escala object-fit: contain (nunca supera 1)
+                        const escalaX = CELDA_W / lienzoOculto.width;
+                        const escalaY = CELDA_H / lienzoOculto.height;
+                        const escala  = Math.min(escalaX, escalaY, 1);
+
+                        // 3. Calcular posición centrada dentro del canvas visible
+                        const dw = lienzoOculto.width  * escala;
+                        const dh = lienzoOculto.height * escala;
+                        const dx = (CELDA_W - dw) / 2;
+                        const dy = (CELDA_H - dh) / 2;
+
+                        // 4. Copiar escalado al canvas visible
+                        const ctx = lienzoVisible.getContext('2d');
+                        ctx.clearRect(0, 0, CELDA_W, CELDA_H);
+                        ctx.drawImage(lienzoOculto, dx, dy, dw, dh);
+
+                        // 5. Limpiar el canvas oculto del DOM
+                        document.body.removeChild(lienzoOculto);
+
+                    }, function(err) {
                         console.error("Error al procesar la molécula:", err);
+                        document.body.removeChild(lienzoOculto);
                     });
                 });
             }
