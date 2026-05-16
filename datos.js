@@ -365,10 +365,12 @@ const baseDatosProblemas = {
 
                     <tr>
                         <td>a)</td>
-                        <td><div data-smiles="CC(C)CC"></div>
+                        <td>
+                            <div data-smiles="CC(C)CC" style="width: 300px; height: 140px; margin: 0 auto;"></div>                        
                         </td>
-                        <td>b)</td><td>
-                            <div data-smiles="CC(CC)CC=CC=C"></div>
+                        <td>b)</td>
+                        <td>
+                            <div data-smiles="CCCC(CC)CC=CC=C" style="width: 300px; height: 140px; margin: 0 auto;"></div>
                         </td>
                         <td>c)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH2-CH2-CH2-CH3} \\)</td>
                     </tr>

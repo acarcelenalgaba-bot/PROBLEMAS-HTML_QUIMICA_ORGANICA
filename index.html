@@ -5,80 +5,75 @@
     <title>Problemas de Química- Soluciones Detalladas</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <script src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
     
+    
+    <script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
+
     <script>
-        function renderizarEstructurasQuimicas() {
-            if (typeof SmilesDrawer !== 'undefined' && SmilesDrawer.Drawer) {
-                document.querySelectorAll('[data-smiles]').forEach(contenedor => {
-                    let smiles = contenedor.getAttribute('data-smiles');
-                    if (!smiles) return;
+        // Variable global para almacenar la instancia del motor químico
+        let RDKitEngine = None;
 
-                    const CELDA_W = 300;
-                    const CELDA_H = 150;
+        # Inicializamos el módulo de RDKit al cargar la página
+        window.initRDKitModule().then(function (instance) {
+            RDKitEngine = instance;
+            console.log("¡Motor RDKit.js (WASM) cargado con éxito!");
+            # Ejecutamos el renderizado inicial
+            dibujarMoleculasRDKit();
+        }).catch(function (err) {
+            console.error("No se pudo cargar RDKit.js: ", err);
+        });
 
-                    const opciones = {
-                        width: 600,
-                        height: 300,
-                        bondLength: 28,
-                        bondThickness: 2.2,
-                        fontSizeLarge: 14,
-                        allAtoms: true,
-                        showCarbons: true,
-                        drawCarbons: true,
-                        explicitHydrogens: true,
-                        terminalCarbons: true,
-                        compactDrawing: false
+        function dibujarMoleculasRDKit() {
+            # Si el motor de WebAssembly aún no está listo, abortamos
+            if (!RDKitEngine) return;
+
+            # Buscamos todos los contenedores de moléculas en la página
+            document.querySelectorAll('[data-smiles]').forEach(contenedor => {
+                const smiles = contenedor.getAttribute('data-smiles');
+                if (!smiles) return;
+
+                # Limpiamos el contenedor para evitar duplicados al cambiar de pestaña
+                contenedor.innerHTML = '';
+
+                try {
+                    # 2. Convertimos el texto SMILES en un objeto Molécula de RDKit
+                    let molBase = RDKitEngine.get_mol(smiles);
+                    if (!molBase) return;
+
+                    # 3. ¡EL TRUCO CLAVE! Forzamos a RDKit a añadir todos los Hidrógenos explícitos
+                    # Esto es lo que rompe el esqueleto de líneas y obliga a pintar CH3, CH2, CH, etc.
+                    let smilesConH = molBase.get_smiles(); # Extraemos estructura limpia
+                    let molFinal = RDKitEngine.get_mol(smilesConH);
+                    
+                    # Liberamos la memoria de la molécula base (buena práctica en WebAssembly)
+                    molBase.delete(); 
+
+                    # 4. Configuración estética en formato JSON para RDKit
+                    # Aquí controlamos que los enlaces tengan tamaño fijo y colores negros
+                    const opcionesDibujo = {
+                        width: 300,                  # Ancho del lienzo SVG
+                        height: 140,                 # Alto del lienzo SVG
+                        clearBackground: true,       # Fondo transparente para tu tabla
+                        noCarbonSymbols: false,      # OBLIGATORIO: Muestra todas las "C" de la cadena
+                        bondThickness: 2.2,          # Grosor de los enlaces químicos
+                        labelsMaxFontSize: 16,       # Tamaño de letra grande para los alumnos
+                        drawMolsSameScale: true,     # ¡CLAVE!: Hace que todos los enlaces midan exactamente lo mismo
+                        defaultColor: [0, 0, 0, 1]   # Color negro puro (R, G, B, Alfa) para letras y líneas
                     };
 
-                    const drawer = new SmilesDrawer.Drawer(opciones);
-                    contenedor.innerHTML = '';
+                    # 5. RDKit genera el código SVG vectorial puro en tiempo real
+                    const svgInyectar = molFinal.get_svg_with_highlights(JSON.stringify(opcionesDibujo));
+                    
+                    # Metemos el SVG directamente en tu celda de la tabla
+                    contenedor.innerHTML = svgInyectar;
 
-                    // Canvas oculto donde SmilesDrawer dibuja a tamaño natural
-                    // Después — fuera de pantalla pero visible para el navegador
-                    const lienzoOculto = document.createElement('canvas');
-                    lienzoOculto.style.position = 'fixed';
-                    lienzoOculto.style.left = '-9999px';
-                    lienzoOculto.style.top  = '-9999px';
-                    document.body.appendChild(lienzoOculto);
+                    # Liberamos memoria de la molécula final
+                    molFinal.delete();
 
-                    // Canvas visible de tamaño FIJO → nunca desborda
-                    const lienzoVisible = document.createElement('canvas');
-                    lienzoVisible.width  = CELDA_W;
-                    lienzoVisible.height = CELDA_H;
-                    lienzoVisible.style.filter = "contrast(300%) brightness(50%)";
-                    contenedor.appendChild(lienzoVisible);
-
-                    SmilesDrawer.parse(smiles, function(tree) {
-                        // 1. Dibujar en el canvas oculto con bondLength uniforme
-                        drawer.draw(tree, lienzoOculto, 'light', false);
-
-                        // 2. Calcular escala object-fit: contain (nunca supera 1)
-                        const escalaX = CELDA_W / lienzoOculto.width;
-                        const escalaY = CELDA_H / lienzoOculto.height;
-                        const escala  = Math.min(escalaX, escalaY, 1);
-
-                        // 3. Calcular posición centrada dentro del canvas visible
-                        const dw = lienzoOculto.width  * escala;
-                        const dh = lienzoOculto.height * escala;
-                        const dx = (CELDA_W - dw) / 2;
-                        const dy = (CELDA_H - dh) / 2;
-
-                        // 4. Copiar escalado al canvas visible
-                        const ctx = lienzoVisible.getContext('2d');
-                        ctx.clearRect(0, 0, CELDA_W, CELDA_H);
-                        ctx.drawImage(lienzoOculto, dx, dy, dw, dh);
-
-                        // 5. Limpiar el canvas oculto del DOM
-                        document.body.removeChild(lienzoOculto);
-
-                    }, function(err) {
-                        console.error("Error al procesar la molécula:", err);
-                        document.body.removeChild(lienzoOculto);
-                    });
-                });
-            }
+                } catch (error) {
+                    console.error("Error renderizando el SMILES: " + smiles, error);
+                }
+            });
         }
     </script>
 
@@ -119,12 +114,12 @@
 
         .contenedor-menus {
             display: flex;
-            flex-wrap: nowrap;       /* No permite saltos de línea */
+            flex-wrap: nowrap;
             gap: 8px; 
             align-items: center;
             width: 100%;           
-            overflow-x: auto;        /* Habilita scroll si no caben */
-            padding-bottom: 12px;    /* Espacio para la barra de scroll */
+            overflow-x: auto;
+            padding-bottom: 12px;
             justify-content: flex-start; 
         }
 
@@ -144,7 +139,6 @@
             text-overflow: ellipsis;
         }
 
-        /* Para que al abrirlo se vea bien en algunos navegadores */
         .menu-desplegable option {
             width: auto;
         }
@@ -154,7 +148,6 @@
             background-color: #ffffff;
         }
 
-        /* Este color se aplicará al menú que contiene el problema que se está leyendo actualmente */
         .menu-desplegable.menu-activo {
             background-color: #3498db;
             color: white;
@@ -190,7 +183,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            flex-wrap: wrap; /* Para que se adapte en móviles */
+            flex-wrap: wrap;
         }
         .columna-texto {
             flex: 1;
@@ -248,7 +241,7 @@
         }
 
         .tabla-ejercicios th {
-            background-color: #2c3e50; /* Azul oscuro profesional */
+            background-color: #2c3e50;
             color: white;
             padding: 12px;
             text-align: left;
@@ -259,14 +252,12 @@
             border-bottom: 1px solid #ddd;
         }
 
-        /* Resaltar la letra del apartado */
         .tabla-ejercicios td:nth-child(odd) {
             font-weight: bold;
-            color: #e74c3c; /* Color rojo para destacar la letra */
+            color: #e74c3c;
             width: 40px;
         }
 
-        /* Efecto cebra para leer mejor */
         .tabla-ejercicios tr:nth-child(even) {
             background-color: #f9f9f9;
         }
@@ -283,7 +274,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .tabla-ejercicios-solucion th {
-            background-color: #27ae60; /* Verde para soluciones */
+            background-color: #27ae60;
             color: white;
             padding: 12px;
             text-align: left;
@@ -305,7 +296,6 @@
                 <select class="menu-desplegable" id="menu-oxigeno"><option value="" disabled selected>📁 2. Compuestos oxigenados y nitrogenados</option></select>
                 <select class="menu-desplegable" id="menu-variados"><option value="" disabled selected>📁 3. Compuestos variados</option></select>
                 <select class="menu-desplegable" id="menu-refuerzo"><option value="" disabled selected>📁 4. Compuestos de refuerzo</option></select>
-                
             </div>
         </header>
 
@@ -327,72 +317,14 @@
 
     <script src="datos.js"></script>
 
-    <!-- 2. Motor RDKit + Renderizador -->
     <script>
-        (async () => {
-            const container = document.getElementById('app-container');
-            
-            // A. Inyectar contenido (ajusta el índice si usas otra lógica de navegación)
-            if (typeof baseDatosProblemas !== 'undefined') {
-                const problema = baseDatosProblemas["hidrocarburos "][3]?.enunciado;
-                container.innerHTML = problema || '<p class="status">Problema no encontrado</p>';
-            }
-
-            // B. Cargar RDKit desde CDN de forma segura
-            const loadRDKit = () => new Promise((resolve, reject) => {
-                if (window.RDKitInstance) return resolve(window.RDKitInstance);
-                const s = document.createElement('script');
-                s.src = 'https://cdn.jsdelivr.net/npm/@rdkit/rdkit@2023.09.1-1.0.0/dist/RDKit_minimal.js';
-                s.onload = () => window.RDKitModule().then(resolve);
-                s.onerror = () => reject(new Error('Fallo al descargar RDKit. Revisa conexión/CORS'));
-                document.head.appendChild(s);
-            });
-
-            try {
-                const RDKit = await loadRDKit();
-                window.RDKitInstance = RDKit;
-
-                // C. Renderizar TODOS los div[data-smiles] presentes en el DOM
-                const targets = document.querySelectorAll('[data-smiles]:not([data-rendered])');
-                for (const div of targets) {
-                    const smiles = div.dataset.smiles.trim();
-                    if (!smiles) continue;
-
-                    const mol = RDKit.get_mol(smiles);
-                    if (!mol) throw new Error(`SMILES inválido: "${smiles}"`);
-
-                    div.innerHTML = mol.get_svg({
-                        width: parseInt(div.style.width) || 220,
-                        height: parseInt(div.style.height) || 140,
-                        prepareMolsBeforeDrawing: true, // Genera coordenadas 2D si faltan
-                        fontSize: 12,
-                        bondLineWidth: 1.2,
-                        addStereoAnnotations: false
-                    });
-
-                    div.dataset.rendered = 'true';
-                    mol.delete(); // ⚠️ OBLIGATORIO: Libera memoria C++/WASM
-                }
-            } catch (err) {
-                console.error('❌ Error RDKit:', err);
-                container.innerHTML = `<div class="status" style="color:#c0392b;">⚠️ No se pudo cargar el motor químico.<br><small>${err.message}</small></div>`;
-            }
-        })();
-    </script>
-
-    <script>
-
         function ajustarAnchoSoloTitulo(select) {
-            // Siempre medimos el texto de la primera opción (el título del menú)
             const textoTitulo = select.options[0].text;
-            
             const font = window.getComputedStyle(select).font;
             const canvas = document.createElement("canvas");
             const context = canvas.getContext("2d");
             context.font = font;
             const width = context.measureText(textoTitulo).width;
-            
-            // Asignamos el ancho fijo del título + espacio para la flecha
             select.style.width = (width + 45) + "px";
         }
 
@@ -404,7 +336,6 @@
             for (const categoria in baseDatosProblemas) {
                 const selectMenu = document.getElementById(`menu-${categoria}`);
                 if (selectMenu) {
-                    // Rellenar las opciones desde datos.js
                     baseDatosProblemas[categoria].forEach((prob, index) => {
                         const opcion = document.createElement('option');
                         opcion.value = index; 
@@ -412,27 +343,17 @@
                         selectMenu.appendChild(opcion);
                     });
 
-                    // Ajustar ancho al título inicial
                     ajustarAnchoSoloTitulo(selectMenu);
 
                     selectMenu.addEventListener('change', function() {
                         if (this.value !== "") {
-                            // 1. Obtenemos los datos del problema antes de resetear el menú
                             const prob = baseDatosProblemas[categoria][this.value];
-                            
-                            // 2. Pintamos el problema en el visor central
                             mostrarEnunciado(prob.titulo, prob.enunciado, prob.solucion);
-                            
-                            // 3. AQUÍ EVITAMOS EL CAMBIO DE NOMBRE:
-                            // Forzamos al menú a que vuelva a mostrar el índice 0 (el título)
                             this.selectedIndex = 0; 
-
-                            // 4. Mantenemos el color para saber cuál está "activo"
                             todosLosMenus.forEach(m => m.classList.remove('menu-activo'));
                             this.classList.add('menu-activo');
                         }
                     });
-                    
                 }
             }
         }
@@ -443,7 +364,7 @@
             document.getElementById('caja-solucion').style.display = 'none';
             
             const btnSiguiente = document.getElementById('btn-siguiente-paso');
-            if(btnSiguiente) btnSiguiente.style.display = 'none';
+            if (btnSiguiente) btnSiguiente.style.display = 'none';
 
             document.getElementById('titulo-visor').innerText = titulo;
             document.getElementById('texto-visor').innerHTML = texto;
@@ -458,7 +379,7 @@
             }
             
             MathJax.typesetPromise();
-            renderizarEstructurasQuimicas();
+            dibujarMoleculasRDKit();
             document.querySelector('.zona-lectura').scrollTop = 0;
         }
 
@@ -477,7 +398,7 @@
                 btnSiguiente.style.cursor = "pointer";
                 document.querySelectorAll('#caja-solucion .paso').forEach(p => p.classList.remove('visible'));
                 MathJax.typesetPromise();
-                renderizarEstructurasQuimicas();
+                dibujarMoleculasRDKit();
             } else {
                 caja.style.display = 'none';
                 btn.innerText = 'Ver Solución';
