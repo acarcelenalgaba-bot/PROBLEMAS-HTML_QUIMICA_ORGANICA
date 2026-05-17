@@ -67,6 +67,7 @@
                     drawMolsSameScale: false, 
                     fixedBondLength: longitudIndividual, 
                     defaultColor: [0, 0, 0, 1] // Negro puro
+
                 };
 
                 // 6. Renderizar e inyectar el SVG
@@ -84,6 +85,10 @@
     </script>
 
     <style>
+        /* Fuerza a que todos los SVG de las moléculas se muestren en blanco y negro */
+        div[data-smiles] svg {
+            filter: grayscale(100%) brightness(0%);
+        }
         /* --- ESTILOS GENERALES Y LAYOUT --- */
         html, body {
             height: 100%;

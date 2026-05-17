@@ -442,8 +442,7 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 6: Nomenclatura de compuestos aromáticos y halogenados",
-            enunciado: `Nombra los siguientes compuestos aromáticos y halogenados.
-                        <br>
+            enunciado: `Nombra los siguientes compuestos aromáticos y halogenados. <br>
             <table class="tabla-ejercicios">
                 <thead>
                     <tr>
@@ -485,7 +484,50 @@ const baseDatosProblemas = {
     "oxigeno": [
         {
             titulo: "Problema 1: Formulación de compuestos oxigenados",
-            enunciado: "Formula los siguientes compuestos oxigenados por las reglas IUPAC",
+            enunciado: `Formula los siguientes compuestos oxigenados por las reglas IUPAC.
+            <br>
+                <table class="tabla-ejercicios">
+                    <thead>
+                        <tr>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>a)</td><td>Butan-2-ol</td>
+                            <td>b)</td><td>Etanol</td>
+                            <td>c)</td><td>Metanol</td>
+                        </tr>
+                        <tr>
+                            <td>d)</td><td>Pent-3-en-2-ol</td>
+                            <td>e)</td><td>4-metilpentan-1,3-diol</td>
+                            <td>f)</td><td>Ciclohexano-1,2,3,4,5,6-hexol</td>
+                        </tr>
+                        <tr>
+                            <td>g)</td><td>Fenol</td>
+                            <td>h)</td><td>Etil metil éter</td>
+                            <td>i)</td><td>Dietil éter</td>
+                        </tr>
+                        <tr>
+                            <td>j)</td><td>Isopropil metil éter</td>
+                            <td>k)</td><td>Pentan-3-ona</td>
+                            <td>l)</td><td>Acetona (propanona)</td>
+                        </tr>
+                        <tr>
+                            <td>m)</td><td>Butanona</td>
+                            <td>n)</td><td>Butanodiona</td>
+                            <td>ñ)</td><td>Formaldehído (metanal)</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>o)</td><td>Etanal</td>
+                            <td>p)</td><td>2,2-dimetilbutanal</td>
+                            <td>q)</td><td>Benzaldehído</td>
+                        </tr>                     
+                        </tbody>
+                </table>`,
             solucion: `
                 <div class='paso'>
                     
@@ -494,7 +536,38 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 2: Nomenclatura de compuestos oxigenados",
-            enunciado: "Nombra los siguientes compuestos oxigenados por las reglas IUPAC",
+            enunciado: `Nombra los siguientes compuestos oxigenados por las reglas IUPAC. <br>
+            <table class="tabla-ejercicios">
+                <thead>
+                    <tr>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a)</td><td><div data-smiles="Oc1ccccc1"></div></td>
+                        <td>b)</td><td> \\(\\ce{CH3-CH2-OH}\\)</td>
+                        <td>c)</td><td> \\(\\ce{CH3-CH2-CHOH-CHOH-CH3}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>d)</td><td> \\(\\ce{CH3-CH2-CH2-CHOH-C(CH3)(OH)-CH3}\\) </td>
+                        <td>e)</td><td> \\(\\ce{CH3-O-CH3}\\)</td>
+                        <td>f)</td><td><div data-smiles="c1ccccc1Oc2ccccc2"></div></td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td><div data-smiles="CCc1c(CC)c(C)ccc1"></div></td>
+                        <td>h)</td><td><div data-smiles="c1ccc2cc3ccccc3cc2c1"></div></td>
+                        <td>i)</td><td><div data-smiles="Clc1ccc(Cl)c(Cl)c1"></div></td>
+                    </tr>
+                    <tr>
+                        <td>j)</td><td><div data-smiles="C=CC(Cl)(Cl)CCl"></div></td>
+                        <td></td><td></td>
+                        <td></td><td></td>
+                    </tr>
+                </tbody>
+            </table>`,
             solucion: `
                 <div class='paso'>
                     
