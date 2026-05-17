@@ -926,9 +926,9 @@ const baseDatosProblemas = {
                         <td>l)</td><td><div data-smiles="CCC=CCC(=O)N"></td>
                     </tr>
                     <tr>
-                        <td>j)</td><td><div data-smiles="O=CC=CC(=O)C"></td>
-                        <td>k)</td><td><div data-smiles="OC(=O)C(O)C(O)C(=O)O"></div></td>
-                        <td>l)</td><td><div data-smiles="CCC(=O)C(CC)CC(=O)O"></td>
+                        <td>m)</td><td><div data-smiles="O=CCC(=O)C=C"></td>
+                        <td>n)</td><td><div data-smiles="OC(=O)C(O)C(O)C(=O)O"></div></td>
+                        <td>ñ)</td><td><div data-smiles="CC(=O)C(CC)CC(=O)O"></td>
                     </tr>                    
                 </tbody>
             </table>`,
