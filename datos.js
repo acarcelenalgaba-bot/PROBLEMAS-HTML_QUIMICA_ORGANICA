@@ -921,10 +921,15 @@ const baseDatosProblemas = {
                         <td>i)</td><td><div data-smiles="Cc1cc(C)c2ccccc2c1"></div></td>
                     </tr>
                     <tr>
-                        <td>j)</td><td>\\(\\ce{CH3-CONH-CH3}\\)</td>
-                        <td>k)</td><td><div data-smiles="C#CC(CCC)C#CCC(C)(C)CC"></div></td>
-                        <td>l)</td><td>\\(\\ce{NO2-CH2-CH2-NO2}\\)</td>
+                        <td>j)</td><td><div data-smiles="CC(c1ccccc1)CC(=O)C"></td>
+                        <td>k)</td><td><div data-smiles="NC1C=CCC1O"></div></td>
+                        <td>l)</td><td><div data-smiles="CCC=CCC(=O)N"></td>
                     </tr>
+                    <tr>
+                        <td>j)</td><td><div data-smiles="O=CC=CC(=O)C"></td>
+                        <td>k)</td><td><div data-smiles="OC(=O)C(O)C(O)C(=O)O"></div></td>
+                        <td>l)</td><td><div data-smiles="CCC(=O)C(CC)CC(=O)O"></td>
+                    </tr>                    
                 </tbody>
             </table>`,
             solucion: `
