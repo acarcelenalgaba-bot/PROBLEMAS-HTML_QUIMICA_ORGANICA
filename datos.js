@@ -906,19 +906,19 @@ const baseDatosProblemas = {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>a)</td><td><div data-smiles="CCc1cccc(CC)c1"></div></td>
-                        <td>b)</td><td><div data-smiles="CCCC(C)C(Cl)(Cl)C"></div></td>
-                        <td>c)</td><td><div data-smiles="CCC(O)C(O)C"></div></td>
+                        <td>a)</td><td><div data-smiles="CC(O)CC(=O)O"></div></td>
+                        <td>b)</td><td><div data-smiles="O=CCC(=O)O"></div></td>
+                        <td>c)</td><td><div data-smiles="CC(C=O)C=O"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td><div data-smiles="CC(C)CC(=O)CC(=O)CCC"></div></td>
-                        <td>e)</td><td><div data-smiles="CCN(C)C"></div></td>
-                        <td>f)</td><td><div data-smiles="c1ccc(cc1)Nc2ccccc2"></div></td>
+                        <td>d)</td><td><div data-smiles="C#CC(CC)C(C)C#CC"></div></td>
+                        <td>e)</td><td><div data-smiles="CCC(=O)C(=O)O"></div></td>
+                        <td>f)</td><td><div data-smiles="CC(O)C=O"></div></td>
                     </tr>
                     <tr>
-                        <td>g)</td><td><div data-smiles="C=CC(=O)C=CC"></div></td>
-                        <td>h)</td><td><div data-smiles="CCCC(=O)N"></div></td>
-                        <td>i)</td><td>\\(\\ce{CH3-COO-CH2-CH2-CH3}\\)</td>
+                        <td>g)</td><td><div data-smiles="CC(=O)CCN"></div></td>
+                        <td>h)</td><td><div data-smiles="CCC(C1CCCC1)C(=O)O"></div></td>
+                        <td>i)</td><td><div data-smiles="Cc1cc(C)c2ccccc2c1"></div></td>
                     </tr>
                     <tr>
                         <td>j)</td><td>\\(\\ce{CH3-CONH-CH3}\\)</td>
