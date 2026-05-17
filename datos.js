@@ -549,22 +549,22 @@ const baseDatosProblemas = {
                     <tr>
                         <td>a)</td><td><div data-smiles="Oc1ccccc1"></div></td>
                         <td>b)</td><td> \\(\\ce{CH3-CH2-OH}\\)</td>
-                        <td>c)</td><td> \\(\\ce{CH3-CH2-CHOH-CHOH-CH3}\\)</td>
+                        <td>c)</td><td> <div data-smiles="CC(O)C(O)CC"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td> \\(\\ce{CH3-CH2-CH2-CHOH-C(CH3)(OH)-CH3}\\) </td>
+                        <td>d)</td><td> <div data-smiles="CC(C)(O)C(O)CCC"></div> </td>
                         <td>e)</td><td> \\(\\ce{CH3-O-CH3}\\)</td>
                         <td>f)</td><td><div data-smiles="c1ccccc1Oc2ccccc2"></div></td>
                     </tr>
                     <tr>
-                        <td>g)</td><td><div data-smiles="CCc1c(CC)c(C)ccc1"></div></td>
-                        <td>h)</td><td><div data-smiles="c1ccc2cc3ccccc3cc2c1"></div></td>
-                        <td>i)</td><td><div data-smiles="Clc1ccc(Cl)c(Cl)c1"></div></td>
+                        <td>g)</td><td><div data-smiles="c1ccccc1OCC"></div></td>
+                        <td>h)</td><td>\\(\\ce{CHO-CH2-CHO}\\)</td>
+                        <td>i)</td><td><div data-smiles="O=Cc1ccccc1"></div></td>
                     </tr>
                     <tr>
-                        <td>j)</td><td><div data-smiles="C=CC(Cl)(Cl)CCl"></div></td>
-                        <td></td><td></td>
-                        <td></td><td></td>
+                        <td>j)</td><td>\\(\\ce{CH3-CH2-CH2-CHO}\\)</td>
+                        <td>k)</td><td><div data-smiles="CC(=O)CC(c1ccccc1)C"></div></td>
+                        <td>l)</td><td>\\(\\ce{CH2=C(CH3)-CHO}\\)</td>
                     </tr>
                 </tbody>
             </table>`,
@@ -576,7 +576,44 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 3: Formulación de compuestos oxigenados",
-            enunciado: "Formula los siguientes compuestos oxigenados por las reglas IUPAC",
+            enunciado: `Formula los siguientes compuestos oxigenados por las reglas IUPAC
+            <br>
+                <table class="tabla-ejercicios">
+                    <thead>
+                        <tr>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>a)</td><td>Ácido propanoico</td>
+                            <td>b)</td><td>Ácido metanoico</td>
+                            <td>c)</td><td>Ácido but-2-enoico</td>
+                        </tr>
+                        <tr>
+                            <td>d)</td><td>Ácido propanodioico</td>
+                            <td>e)</td><td>Ácido benzoico</td>
+                            <td>f)</td><td>Etanoato de sodio</td>
+                        </tr>
+                        <tr>
+                            <td>g)</td><td>Etanoato de calcio</td>
+                            <td>h)</td><td>Propanoato de potasio</td>
+                            <td>i)</td><td>Butanoato de sodio</td>
+                        </tr>
+                        <tr>
+                            <td>j)</td><td>Butanoato de etilo</td>
+                            <td>k)</td><td>Etanoato de etilo</td>
+                            <td>l)</td><td>3-bromobutanoato de metilo</td>
+                        </tr>
+                        <tr>
+                            <td>m)</td><td>Butanoato de etilo</td>
+                            <td>n)</td><td>Metanoato de metilo</td>
+                            <td></td><td></td>
+                        </tr>                
+                        </tbody>
+                </table>`,
             solucion: `
                 <div class='paso'>
                     
@@ -585,7 +622,39 @@ const baseDatosProblemas = {
         },        
         {
             titulo: "Problema 4: Nomenclatura de compuestos oxigenados",
-            enunciado: "Nombra los siguientes compuestos oxigenados por las reglas IUPAC",
+            enunciado: `Nombra los siguientes compuestos oxigenados por las reglas IUPAC.
+            <br>
+            <table class="tabla-ejercicios">
+                <thead>
+                    <tr>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a)</td><td>\\(\\ce{CH3-CH2-COOH}\\)</td>
+                        <td>b)</td><td>\\(\\ce{CH3-COOH}\\)</td>
+                        <td>c)</td><td>\\(\\ce{H-COO-CH2-CH3}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>d)</td><td>\\(\\ce{CH3-CH=CH-CH2-CH(CH3)-COOH}\\)</td>
+                        <td>e)</td><td>\\(\\ce{CH3-COO-Na}\\)</td>
+                        <td>f)</td><td>\\(\\ce{CH3-CH2-COO-K}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td>\\(\\ce{Ca(CH3-COO)2}\\)</td>
+                        <td>h)</td><td>\\(\\ce{CH3-CH(CH3)-CO-O-CH(CH3)-CH3}\\)</td>
+                        <td>i)</td><td>\\(\\ce{CH3-CH2-COO-CH3}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>j)</td><td>\\(\\ce{CH3-COO-CH(CH3)-CH3}\\)</td>
+                        <td>k)</td><td>\\(\\ce{CH3-CH2-CH2-COO-CH2-CH2-CH3}\\)</td>
+                        <td>l)</td><td>\\(\\ce{CH3-COO-CH2-CH2-CH3}\\)</td>
+                    </tr>
+                </tbody>
+            </table>`,
             solucion: `
                 <div class='paso'>
                 </div>
@@ -594,7 +663,44 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 5: Formulación de compuestos nitrogenados",
-            enunciado: "Formula los siguientes compuestos nitrogenados por las reglas IUPAC",
+            enunciado: `Formula los siguientes compuestos nitrogenados por las reglas IUPAC.
+            <br>
+                <table class="tabla-ejercicios">
+                    <thead>
+                        <tr>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>a)</td><td>Etanamina</td>
+                            <td>b)</td><td>Metanamina</td>
+                            <td>c)</td><td>N-metiletanamina</td>
+                        </tr>
+                        <tr>
+                            <td>d)</td><td>N-etil-N-metilpropanamina</td>
+                            <td>e)</td><td>Etanamida</td>
+                            <td>f)</td><td>Metanamida</td>
+                        </tr>
+                        <tr>
+                            <td>g)</td><td>Butanamida</td>
+                            <td>h)</td><td>N-fenilpropanamida</td>
+                            <td>i)</td><td>N,N-dietilpropanamida</td>
+                        </tr>
+                        <tr>
+                            <td>j)</td><td>Etanonitrilo</td>
+                            <td>k)</td><td>Butanonitrilo</td>
+                            <td>l)</td><td>Propanonitrilo</td>
+                        </tr>
+                        <tr>
+                            <td>m)</td><td>1-nitrobutano</td>
+                            <td>n)</td><td>Nitroetano</td>
+                            <td>ñ</td><td>2-cloro-1-nitropentano</td>
+                        </tr>                
+                        </tbody>
+                </table>`,
             solucion: `
                 <div class='paso'>
      
@@ -603,7 +709,44 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 6: Nomenclatura de compuestos nitrogenados",
-            enunciado: "Nombra los siguientes compuestos nitrogenados por las reglas IUPAC",
+            enunciado: `Nombra los siguientes compuestos nitrogenados por las reglas IUPAC.
+            <br>
+            <table class="tabla-ejercicios">
+                <thead>
+                    <tr>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a)</td><td>\\(\\ce{CH3-CH2-CH2-NH-CH3}\\)</td>
+                        <td>b)</td><td>\\(\\ce{(CH3)3-N}\\)</td>
+                        <td>c)</td><td>\\(\\ce{CH3-CH(CH3)-NH2}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>d)</td><td>\\(\\ce{C6H5-NH2}\\)</td>
+                        <td>e)</td><td>\\(\\ce{CH3-(CH2)6-CONH2}\\)</td>
+                        <td>f)</td><td>\\(\\ce{H-CONH2}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td>\\(\\ce{CH3-CH2-CONH-CH3}\\)</td>
+                        <td>h)</td><td>\\(\\ce{C6H5-CONH2}\\)</td>
+                        <td>i)</td><td>\\(\\ce{CH3-C#N}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>j)</td><td>\\(\\ce{CH3-CH2-C#N}\\)</td>
+                        <td>k)</td><td>\\(\\ce{N#C-CH2-CH2-CH3}\\)</td>
+                        <td>l)</td><td>\\(\\ce{CH3-CH2-NO2}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>m)</td><td>\\(\\ce{NO2-CH2-CH2-NO2}\\)</td>
+                        <td>n)</td><td>\\(\\ce{CH3-C(CH3)2-NO2}\\)</td>
+                        <td></td><td></td>
+                    </tr>
+                </tbody>
+            </table>`,
             solucion: `
                 <div class='paso'>
                 
@@ -614,7 +757,44 @@ const baseDatosProblemas = {
     "variados": [
         {
             titulo: "Problema 1: Formulación de compuestos orgánicos",
-            enunciado: "Formula los siguientes compuestos orgánicos por las reglas IUPAC",
+            enunciado: `Formula los siguientes compuestos orgánicos por las reglas IUPAC.
+            <br>
+            <table class="tabla-ejercicios">
+                <thead>
+                    <tr>
+                        <th></th><th>Compuesto</th>
+                        <th></th><th>Compuesto</th>
+                        <th></th><th>Compuesto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a)</td><td>3-etilhexa-1,5-diino</td>
+                        <td>b)</td><td>Butanodinitrilo</td>
+                        <td>c)</td><td>But-2-en-1,4-diol</td>
+                    </tr>
+                    <tr>
+                        <td>d)</td><td>Tetraclorometano</td>
+                        <td>e)</td><td>Ácido 4-yodopentanoico</td>
+                        <td>f)</td><td>2,3,4-trimetilpentanal</td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td>4,5-dimetilocta-3,6-dien-1-ino</td>
+                        <td>h)</td><td>N-metilciclobutilamina</td>
+                        <td>i)</td><td>Ciclohexi fenil éter</td>
+                    </tr>
+                    <tr>
+                        <td>j)</td><td>2-metilpropanamida</td>
+                        <td>k)</td><td>Naftaleno</td>
+                        <td>l)</td><td>1,3-dinitrobenceno</td>
+                    </tr>
+                    <tr>
+                        <td>m)</td><td>Propanoato de metilo</td>
+                        <td>n)</td><td>Fenilamina</td>
+                        <td></td><td></td>
+                    </tr>                
+                    </tbody>
+            </table>`,
             solucion: `
                 <div class='paso'>
                 </div>
@@ -622,7 +802,39 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 2: Nomenclatura de compuestos orgánicos",
-            enunciado: "Nombra los siguientes compuestos orgánicos por las reglas IUPAC",
+            enunciado: `Nombra los siguientes compuestos orgánicos por las reglas IUPAC.
+            <br>
+            <table class="tabla-ejercicios">
+                <thead>
+                    <tr>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a)</td><td><div data-smiles="CCc1cccc(CC)c1"></div></td>
+                        <td>b)</td><td><div data-smiles="CCCC(C)C(Cl)(Cl)C"></div></td>
+                        <td>c)</td><td><div data-smiles="CCC(O)C(O)C"></div></td>
+                    </tr>
+                    <tr>
+                        <td>d)</td><td><div data-smiles="CC(C)CC(=O)CC(=O)CCC"></div></td>
+                        <td>e)</td><td><div data-smiles="CCN(C)C"></div></td>
+                        <td>f)</td><td><div data-smiles="c1ccc(cc1)Nc2ccccc2"></div></td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td><div data-smiles="C=CC(=O)C=CC"></div></td>
+                        <td>h)</td><td><div data-smiles="CCCC(=O)N"></div></td>
+                        <td>i)</td><td>\\(\\ce{CH3-COO-CH2-CH2-CH3}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>j)</td><td>\\(\\ce{CH3-CONH-CH3}\\)</td>
+                        <td>k)</td><td><div data-smiles="C#CC(CCC)C#CCC(C)(C)CC"></div></td>
+                        <td>l)</td><td>\\(\\ce{NO2-CH2-CH2-NO2}\\)</td>
+                    </tr>
+                </tbody>
+            </table>`,
             solucion: `
                 <div class='paso'>
 
@@ -631,7 +843,49 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 3: Formulación de compuestos orgánicos",
-            enunciado: "Formula los siguientes compuestos orgánicos por las reglas IUPAC",
+            enunciado: `Formula los siguientes compuestos orgánicos por las reglas IUPAC.
+            <br>
+                <table class="tabla-ejercicios">
+                    <thead>
+                        <tr>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>a)</td><td>4-hidroxihexan-3-ona</td>
+                            <td>b)</td><td>Ácido 2-hidroxipropanoico</td>
+                            <td>c)</td><td>2,3-dihidroxi-1-metilbutanal</td>
+                        </tr>
+                        <tr>
+                            <td>d)</td><td>2-hidroxi-3-oxobutanal</td>
+                            <td>e)</td><td>Ácido 4-oxopentanoico</td>
+                            <td>f)</td><td>3-aminobutan-2-ol</td>
+                        </tr>
+                        <tr>
+                            <td>g)</td><td>2-etoxietanol</td>
+                            <td>h)</td><td>Ácido fenoxietanoico</td>
+                            <td>i)</td><td>2-nitroetanol</td>
+                        </tr>
+                        <tr>
+                            <td>j)</td><td>Ácido 2,3-dihidroxibutanoico</td>
+                            <td>k)</td><td>Ácido cianoetanoico</td>
+                            <td>l)</td><td>3-oxopent-4-enal</td>
+                        </tr>
+                        <tr>
+                            <td>m)</td><td>5-hidroxihexa-1,4-dien-3-ona</td>
+                            <td>n)</td><td>3-amino-2-etoxi-4-metilhexanonitrilo</td>
+                            <td>ñ</td><td>Ácido 2-hidroxi-2-metilbutanoico</td>
+                        </tr>
+                        <tr>
+                            <td>o)</td><td>3-aminopropanoato de etilo</td>
+                            <td>p)</td><td>Ácido 3-ciano-2-metoxibutanoico</td>
+                            <td>q)</td><td>3-hidroxiciclohexanona</td>
+                        </tr>                  
+                        </tbody>
+                </table>`,
             solucion: `
                 <div class='paso'>
 
@@ -640,7 +894,39 @@ const baseDatosProblemas = {
         },
         {
             titulo: "Problema 4: Nomenclatura de compuestos orgánicos",
-            enunciado: "Nombra los siguientes compuestos orgánicos por las reglas IUPAC",
+            enunciado: `Nombra los siguientes compuestos orgánicos por las reglas IUPAC.
+            <br>
+            <table class="tabla-ejercicios">
+                <thead>
+                    <tr>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                        <th></th><th>Estructura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a)</td><td><div data-smiles="CCc1cccc(CC)c1"></div></td>
+                        <td>b)</td><td><div data-smiles="CCCC(C)C(Cl)(Cl)C"></div></td>
+                        <td>c)</td><td><div data-smiles="CCC(O)C(O)C"></div></td>
+                    </tr>
+                    <tr>
+                        <td>d)</td><td><div data-smiles="CC(C)CC(=O)CC(=O)CCC"></div></td>
+                        <td>e)</td><td><div data-smiles="CCN(C)C"></div></td>
+                        <td>f)</td><td><div data-smiles="c1ccc(cc1)Nc2ccccc2"></div></td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td><div data-smiles="C=CC(=O)C=CC"></div></td>
+                        <td>h)</td><td><div data-smiles="CCCC(=O)N"></div></td>
+                        <td>i)</td><td>\\(\\ce{CH3-COO-CH2-CH2-CH3}\\)</td>
+                    </tr>
+                    <tr>
+                        <td>j)</td><td>\\(\\ce{CH3-CONH-CH3}\\)</td>
+                        <td>k)</td><td><div data-smiles="C#CC(CCC)C#CCC(C)(C)CC"></div></td>
+                        <td>l)</td><td>\\(\\ce{NO2-CH2-CH2-NO2}\\)</td>
+                    </tr>
+                </tbody>
+            </table>`,
             solucion: `
                 <div class='paso'>
                                    
