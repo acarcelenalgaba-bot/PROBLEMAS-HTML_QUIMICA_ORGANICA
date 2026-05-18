@@ -48,6 +48,8 @@
                 const anchoDinamico = Math.max(200, longitudIndividual * factorAncho);
                 const altoDinamico = Math.max(120, longitudIndividual * 5);
 
+                const esSolucion = contenedor.closest('#caja-solucion');
+
                 // 5. CONFIGURACIÓN INDIVIDUAL PARA RDKit
                 const opcionesDibujo = {
                     width: anchoDinamico,
@@ -65,13 +67,20 @@
                     fixedBondLength: longitudIndividual, 
 
                     // CONTROL FÁCIL DE COLOR:
-                    defaultColor: contenedor.hasAttribute('data-solucion') 
-                            ? [0.9, 0.1, 0.1, 1]  // Rojo
-                            : [0, 0, 0, 1]        // Negro
+                    // defaultColor: contenedor.hasAttribute('data-solucion') 
+                    //         ? [0.9, 0.1, 0.1, 1]  // Rojo
+                    //         : [0, 0, 0, 1]        // Negro
+                    
+                    defaultColor: esSolucion
+                    ? [0.9, 0.1, 0.1, 1]
+                    : [0, 0, 0, 1]
+                    
+                    
                 };
 
                 // 6. Renderizar e inyectar el SVG
-                const svgInyectar = mol.get_svg_with_highlights(JSON.stringify(opcionesDibujo));
+                let svgInyectar = mol.get_svg_with_highlights(JSON.stringify(opcionesDibujo));
+
                 contenedor.innerHTML = svgInyectar;
 
                 // 7. Liberamos la memoria del objeto final
@@ -87,15 +96,26 @@
     <style>
 
         /* 1. Por defecto, todas las moléculas de los enunciados se verán en negro */
-        div[data-smiles] svg {
+        /* div[data-smiles] svg {
             filter: grayscale(100%) brightness(0%);
-        }
+        } */
 
         /* 2. SI EL CONTENEDOR TIENE EL ATRIBUTO DATA-SOLUCION, SE QUITA EL FILTRO NEGRO Y MUESTRA SU ROJO REAL */
+        /* Fuerza a que todos los textos y líneas del SVG de RDKit en soluciones sean rojos */
         div[data-solucion="true"] svg {
-            filter: none !important;
+            stroke: #e74c3c !important;
+            fill: #e74c3c !important;
         }
 
+        #texto-visor div[data-smiles] svg {
+        filter: grayscale(100%) brightness(0%) !important;
+        }
+
+        #caja-solucion div[data-smiles] svg {
+        filter: none !important;
+        stroke: #e74c3c !important;
+        fill: #e74c3c !important;
+        }
 
         /* --- ESTILOS GENERALES Y LAYOUT --- */
         html, body {
@@ -302,7 +322,7 @@
             padding: 10px;
             border-bottom: 1px solid #ddd;
         }
-        
+
     </style>
 </head>
 <body>
