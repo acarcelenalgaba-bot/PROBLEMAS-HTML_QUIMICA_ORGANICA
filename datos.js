@@ -353,7 +353,7 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td>Metilpropano</td><td style="color: red;"><div data-smiles="CC(C)C"></div></td>
+                                <td>a)</td><td>Metilpropano</td><td><div data-smiles="CC(C)C" data-solucion="true"></div></td>
                                 <td>b)</td><td>Metilbutano</td><td style="color: red;">\\( \\ce{CH_3-CH(CH_3)-CH_2-CH_3} \\)</td>
                             </tr>
                             <tr>

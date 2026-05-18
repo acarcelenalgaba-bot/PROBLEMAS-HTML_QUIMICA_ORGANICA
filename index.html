@@ -65,11 +65,9 @@
                     fixedBondLength: longitudIndividual, 
 
                     // CONTROL FÁCIL DE COLOR:
-                    // .closest() mira si el contenedor está dentro de la tabla de la solución.
-                    // Si está en la solución la dibuja en ROJO [R, G, B, Alfa], si no, en NEGRO.
-                    defaultColor: contenedor.closest('.tabla-ejercicios-solucion') 
-                        ? [0.9, 0.1, 0.1, 1]  // Rojo
-                        : [0, 0, 0, 1]        // Negro
+                    defaultColor: contenedor.hasAttribute('data-solucion') 
+                            ? [0.9, 0.1, 0.1, 1]  // Rojo
+                            : [0, 0, 0, 1]        // Negro
                 };
 
                 // 6. Renderizar e inyectar el SVG
@@ -87,16 +85,18 @@
     </script>
 
     <style>
-        /* Fuerza a que todos los SVG de las moléculas se muestren en blanco y negro */
-        /* 1. Por defecto, las moléculas de los enunciados se verán en negro */
+
+        /* 1. Por defecto, todas las moléculas de los enunciados se verán en negro */
         div[data-smiles] svg {
             filter: grayscale(100%) brightness(0%);
         }
 
-        /* 2. ¡NUEVA! Si la molécula está dentro de una solución, anulamos el filtro negro */
-        .tabla-ejercicios-solucion div[data-smiles] svg {
+        /* 2. SI EL CONTENEDOR TIENE EL ATRIBUTO DATA-SOLUCION, SE QUITA EL FILTRO NEGRO Y MUESTRA SU ROJO REAL */
+        div[data-solucion="true"] svg {
             filter: none !important;
         }
+
+
         /* --- ESTILOS GENERALES Y LAYOUT --- */
         html, body {
             height: 100%;
