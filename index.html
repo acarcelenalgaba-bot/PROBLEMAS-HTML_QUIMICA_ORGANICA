@@ -67,19 +67,30 @@
                     fixedBondLength: longitudIndividual, 
 
                     // CONTROL FÁCIL DE COLOR:
-                    // defaultColor: contenedor.hasAttribute('data-solucion') 
-                    //         ? [0.9, 0.1, 0.1, 1]  // Rojo
-                    //         : [0, 0, 0, 1]        // Negro
-                    
+                    // ⚠️ RDKit usa ortografía BRITÁNICA: "defaultColour" con 'u', no "defaultColor"
                     defaultColour: esSolucion
-                    ? [0.9, 0.1, 0.1, 1]
-                    : [0, 0, 0, 1],
+                        ? [0.9, 0.1, 0.1, 1]   // Rojo
+                        : [0, 0, 0, 1],          // Negro
                     
-                    
+                    // Paleta de átomos en rojo para soluciones (cubre O, N, S, etc.)
+                    atomColourPalette: esSolucion
+                        ? { 6:[0.9,0.1,0.1], 1:[0.9,0.1,0.1], 8:[0.9,0.1,0.1],
+                            7:[0.9,0.1,0.1], 16:[0.9,0.1,0.1], 17:[0.9,0.1,0.1],
+                            35:[0.9,0.1,0.1], 53:[0.9,0.1,0.1] }
+                        : {}
                 };
 
-                // 6. Renderizar e inyectar el SVG
+                // 6. Renderizar el SVG
                 let svgInyectar = mol.get_svg_with_highlights(JSON.stringify(opcionesDibujo));
+
+                // 6b. POST-PROCESADO: si es solución, sustituir TODOS los colores inline por rojo.
+                //     Necesario porque RDKit genera estilos inline en cada <path>/<text>
+                //     que no pueden sobreescribirse con CSS externo.
+                if (esSolucion) {
+                    svgInyectar = svgInyectar
+                        .replace(/stroke:rgb\(\d+,\s*\d+,\s*\d+\)/g, 'stroke:rgb(192,26,26)')
+                        .replace(/fill:rgb\(\d+,\s*\d+,\s*\d+\)/g, 'fill:rgb(192,26,26)');
+                }
 
                 contenedor.innerHTML = svgInyectar;
 
