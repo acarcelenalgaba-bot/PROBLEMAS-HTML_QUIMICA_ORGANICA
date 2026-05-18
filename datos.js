@@ -942,7 +942,44 @@ const baseDatosProblemas = {
     "refuerzo": [
         {
             titulo: "Problema 1: Formulación de compuestos orgánicos",
-            enunciado: "Formula los siguientes compuestos orgánicos por las reglas IUPAC",
+            enunciado: `Formula los siguientes compuestos orgánicos por las reglas IUPAC.
+            <br>
+                <table class="tabla-ejercicios">
+                    <thead>
+                        <tr>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                            <th></th><th>Compuesto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>a)</td><td>3-etilhexa-1,5-diino</td>
+                            <td>b)</td><td>Butanodinitrilo</td>
+                            <td>c)</td><td>But-2-en-1,4-diol</td>
+                        </tr>
+                        <tr>
+                            <td>d)</td><td>Tetraclorometano</td>
+                            <td>e)</td><td>Ácido 4-yodopentanoico</td>
+                            <td>f)</td><td>2,3,4-trimetilpentanal</td>
+                        </tr>
+                        <tr>
+                            <td>g)</td><td>4,5-dimetilocta-3,6-dien-1-ino</td>
+                            <td>h)</td><td>N-metilciclobutanamina</td>
+                            <td>i)</td><td>Ciclohexil fenil éter</td>
+                        </tr>
+                        <tr>
+                            <td>j)</td><td>Metilpropanamida</td>
+                            <td>k)</td><td>Naftaleno</td>
+                            <td>l)</td><td>1,3-dinitrobenceno</td>
+                        </tr>
+                        <tr>
+                            <td>m)</td><td>Propanoato de metilo</td>
+                            <td>n)</td><td>Fenilamina</td>
+                            <td></td><td></td>
+                        </tr>               
+                        </tbody>
+                </table>`,
             solucion: `
                 <div class='paso'>
                    
