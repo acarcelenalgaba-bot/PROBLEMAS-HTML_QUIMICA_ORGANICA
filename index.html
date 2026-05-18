@@ -52,22 +52,24 @@
                 const opcionesDibujo = {
                     width: anchoDinamico,
                     height: altoDinamico,
-                    clearBackground: true,
                     
-                    // Estas opciones ahora sí funcionarán porque la molécula ya tiene los átomos en memoria
                     noCarbonSymbols: false,    // Muestra las C
                     explicitHydrogens: true,   // Muestra los H
 
-                    // --- AQUÍ ESTÁ EL ARREGLO PARA EL FONDO ---
                     clearBackground: false,       // Le dice a RDKit que no pinte un fondo blanco rígido
-                    backgroundColour: [0,0,0,0],  // Fuerza un color transparente en formato [R, G, B, Alfa]
+                    backgroundColour: [0,0,0,0],  // Fuerza un color transparente
                     
                     bondThickness: 2.2,
                     labelsMaxFontSize: 16,
                     drawMolsSameScale: false, 
                     fixedBondLength: longitudIndividual, 
-                    defaultColor: [0, 0, 0, 1] // Negro puro
 
+                    // CONTROL FÁCIL DE COLOR:
+                    // .closest() mira si el contenedor está dentro de la tabla de la solución.
+                    // Si está en la solución la dibuja en ROJO [R, G, B, Alfa], si no, en NEGRO.
+                    defaultColor: contenedor.closest('.tabla-ejercicios-solucion') 
+                        ? [0.9, 0.1, 0.1, 1]  // Rojo
+                        : [0, 0, 0, 1]        // Negro
                 };
 
                 // 6. Renderizar e inyectar el SVG
@@ -86,8 +88,14 @@
 
     <style>
         /* Fuerza a que todos los SVG de las moléculas se muestren en blanco y negro */
+        /* 1. Por defecto, las moléculas de los enunciados se verán en negro */
         div[data-smiles] svg {
             filter: grayscale(100%) brightness(0%);
+        }
+
+        /* 2. ¡NUEVA! Si la molécula está dentro de una solución, anulamos el filtro negro */
+        .tabla-ejercicios-solucion div[data-smiles] svg {
+            filter: none !important;
         }
         /* --- ESTILOS GENERALES Y LAYOUT --- */
         html, body {
