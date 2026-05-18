@@ -344,8 +344,69 @@ const baseDatosProblemas = {
             `,
             solucion: `
                 <div class='paso'>
-
-                </div>
+                    <table class="tabla-ejercicios-solucion">
+                        <thead>
+                            <tr>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td><td>Metilpropano</td><td style="color: red;"><div data-smiles="CC(C)C"></div></td>
+                                <td>b)</td><td>Metilbutano</td><td style="color: red;">\\( \\ce{CH_3-CH(CH_3)-CH_2-CH_3} \\)</td>
+                            </tr>
+                            <tr>
+                                <td>c)</td><td>3-metilpentano</td><td style="color: red;">\\( \\ce{CH_3-CH_2-CH(CH_3)-CH_2-CH_3} \\)</td>
+                                <td>d)</td><td>3-metilhex-1-eno</td><td style="color: red;">\\( \\ce{CH_3-CH_2-CH(CH_3)-CH=CH-CH_3} \\)</td>
+                            </tr>
+                            <tr>
+                                <td>e)</td><td>2,3,5-trimetilheptano</td><td style="color: red;">\\( \\ce{CH_3-CH(CH_3)-CH(CH_3)-CH_2-CH(CH_3)-CH_2-CH_3} \\)</td>  
+                                <td>f)</td><td>4-etil-5-metiloct-1-ino</td><td style="color: red;">\\( \\ce{CH_3-CH_2-C(CH_2CH_3)(CH_3)-C \\equiv C-CH_2-CH_2-CH_3} \\)</td>
+                            </tr>
+                            <tr>
+                                <td>g)</td><td>Metilciclopentano</td><td style="text-align: left;color: red;">
+                                    <svg width="60" height="60" viewBox="0 0 100 100">
+                                        <polygon points="50,5 95,38 78,92 22,92 5,38" stroke="red" stroke-width="4" fill="none" />
+                                        <line x1="50" y1="5" x2="50" y2="92" stroke="red" stroke-width="4" />
+                                    </svg>
+                                </td>
+                                <td>h)</td><td>2,2,7,7-tetrametilnonano</td><td style="color: red;">\\( \\ce{CH_3-C(CH_3)_2-CH_2-CH_2-CH_2-CH_2-C(CH_3)_2-CH_3} \\)</td>
+                            </tr>
+                            <tr>
+                                <td>i)</td><td>2,3-dimetilbutano</td><td style="color: red;">\\( \\ce{CH_3-CH(CH_3)-CH(CH_3)-CH_3} \\)</td>
+                                <td>j)</td><td>1,6-dimetilciclohexa-1,3-dieno</td><td style="text-align: left;color: red;">
+                                    <svg width="60" height="60" viewBox="0 0 100 100">
+                                        <polygon points="50,5 95,38 78,92 22,92 5,38" stroke="red" stroke-width="4" fill="none" />
+                                        <line x1="50" y1="5" x2="50" y2="92" stroke="red" stroke-width="4" />
+                                    </svg>
+                                </td>
+                            </tr>   
+                            <tr>
+                                <td>k)</td><td>5-isopropil-3-metiloctano</td><td style="color: red;">\\( \\ce{CH_3-CH_2-C(CH_3)_2-CH_2-C(CH_3)-CH_2-CH_2-CH_3} \\)</td>
+                                <td>l)</td><td>4-etil-2,4-dimetilhexano</td><td style="color: red;">\\( \\ce{CH_3-C(CH_3)_2-CH_2-C(CH_2CH_3)(CH_3)-CH_2-CH_3} \\)</td>
+                            </tr>
+                            <tr>
+                                <td>m)</td><td>Etilciclobutano</td><td style="text-align: left;color: red;">
+                                    <svg width="60" height="60" viewBox="0 0 100 100">
+                                        <rect x="15" y="15" width="70" height="70" stroke="red" stroke-width="4" fill="none" />
+                                        <line x1="15" y1="50" x2="85" y2="50" stroke="red" stroke-width="4" />
+                                        <line x1="50" y1="15" x2="50" y2="85" stroke="red" stroke-width="4" />
+                                    </svg>
+                                </td>
+                                <td>n)</td><td>3-etil-2,5-dimetilheptano</td><td style="color: red;">\\( \\ce{CH_3-CH(C_2H_5)-CH(CH_3)-CH_2-CH(CH_3)-CH_2-CH_3} \\)</td>
+                            </tr>
+                            <tr>
+                                <td>ñ)</td><td>4,6-dietil-2,4,8-trimetilnonano</td><td style="color: red;">\\( \\ce{CH_3-C(CH_3)_2-CH_2-C(CH_2CH_3)(CH_3)-CH_2-C(CH_2CH_3)(CH_3)-CH_2-CH_3} \\)</td>
+                                <td>o)</td><td>5,5-dietil-2-metil-4-propildecano</td><td style="color: red;">\\( \\ce{CH_3-C(CH_3)(C_2H_5)-CH_2-C(C_3H_7)(C_2H_5)-CH_2-CH_2-CH_2-CH_2-CH_3} \\)</td>
+                            </tr>
+                            <tr>
+                                <td>p)</td><td>4-ciclopropilheptano</td><td style="color: red;">\\( \\ce{CH_3-CH_2-CH_2-C_3H_5-CH_2-CH_2-CH_3} \\)</td>
+                                <td>q)</td><td>5-terc-butilnonano</td><td style="color: red;">\\( \\ce{CH_3-CH_2-CH_2-C(CH_3)_3-CH_2-CH_2-CH_2-CH_3} \\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div class='paso'>
                    
             `
         },
