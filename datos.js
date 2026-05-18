@@ -406,7 +406,7 @@ const baseDatosProblemas = {
                             </tr>
                         </tbody>
                     </table>
-                </div class='paso'>
+                </div>
                    
             `
         },

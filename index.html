@@ -432,6 +432,10 @@
             if (siguientePaso) {
                 siguientePaso.classList.add('visible'); 
                 boton.innerText = "Siguiente paso ⬇️";
+
+                // ¡AÑADE ESTA LÍNEA! Así RDKit redibuja la molécula ahora que el contenedor ya es visible
+                dibujarMoleculasRDKit();
+
                 const pasosRestantes = contenedor.querySelector('.paso:not(.visible)');
                 if (!pasosRestantes) {
                     boton.innerText = "¡Solución completada!";
