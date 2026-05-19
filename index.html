@@ -48,7 +48,7 @@
                 const anchoDinamico = Math.max(200, longitudIndividual * factorAncho);
                 const altoDinamico = Math.max(120, longitudIndividual * 5);
 
-                const esSolucion = contenedor.closest('#caja-solucion');
+                const esSolucion = contenedor.closest('#caja-solucion-svg');
 
                 // 5. CONFIGURACIÓN INDIVIDUAL PARA RDKit
                 const opcionesDibujo = {
@@ -118,11 +118,17 @@
             fill: #e74c3c !important;
         }
 
+        /* Cuando es falso (Azul) */
+        div[data-solucion="false"] svg {
+            stroke: #3498db !important;
+            fill: #3498db !important;
+        }
+
         #texto-visor div[data-smiles] svg {
         filter: grayscale(100%) brightness(0%) !important;
         }
 
-        #caja-solucion div[data-smiles] svg {
+        #caja-solucion-svg div[data-smiles][data-solucion="true"] svg {
         filter: none !important;
         stroke: #e74c3c !important;
         fill: #e74c3c !important;
