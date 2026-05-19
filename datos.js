@@ -408,22 +408,22 @@ const baseDatosProblemas = {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>a)</td><td><div data-smiles="CC(C)CC" data-longitud="25" style="margin: 0 auto;"></div></td>
-                        <td>b)</td><td><div data-smiles="C=CC(CC)CC=CC" data-longitud="30" style="margin: 0 auto;"></div></td>
-                        <td>c)</td><td><div data-smiles="CC(C)C(C)C" data-longitud="25" style="margin: 0 auto;"></div></td>
+                        <td>a)</td><td><div data-smiles="CC(C)CC"></div></td>
+                        <td>b)</td><td><div data-smiles="C=CC(CC)CC=CC"></div></td>
+                        <td>c)</td><td><div data-smiles="CC(C)C(C)C"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td><div data-smiles="CC=C(CC)CCC(C)CC" data-longitud="25" style="margin: 0 auto;"></div></td>
-                        <td>e)</td><td><div data-smiles="CC(C)CC" data-longitud="25" style="margin: 0 auto;"></div></td>
-                        <td>f)</td><td><div data-smiles="C#CC(CC)CC#CCC" data-longitud="25" style="margin: 0 auto;"></div></td>
+                        <td>d)</td><td><div data-smiles="CC=C(CC)CCC(C)CC"></div></td>
+                        <td>e)</td><td><div data-smiles="CC(C)(C)CC"></div></td>
+                        <td>f)</td><td><div data-smiles="C#CC(CC)CC#CCC"></div></td>
                     </tr>
                     <tr>
-                        <td>g)</td><td><div data-smiles="CC(C)C(C)CC" data-longitud="25" style="margin: 0 auto;"></div></td>
-                        <td>h)</td><td><div data-smiles="C=CC(C)CC#C" data-longitud="30" style="margin: 0 auto;"></div></td>
-                        <td>i)</td><td><div data-smiles="CC=CC(C)(CC)C=CC=CC" data-longitud="25" style="margin: 0 auto;"></div></td>
+                        <td>g)</td><td><div data-smiles="CC(C)C(C)CC"></div></td>
+                        <td>h)</td><td><div data-smiles="C=CC(C)CC#C"></div></td>
+                        <td>i)</td><td><div data-smiles="CC=CC(C)(CC)C=CC=CC"></div></td>
                     </tr>
                     <tr>
-                        <td>j)</td><td><div data-smiles="CC=C(CC)CCC(C)CC" data-longitud="25" style="margin: 0 auto;"></div></td>
+                        <td>j)</td><td><div data-smiles="CC=C(CC)CCC(C)CC"></div></td>
                         <td></td><td></td>
                         <td></td><td></td>
                     </tr>
@@ -442,60 +442,23 @@ const baseDatosProblemas = {
                     <tbody>
                         <tr>
                             <td>a)</td><td><div data-smiles="CC(C)CC" data-solucion="false"></div></td><td style="color: red;">Metilbutano</td>
-                            <td>b)</td><td>\\( \\ce{CH4} \\)</td><td style="color: red;">Metano</td>
+                            <td>b)</td><td><div data-smiles="C=CC(CC)CC=CC" data-solucion="false"></div></td><td style="color: red;">3-etilhepta-1,5-dieno</td>
                         </tr>
                         <tr>
-                            <td>c)</td><td>\\( \\ce{CH3-(CH2)6-CH3} \\)</td><td style="color: red;">Octano</td>
-                            <td>d)</td><td style="text-align:left;">
-                                <svg width="45" height="45" viewBox="0 0 100 100">
-                                    <polygon points="20,20 80,20 80,80 20,80" stroke="black" stroke-width="6" fill="none" />
-                                </svg>
-                            </td><td style="color: red;">Ciclobutano</td>
+                            <td>c)</td><td><div data-smiles="CC(C)C(C)C" data-solucion="false"></div></td><td style="color: red;">2,3-dimetilbutano</td>
+                            <td>d)</td><td><div data-smiles="CC=C(CC)CCC(C)CC" data-solucion="false"></div></td><td style="color: red;">3-etil-6-metiloct-2-eno</td>
                         </tr>
                         <tr>
-                            <td>e)</td><td>\\( \\ce{CH2=CH2} \\)</td><td style="color: red;">Eteno</td>
-                            <td>f)</td><td>\\( \\ce{CH3-CH=CH-CH3} \\)</td><td style="color: red;">But-2-eno</td>
+                            <td>e)</td><td><div data-smiles="CC(C)(C)CC" data-solucion="false"></div></td><td style="color: red;">2,2-dimetilbutano</td>
+                            <td>f)</td><td><div data-smiles="C#CC(CC)CC#CCC" data-solucion="false"></div></td><td style="color: red;">3-etilocta-1,5-diino</td>
                         </tr>
                         <tr>
-                            <td>g)</td><td>\\( \\ce{CH3-CH2-CH3} \\)</td><td style="color: red;">Propano</td>
-                            <td>h)</td><td>\\( \\ce{CH2=CH-CH=CH-CH3} \\)</td><td style="color: red;">Penta-1,3-dieno</td>
+                            <td>g)</td><td><div data-smiles="CC(C)C(C)CC" data-solucion="false"></div></td><td style="color: red;">2,3-dimetilpentano</td>
+                            <td>h)</td><td><div data-smiles="C=CC(C)CC#C" data-solucion="false"></div></td><td style="color: red;">3-metilhex-1-en-5-ino</td>
                         </tr>
                         <tr>
-                            <td>i)</td><td>\\( \\ce{CH2=CH-CH3} \\)</td><td style="color: red;">Propeno</td>
-                            <td>j)</td><td>\\( \\ce{CH3-CH3} \\)</td><td style="color: red;">Etano</td>
-                        </tr>
-                        <tr>
-                            <td>k)</td><td>
-                                <svg width="45" height="45" viewBox="0 0 100 100">
-                                    <polygon points="50,5 95,38 78,92 22,92 5,38" stroke="black" stroke-width="6" fill="none" />
-                                    <line x1="30" y1="82" x2="70" y2="82" stroke="black" stroke-width="6" />
-                                </svg>
-                            </td><td style="color: red;">Ciclopenteno</td>
-                            <td>l)</td><td>\\( \\ce{CH3-C#CH} \\)</td><td style="color: red;">Propino</td>
-                        </tr>
-                        <tr>
-                            <td>m)</td><td>
-                                <svg width="55" height="55" viewBox="0 0 100 100">
-                                    <polygon points="30,10 70,10 90,30 90,70 70,90 30,90 10,70 10,30" 
-                                                stroke="black" stroke-width="6" fill="none" />
-                                    
-                                    <line x1="22" y1="35" x2="40" y2="20" stroke="black" stroke-width="6" />
-                                    
-                                    <line x1="60" y1="20" x2="78" y2="35" stroke="black" stroke-width="6" />
-                                    
-                                    <line x1="35" y1="80" x2="65" y2="80" stroke="black" stroke-width="6" />
-                                </svg>
-                            </td><td style="color: red;">Cicloocta-1,3,6-trieno</td>
-                            <td>n)</td><td>\\( \\ce{CH#C-CH3} \\)</td><td style="color: red;">Propino</td>
-                        </tr>
-                        <tr>
-                            <td>ñ)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH2-CH3} \\)</td><td style="color: red;">Hexano</td>
-                            <td>o)</td><td>\\( \\ce{CH2=CH-CH2-CH=CH-CH3} \\)</td><td style="color: red;">Hexa-1,4-dieno</td>
-
-                        </tr>
-                        <tr>
-                            <td>p)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH3} \\)</td><td style="color: red;">Pentano</td>
-                            <td></td><td></td>
+                            <td>i)</td><td><div data-smiles="CC=CC(C)(CC)C=CC=CC" data-solucion="false"></div></td><td style="color: red;">7-etil-7-metildeca-2,4,8-trieno</td>
+                            <td>j)</td><td><div data-smiles="CC=C(CC)CCC(C)CC" data-solucion="false"></div></td><td style="color: red;">3-etil-6-metiloct-2-eno</td>
                         </tr>
                     </tbody>
                 </table>    
