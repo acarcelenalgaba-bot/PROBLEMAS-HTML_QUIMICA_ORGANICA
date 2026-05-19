@@ -510,8 +510,45 @@ const baseDatosProblemas = {
             </table>`,
             solucion: `
                 <div class='paso'>
-                    
-                </div>
+                    <table class="tabla-ejercicios-solucion">
+                        <thead>
+                            <tr>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td><td>Benceno</td><td><div data-smiles="c1ccccc1" data-solucion="true"></div></td>
+                                <td>b)</td><td>Naftaleno</td><td><div data-smiles="C1=CC=CC2=CC=CC=C12" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>c)</td><td>Antraceno</td><td><div data-smiles="c1ccc2cc3ccccc3cc2c1" data-solucion="true"></div></td>
+                                <td>d)</td><td>2-fenilpentano</td><td><div data-smiles="CCCC(C)C1=CC=CC=C1" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>e)</td><td>o-dimetilbenceno</td><td><div data-smiles="CC1=C(C)C=CC=C1" data-solucion="true"></div></td>
+                                <td>f)</td><td>Hexametilbenceno</td><td><div data-smiles="Cc1c(C)c(C)c(C)c(C)c1C" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>g)</td><td>m-dimetilbenceno</td><td><div data-smiles="CC1=CC(C)=CC=C1" data-solucion="true"></div></td>
+                                <td>h)</td><td>p-etilmetilbenceno</td><td><div data-smiles="CCC1=CC=C(C)C=C1" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>i)</td><td>3-fenilhexano</td><td><div data-smiles="CCCC(CC)C1=CC=CC=C1" data-solucion="true"></div></td>
+                                <td>j)</td><td>p-dipropilbenceno</td><td><div data-smiles="CCCC1=CC=C(CCC)C=C1" data-solucion="true"></div></td>
+                            </tr>   
+                            <tr>
+                                <td>k)</td><td>Metilbenceno</td><td><div data-smiles="CC1=CC=CC=C1" data-solucion="true"></div></td>
+                                <td>l)</td><td>Etenilbenceno</td><td><div data-smiles="C=CC1=CC=CC=C1" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>m)</td><td>2-cloropropano</td><td><div data-smiles="CC(Cl)C" data-solucion="true"></div></td>
+                                <td>n)</td><td>o-bromoclorobenceno</td><td><div data-smiles="ClC1=C(Br)C=CC=C1" data-solucion="true"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div class='paso'>
             `
         },
         {
