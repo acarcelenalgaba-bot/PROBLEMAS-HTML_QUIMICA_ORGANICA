@@ -23,7 +23,11 @@
             compactDrawing: false,
             // --- NUEVAS PROPIEDADES PARA CORREGIR LA INCLINACIÓN ---
             orient: 'horizontal', 
-            isometric: true  
+            isometric: true,
+            // --- CORRECCIÓN DE ALINEACIÓN E INCLINACIÓN ---
+            compactDrawing: true,      // Crucial: Optimiza el espacio y equilibra los anillos para que no se tuerzan
+            overlapSensitivity: 1.8,  // Evita colisiones de átomos que causen rotaciones extrañas
+            knuthRaghunathan: true
         };
 
         function dibujarMoleculasSmiles() {
