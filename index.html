@@ -2,138 +2,105 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Problemas de Química- Soluciones Detalladas</title>
+    <title>Problemas de Química - Soluciones Detalladas</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    <script src="https://unpkg.com/@rdkit/rdkit/dist/RDKit_minimal.js"></script>
+    <script src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
 
     <script>
-        let RDKitEngine = null;
+        // Configuración didáctica de base para SmilesDrawer
+        const opcionesDibujoBase = {
+            width: 180,
+            height: 130,
+            bondThickness: 2,
+            fontSizeLarge: 14,
+            fontSizeSmall: 10,
+            shortBonds: true,
+            explicitHydrogens: true,
+            terminalCarbons: true,
+            allAtomsExplicit: true, // Muestra cada átomo 'C' y 'H' en la cadena
+            compactDrawing: false,
+            // --- NUEVAS PROPIEDADES PARA CORREGIR LA INCLINACIÓN ---
+            orient: 'horizontal', 
+            isometric: true  
+        };
 
-        window.initRDKitModule().then(function (instance) {
-            RDKitEngine = instance;
-            console.log("¡RDKit.js cargado!");
-            dibujarMoleculasRDKit();
-        }).catch(function (err) {
-            console.error("Error al cargar RDKit:", err);
-        });
-
-        function dibujarMoleculasRDKit() {
-            if (!RDKitEngine) return;
-
+        function dibujarMoleculasSmiles() {
+            // Buscamos todos los elementos con el atributo data-smiles
             document.querySelectorAll('[data-smiles]').forEach(contenedor => {
                 const smiles = contenedor.getAttribute('data-smiles');
                 if (!smiles) return;
 
+                // Averiguamos si está en la zona de solución
+                const esSolucion = contenedor.closest('#caja-solucion') || contenedor.getAttribute('data-solucion') === "true";
+
+                // Si ya contiene un canvas y NO es de la zona de solución, nos saltamos para evitar duplicar.
+                // Si es de la solución, comprobamos si su paso contenedor ya es visible en el DOM.
+                if (contenedor.querySelector('canvas')) {
+                    if (!esSolucion) return; // Enunciado ya dibujado, salir.
+                    
+                    // Si es solución pero el paso padre sigue oculto (display: none), no lo dibujamos todavía
+                    const pasoPadre = contenedor.closest('.paso');
+                    if (pasoPadre && !pasoPadre.classList.contains('visible')) return;
+                }
+
+                // Clonamos la configuración base para no arrastrar configuraciones previas
+                const opcionesConfiguradas = JSON.parse(JSON.stringify(opcionesDibujoBase));
+
+                // Definimos los colores dependiendo de si es solución o enunciado
+                let colorBase = '#000000'; // Por defecto azul oscuro / negro para enunciados
+                if (esSolucion) {
+                    colorBase = '#c01a1a'; // Rojo para soluciones
+                } else if (contenedor.getAttribute('data-solucion') === "false") {
+                    colorBase = '#000000'; // Negro
+                }
+
+                // Creamos un tema personalizado exclusivo para esta molécula
+                opcionesConfiguradas.themes = {
+                    light: {
+                        C: colorBase,
+                        H: colorBase,
+                        O: colorBase,
+                        N: colorBase,
+                        Cl: colorBase,
+                        Br: colorBase,
+                        F: colorBase,
+                        I: colorBase,
+                        P: colorBase,
+                        S: colorBase,
+                        BACKGROUND: 'transparent'
+                    }
+                };
+
+                // Vaciamos el contenedor antes de inyectar el nuevo lienzo
                 contenedor.innerHTML = '';
 
                 try {
-                // 1. RDKit lee el SMILES básico
-                let molBase = RDKitEngine.get_mol(smiles);
-                if (!molBase) return;
+                    // Creamos dinámicamente un lienzo Canvas con las dimensiones configuradas
+                    const canvas = document.createElement('canvas');
+                    canvas.width = opcionesConfiguradas.width;
+                    canvas.height = opcionesConfiguradas.height;
+                    contenedor.appendChild(canvas);
 
-                // 2. ¡LA LÍNEA MÁGICA QUE FALTA! 
-                // Forzamos a RDKit a calcular matemáticamente y añadir los Hidrógenos en la memoria RAM
-                let mol = RDKitEngine.get_mol(molBase.get_smiles()); 
-                molBase.delete(); // Borramos la base para no saturar el navegador
+                    // Inicializamos una instancia nueva y limpia del Drawer con la paleta de color correspondiente
+                    const drawer = new SmilesDrawer.Drawer(opcionesConfiguradas);
 
-                // 3. LEER LA LONGITUD PERSONALIZADA
-                const longitudIndividual = contenedor.getAttribute('data-longitud') 
-                    ? parseInt(contenedor.getAttribute('data-longitud')) 
-                    : 25;
+                    // Procesamos y renderizamos la molécula de inmediato
+                    SmilesDrawer.parse(smiles.trim(), function(tree) {
+                        drawer.draw(tree, canvas, 'light', false);
+                    }, function(err) {
+                        console.error("Error analizando el SMILES: " + smiles, err);
+                    });
 
-                // 4. CÁLCULO DINÁMICO DEL LIENZO
-                const factorAncho = smiles.length > 8 ? 12 : 8; 
-                const anchoDinamico = Math.max(200, longitudIndividual * factorAncho);
-                const altoDinamico = Math.max(120, longitudIndividual * 5);
-
-                const esSolucion = contenedor.closest('#caja-solucion-svg');
-
-                // 5. CONFIGURACIÓN INDIVIDUAL PARA RDKit
-                const opcionesDibujo = {
-                    width: anchoDinamico,
-                    height: altoDinamico,
-                    
-                    noCarbonSymbols: false,    // Muestra las C
-                    explicitHydrogens: true,   // Muestra los H
-
-                    clearBackground: false,       // Le dice a RDKit que no pinte un fondo blanco rígido
-                    backgroundColour: [0,0,0,0],  // Fuerza un color transparente
-                    
-                    bondThickness: 2.2,
-                    labelsMaxFontSize: 16,
-                    drawMolsSameScale: false, 
-                    fixedBondLength: longitudIndividual, 
-
-                    // CONTROL FÁCIL DE COLOR:
-                    // ⚠️ RDKit usa ortografía BRITÁNICA: "defaultColour" con 'u', no "defaultColor"
-                    defaultColour: esSolucion
-                        ? [0.9, 0.1, 0.1, 1]   // Rojo
-                        : [0, 0, 0, 1],          // Negro
-                    
-                    // Paleta de átomos en rojo para soluciones (cubre O, N, S, etc.)
-                    atomColourPalette: esSolucion
-                        ? { 6:[0.9,0.1,0.1], 1:[0.9,0.1,0.1], 8:[0.9,0.1,0.1],
-                            7:[0.9,0.1,0.1], 16:[0.9,0.1,0.1], 17:[0.9,0.1,0.1],
-                            35:[0.9,0.1,0.1], 53:[0.9,0.1,0.1] }
-                        : {}
-                };
-
-                // 6. Renderizar el SVG
-                let svgInyectar = mol.get_svg_with_highlights(JSON.stringify(opcionesDibujo));
-
-                // 6b. POST-PROCESADO: si es solución, sustituir TODOS los colores inline por rojo.
-                //     Necesario porque RDKit genera estilos inline en cada <path>/<text>
-                //     que no pueden sobreescribirse con CSS externo.
-                if (esSolucion) {
-                    svgInyectar = svgInyectar
-                        .replace(/stroke:rgb\(\d+,\s*\d+,\s*\d+\)/g, 'stroke:rgb(192,26,26)')
-                        .replace(/fill:rgb\(\d+,\s*\d+,\s*\d+\)/g, 'fill:rgb(192,26,26)');
+                } catch (error) {
+                    console.error("Error crítico en contenedor SMILES: ", error);
                 }
-
-                contenedor.innerHTML = svgInyectar;
-
-                // 7. Liberamos la memoria del objeto final
-                mol.delete();
-
-            } catch (error) {
-                console.error("Error personalizado en RDKit para: " + smiles, error);
-            }
             });
         }
     </script>
 
     <style>
-
-        /* 1. Por defecto, todas las moléculas de los enunciados se verán en negro */
-        /* div[data-smiles] svg {
-            filter: grayscale(100%) brightness(0%);
-        } */
-
-        /* 2. SI EL CONTENEDOR TIENE EL ATRIBUTO DATA-SOLUCION, SE QUITA EL FILTRO NEGRO Y MUESTRA SU ROJO REAL */
-        /* Fuerza a que todos los textos y líneas del SVG de RDKit en soluciones sean rojos */
-        div[data-solucion="true"] svg {
-            stroke: #e74c3c !important;
-            fill: #e74c3c !important;
-        }
-
-        /* Cuando es falso (Azul) */
-        div[data-solucion="false"] svg {
-            stroke: #3498db !important;
-            fill: #3498db !important;
-        }
-
-        #texto-visor div[data-smiles] svg {
-        filter: grayscale(100%) brightness(0%) !important;
-        }
-
-        #caja-solucion-svg div[data-smiles][data-solucion="true"] svg {
-        filter: none !important;
-        stroke: #e74c3c !important;
-        fill: #e74c3c !important;
-        }
-
         /* --- ESTILOS GENERALES Y LAYOUT --- */
         html, body {
             height: 100%;
@@ -195,10 +162,6 @@
             text-overflow: ellipsis;
         }
 
-        .menu-desplegable option {
-            width: auto;
-        }
-
         .menu-desplegable:hover {
             border-color: #3498db;
             background-color: #ffffff;
@@ -235,28 +198,6 @@
             margin-top: 50px;
         }
 
-        .contenedor-flex {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .columna-texto {
-            flex: 1;
-            min-width: 300px;
-        }
-        .columna-imagen {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        .columna-imagen img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-        }
-
         #contenido-problema { display: none; }
         #titulo-visor { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-top: 0; }
         #texto-visor { font-size: 20px; line-height: 1.8; margin-top: 25px; } 
@@ -266,7 +207,6 @@
         #btn-solucion:hover { filter: brightness(1.1); }
         
         #caja-solucion { display: none; margin-top: 35px; padding: 30px; background-color: #fdfdfd; border: 1px solid #e9ecef; border-left: 6px solid #27ae60; color: #2c3e50; font-size: 19px; line-height: 1.8; }
-        .resultado { background-color: #FCC0B3; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
 
         #caja-solucion .paso {
             display: none; 
@@ -286,60 +226,23 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Estilos para la tabla de química */
-        .tabla-ejercicios {
+        /* Estilos de las tablas */
+        .tabla-ejercicios, .tabla-ejercicios-solucion {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .tabla-ejercicios th {
-            background-color: #2c3e50;
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-
-        .tabla-ejercicios td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .tabla-ejercicios td:nth-child(odd) {
-            font-weight: bold;
-            color: #e74c3c;
-            width: 40px;
-        }
-
-        .tabla-ejercicios tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .tabla-ejercicios tr:hover {
-            background-color: #f1f1f1;
-        }
-        .tabla-ejercicios-solucion {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .tabla-ejercicios-solucion th {
-            background-color: #27ae60;
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-        .tabla-ejercicios-solucion td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
+        .tabla-ejercicios th { background-color: #2c3e50; color: white; padding: 12px; text-align: left; }
+        .tabla-ejercicios-solucion th { background-color: #27ae60; color: white; padding: 12px; text-align: left; }
+        .tabla-ejercicios td, .tabla-ejercicios-solucion td { padding: 10px; border-bottom: 1px solid #ddd; vertical-align: middle; }
+        .tabla-ejercicios td:nth-child(odd) { font-weight: bold; color: #e74c3c; width: 40px; }
+        .tabla-ejercicios tr:nth-child(even), .tabla-ejercicios-solucion tr:nth-child(even) { background-color: #f9f9f9; }
+        
+        [data-smiles] { display: inline-block; min-width: 180px; min-height: 130px; vertical-align: middle; }
     </style>
 </head>
 <body>
@@ -351,7 +254,6 @@
                 <select class="menu-desplegable" id="menu-hidrocarburos"><option value="" disabled selected>📁 1. Hidrocarburos</option></select>
                 <select class="menu-desplegable" id="menu-oxigeno"><option value="" disabled selected>📁 2. Compuestos oxigenados y nitrogenados</option></select>
                 <select class="menu-desplegable" id="menu-variados"><option value="" disabled selected>📁 3. Compuestos variados</option></select>
-                <!-- <select class="menu-desplegable" id="menu-refuerzo"><option value="" disabled selected>📁 4. Compuestos de refuerzo</option></select> -->
             </div>
         </header>
 
@@ -435,7 +337,10 @@
             }
             
             MathJax.typesetPromise();
-            dibujarMoleculasRDKit();
+            
+            // Dibujamos las moléculas del enunciado inmediatamente
+            dibujarMoleculasSmiles();
+
             document.querySelector('.zona-lectura').scrollTop = 0;
         }
 
@@ -453,8 +358,11 @@
                 btnSiguiente.style.backgroundColor = "#3498db";
                 btnSiguiente.style.cursor = "pointer";
                 document.querySelectorAll('#caja-solucion .paso').forEach(p => p.classList.remove('visible'));
+                
                 MathJax.typesetPromise();
-                dibujarMoleculasRDKit();
+                
+                // Llamamos a dibujar (solo pintará aquellas soluciones cuyo paso sea visible, o refrescará las globales)
+                dibujarMoleculasSmiles();
             } else {
                 caja.style.display = 'none';
                 btn.innerText = 'Ver Solución';
@@ -466,12 +374,15 @@
             const contenedor = document.getElementById('caja-solucion');
             const boton = document.getElementById('btn-siguiente-paso');
             const siguientePaso = contenedor.querySelector('.paso:not(.visible)');
+            
             if (siguientePaso) {
                 siguientePaso.classList.add('visible'); 
                 boton.innerText = "Siguiente paso ⬇️";
 
-                // ¡AÑADE ESTA LÍNEA! Así RDKit redibuja la molécula ahora que el contenedor ya es visible
-                dibujarMoleculasRDKit();
+                // Retraso de renderizado asíncrono para asegurar visibilidad física en el DOM
+                setTimeout(() => {
+                    dibujarMoleculasSmiles();
+                }, 30);
 
                 const pasosRestantes = contenedor.querySelector('.paso:not(.visible)');
                 if (!pasosRestantes) {
@@ -485,6 +396,5 @@
 
         window.onload = inicializarMenus;
     </script>
-
 </body>
 </html>
