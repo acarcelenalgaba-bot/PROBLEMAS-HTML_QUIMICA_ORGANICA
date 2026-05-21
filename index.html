@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Problemas de Química - Soluciones Detalladas</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/polyfill/3.111.0/polyfill.min.js"></script>
+
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script src="https://www.chemdoodle.com/demos/install/ChemDoodleWeb.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ChemDoodleWeb/9.5.0/ChemDoodleWeb.css" type="text/css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ChemDoodleWeb/9.5.0/ChemDoodleWeb.js"></script>
+
     
     <script src="datos.js"></script>
 
@@ -15,109 +18,119 @@
         const ANCHO_MOLECULE = 300;
         const ALTO_MOLECULE = 250;
         
-        // Esperar a que ChemDoodle cargue
-        function esperarChemDoodle() {
-            return new Promise((resolve) => {
-                let intentos = 0;
-                const comprobar = () => {
-                    intentos++;
-                    if (typeof ChemDoodle !== 'undefined' && ChemDoodle.readSMILES) {
-                        console.log('✓ ChemDoodle Web cargado correctamente');
-                        resolve(true);
-                    } else if (intentos < 100) {
-                        setTimeout(comprobar, 50);
-                    } else {
-                        console.error('✗ ChemDoodle Web no cargó después de 5 segundos');
-                        resolve(false);
-                    }
-                };
-                comprobar();
-            });
+// =======================================================================
+// REEMPLAZA ESTAS DOS FUNCIONES EN TU ARCO <script> DE INDEX.HTML
+// =======================================================================
+
+// Esperar a que ChemDoodle y su entorno gráfico estén 100% listos
+function esperarChemDoodle() {
+    return new Promise((resolve) => {
+        let intentos = 0;
+        const comprobar = () => {
+            intentos++;
+            // Comprobamos la existencia de la librería y que el módulo de dibujo esté activo
+            if (typeof ChemDoodle !== 'undefined' && ChemDoodle.readSMILES && ChemDoodle.ViewerCanvas) {
+                console.log('✓ ChemDoodle Web cargado y listo para Canvas');
+                resolve(true);
+            } else if (intentos < 100) {
+                setTimeout(comprobar, 50);
+            } else {
+                console.error('✗ ChemDoodle Web no cargó correctamente');
+                resolve(false);
+            }
+        };
+        comprobar();
+    });
+}
+
+function dibujarMoleculasChemDoodle() {
+    // Asegurar disponibilidad absoluta de la librería
+    if (typeof ChemDoodle === 'undefined' || !ChemDoodle.readSMILES || !ChemDoodle.ViewerCanvas) {
+        console.warn('⚠ ChemDoodle no está listo en este instante, reintentando en 150ms...');
+        setTimeout(dibujarMoleculasChemDoodle, 150);
+        return;
+    }
+
+    console.log('🔬 Iniciando renderizado de moléculas con ViewerCanvas...');
+    let conteoMoleculas = 0;
+
+    document.querySelectorAll('[data-smiles]').forEach((contenedor, index) => {
+        const smiles = contenedor.getAttribute('data-smiles');
+        if (!smiles) return;
+
+        // Evitar duplicados
+        if (contenedor.hasAttribute('data-rendered')) {
+            return;
         }
 
-        function dibujarMoleculasChemDoodle() {
-            if (typeof ChemDoodle === 'undefined' || !ChemDoodle.readSMILES) {
-                console.warn('⚠ ChemDoodle Web no está disponible aún');
-                setTimeout(dibujarMoleculasChemDoodle, 100);
+        const esSolucion = contenedor.closest('#caja-solucion') || contenedor.getAttribute('data-solucion') === "true";
+        
+        if (esSolucion) {
+            const pasoPadre = contenedor.closest('.paso');
+            if (pasoPadre && !pasoPadre.classList.contains('visible')) {
                 return;
             }
-
-            console.log('🔬 Dibujando moléculas con ViewerCanvas...');
-            let conteoMoleculas = 0;
-
-            document.querySelectorAll('[data-smiles]').forEach((contenedor, index) => {
-                const smiles = contenedor.getAttribute('data-smiles');
-                if (!smiles) return;
-
-                if (contenedor.hasAttribute('data-rendered')) {
-                    return;
-                }
-
-                const esSolucion = contenedor.closest('#caja-solucion') || contenedor.getAttribute('data-solucion') === "true";
-                
-                if (esSolucion) {
-                    const pasoPadre = contenedor.closest('.paso');
-                    if (pasoPadre && !pasoPadre.classList.contains('visible')) {
-                        return;
-                    }
-                }
-
-                const colorMol = esSolucion ? '#c01a1a' : '#000000';
-
-                contenedor.innerHTML = '';
-
-                try {
-                    console.log(`  Procesando SMILES: ${smiles}`);
-                    
-                    const canvasId = `canvas-mol-${index}`;
-                    const canvas = document.createElement('canvas');
-                    canvas.id = canvasId;
-                    canvas.width = ANCHO_MOLECULE;
-                    canvas.height = ALTO_MOLECULE;
-                    canvas.style.border = '1px solid #ddd';
-                    canvas.style.borderRadius = '4px';
-                    canvas.style.backgroundColor = '#fafafa';
-                    canvas.style.display = 'inline-block';
-                    canvas.style.verticalAlign = 'middle';
-                    contenedor.appendChild(canvas);
-
-                    // Inicializar el visor estático oficial de ChemDoodle
-                    const viewer = new ChemDoodle.ViewerCanvas(canvasId, ANCHO_MOLECULE, ALTO_MOLECULE);
-                    
-                    // Ajustes visuales para simular fórmulas semidesarrolladas legibles
-                    viewer.specs.bonds_useColor = false;
-                    viewer.specs.atoms_displayStereo_2D = true;
-                    viewer.specs.atoms_displayTerminalCarbons_2D = true;
-                    viewer.specs.atoms_displayAllCarbons_2D = true; // Forzar etiquetas de C en vértices
-                    viewer.specs.atoms_showImplicitHydrogens_2D = true; // Mostrar H implícitos asociados
-                    viewer.specs.bonds_clearLabels = true; // Evitar que el enlace cruce las letras
-
-                    if (colorMol === '#c01a1a') {
-                        viewer.specs.atoms_color = colorMol;
-                        viewer.specs.bonds_color = colorMol;
-                    }
-
-                    const molecule = ChemDoodle.readSMILES(smiles.trim());
-                    
-                    if (molecule) {
-                        viewer.loadMolecule(molecule);
-                        conteoMoleculas++;
-                        console.log(`    ✓ Molécula dibujada (${conteoMoleculas})`);
-                    } else {
-                        console.warn(`    ✗ No se pudo parsear: ${smiles}`);
-                        contenedor.innerHTML = '<p style="color: red; padding: 10px; font-size: 11px;">Error al parsear SMILES</p>';
-                    }
-
-                    contenedor.setAttribute('data-rendered', 'true');
-                } catch (error) {
-                    console.error(`    ✗ Error en molécula [${smiles}]:`, error.message);
-                    contenedor.innerHTML = `<p style="color: red; padding: 10px; font-size: 10px;">Error: ${error.message}</p>`;
-                    contenedor.setAttribute('data-rendered', 'true');
-                }
-            });
-
-            console.log(`✓ Total moléculas dibujadas: ${conteoMoleculas}`);
         }
+
+        const colorMol = esSolucion ? '#c01a1a' : '#000000';
+
+        // Limpieza estricta del contenedor antes de inyectar el canvas
+        contenedor.innerHTML = '';
+
+        try {
+            console.log(`  -> Renderizando SMILES: ${smiles}`);
+            
+            const canvasId = `canvas-mol-${index}`;
+            const canvas = document.createElement('canvas');
+            canvas.id = canvasId;
+            canvas.width = ANCHO_MOLECULE;
+            canvas.height = ALTO_MOLECULE;
+            canvas.style.border = '1px solid #ddd';
+            canvas.style.borderRadius = '4px';
+            canvas.style.backgroundColor = '#fafafa';
+            canvas.style.display = 'inline-block';
+            canvas.style.verticalAlign = 'middle';
+            contenedor.appendChild(canvas);
+
+            // Crear el visor estático oficial
+            const viewer = new ChemDoodle.ViewerCanvas(canvasId, ANCHO_MOLECULE, ALTO_MOLECULE);
+            
+            // CONFIGURACIONES GRÁFICAS DE ESPECIFICACIÓN (Corregidas)
+            viewer.specs.bonds_useColor = false;
+            viewer.specs.atoms_displayStereo_2D = true; // CORREGIDO: "displayStereo_2D" sin doble 'o'
+            viewer.specs.atoms_displayTerminalCarbons_2D = true;
+            viewer.specs.atoms_displayAllCarbons_2D = true;      // Fuerza ver las C centrales
+            viewer.specs.atoms_showImplicitHydrogens_2D = true;  // Fuerza ver los H asociados
+            viewer.specs.bonds_clearLabels = true;               // Quita líneas sobre las letras
+
+            if (colorMol === '#c01a1a') {
+                viewer.specs.atoms_color = colorMol;
+                viewer.specs.bonds_color = colorMol;
+            }
+
+            // Parsear y cargar la molécula
+            const molecule = ChemDoodle.readSMILES(smiles.trim());
+            
+            if (molecule) {
+                viewer.loadMolecule(molecule);
+                conteoMoleculas++;
+                contenedor.setAttribute('data-rendered', 'true');
+                console.log(`    ✓ Éxito dibujo (${conteoMoleculas})`);
+            } else {
+                console.warn(`    ✗ Error de parseo: ${smiles}`);
+                contenedor.innerHTML = '<p style="color: red; padding: 10px; font-size: 11px;">Error al parsear SMILES</p>';
+                contenedor.setAttribute('data-rendered', 'true');
+            }
+
+        } catch (error) {
+            console.error(`    ✗ Excepción en [${smiles}]:`, error.message);
+            contenedor.innerHTML = `<p style="color: red; padding: 10px; font-size: 10px;">Error: ${error.message}</p>`;
+            contenedor.setAttribute('data-rendered', 'true');
+        }
+    });
+
+    console.log(`✓ Proceso terminado. Total moléculas visibles: ${conteoMoleculas}`);
+}
     </script>
 
     <style>
