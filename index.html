@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <title>Problemas de Química - Soluciones Detalladas</title>
 
+    <!-- 1. MathJax para fórmulas químicas (si lo usas) -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/kekule/dist/themes/default/kekule.css" />
-    <script src="https://unpkg.com/kekule/dist/kekule.js?modules=chem,chemWidget,algorithm,io"></script>
+    <!-- 2. Kekule.js (ANTES que tu código) -->
+    <script src="https://cdn.jsdelivr.net/npm/kekule@0.5.0/dist/kekule.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kekule@0.5.0/dist/themes/default/kekule.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/openchemlib/8.10.2/openchemlib-full.js" crossorigin="anonymous"></script>
+    <!-- 3. OpenChemLib 8.20.0 (versión UMD compatible) -->
+    <script src="https://cdn.jsdelivr.net/npm/openchemlib@8.20.0/dist/openchemlib-full.min.js"></script>
+
 
     <script src="datos.js"></script>
 
@@ -68,31 +73,54 @@
             }
         }
 
-        // 🛠️ Función Convertidora Local: Usa OpenChemLib detectando el objeto global correcto
         function convertirSmilesAMolStr(smiles) {
             try {
-                // 🚀 CORRECCIÓN OBJETO GLOBAL: Buscamos tanto 'OCL' como 'openChemLib'
-                const OclEngine = (typeof OCL !== 'undefined') ? OCL : ((typeof openChemLib !== 'undefined') ? openChemLib : null);
-
-                if (!OclEngine) {
-                    console.error("OpenChemLib no está cargada en ninguna de sus variables globales conocidas (OCL / openChemLib)");
-                    return null;
-                }
+                // 1. Crear molécula desde SMILES
+                const mol = OCL.Molecule.fromSmiles(smiles);
                 
-                // Carga la estructura partiendo de la cadena SMILES
-                const mol = OclEngine.Molecule.fromSmiles(smiles);
-                // Fuerza al motor a calcular las coordenadas 2D requeridas para un archivo MOL correcto
-                mol.compute2DCoordinates();
-                // Exporta la molécula en formato clásico de bloque de datos MOL V2000
-                const molfileStr = mol.toMolfile();
-                return molfileStr;
-            } catch (err) {
-                console.error(`Error convirtiendo SMILES (${smiles}) a MOL:`, err);
+                // 2. Generar coordenadas 2D (método actualizado)
+                mol.computeCoordinates(); // ✅ Nombre correcto en v8.x
+                
+                // 3. Opcional: limpiar y normalizar la estructura
+                mol.removeHydrogens(); // Elimina H explícitos si no se necesitan
+                
+                // 4. Exportar a formato MOL para Kekule.js
+                return mol.toMolfile();
+                
+            } catch (e) {
+                console.error(`❌ Error convirtiendo SMILES "${smiles}" a MOL:`, e);
                 return null;
             }
         }
 
-        function dibujarMoleculasKekule() {
+function dibujarMoleculasKekule() {
+    const elementos = document.querySelectorAll('[data-smiles][data-solucion="true"]');
+    
+    elementos.forEach(div => {
+        const smiles = div.getAttribute('data-smiles');
+        if (!smiles) return;
+        
+        // Convertir SMILES → MOL
+        const molStr = convertirSmilesAMolStr(smiles);
+        if (!molStr) {
+            div.innerHTML = `<span style="color:red">❌ Error al renderizar</span>`;
+            return;
+        }
+        
+        // Renderizar con Kekule.js
+        try {
+            const chemObj = Kekule.ChemIO.getIOByName('mdlMol').readFromStr(molStr, Kekule.ChemDataTypes.MOLECULE);
+            const viewer = new Kekule.Widget.Viewer(div);
+            viewer.setChemObj(chemObj);
+            viewer.setAutoResize(true);
+        } catch (e) {
+            console.error('Error renderizando con Kekule:', e);
+            div.innerHTML = `<span style="color:red">❌ Error de renderizado</span>`;
+        }
+    });
+}
+
+        function dibujarMoleculasKekule2() {
             if (typeof Kekule === 'undefined' || !Kekule.ChemWidget || !Kekule.IO) {
                 console.warn('⚠ Componentes de Kekule no listos en el DOM, reintentando...');
                 setTimeout(dibujarMoleculasKekule, 150);
