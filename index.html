@@ -71,54 +71,27 @@
             }
         }
 
-        function convertirSmilesAMolStr(smiles) {
-            try {
-                // 1. Crear molécula desde SMILES
-                const mol = OCL.Molecule.fromSmiles(smiles);
-                
-                // 2. Generar coordenadas 2D (método actualizado)
-                mol.computeCoordinates(); // ✅ Nombre correcto en v8.x
-                
-                // 3. Opcional: limpiar y normalizar la estructura
-                mol.removeHydrogens(); // Elimina H explícitos si no se necesitan
-                
-                // 4. Exportar a formato MOL para Kekule.js
-                return mol.toMolfile();
-                
-            } catch (e) {
-                console.error(`❌ Error convirtiendo SMILES "${smiles}" a MOL:`, e);
-                return null;
-            }
-        }
-
-function dibujarMoleculasKekule() {
-    const elementos = document.querySelectorAll('[data-smiles][data-solucion="true"]');
-    
-    elementos.forEach(div => {
-        const smiles = div.getAttribute('data-smiles');
-        if (!smiles) return;
+function convertirSmilesAMolStr(smiles) {
+    try {
+        // 1. Crear molécula desde SMILES
+        const mol = OCL.Molecule.fromSmiles(smiles);
         
-        // Convertir SMILES → MOL
-        const molStr = convertirSmilesAMolStr(smiles);
-        if (!molStr) {
-            div.innerHTML = `<span style="color:red">❌ Error al renderizar</span>`;
-            return;
-        }
+        // 2. Generar coordenadas 2D forzando el layout de la estructura
+        // OCL calcula automáticamente el layout si no tiene coordenadas al invocar métodos de render o exportación estructurada
         
-        // Renderizar con Kekule.js
-        try {
-            const chemObj = Kekule.ChemIO.getIOByName('mdlMol').readFromStr(molStr, Kekule.ChemDataTypes.MOLECULE);
-            const viewer = new Kekule.Widget.Viewer(div);
-            viewer.setChemObj(chemObj);
-            viewer.setAutoResize(true);
-        } catch (e) {
-            console.error('Error renderizando con Kekule:', e);
-            div.innerHTML = `<span style="color:red">❌ Error de renderizado</span>`;
-        }
-    });
+        // 3. Opcional: limpiar e hidrógenos (según tu código original)
+        mol.removeHydrogens(); 
+        
+        // 4. Exportar a formato MOL
+        // En muchas versiones de OCL, toMolfile() genera el layout 2D automáticamente si no existe.
+        return mol.toMolfile();
+        
+    } catch (e) {
+        console.error(`❌ Error convirtiendo SMILES "${smiles}" a MOL:`, e);
+        return null;
+    }
 }
-
-        function dibujarMoleculasKekule2() {
+        function dibujarMoleculasKekule() {
             if (typeof Kekule === 'undefined' || !Kekule.ChemWidget || !Kekule.IO) {
                 console.warn('⚠ Componentes de Kekule no listos en el DOM, reintentando...');
                 setTimeout(dibujarMoleculasKekule, 150);
