@@ -3,136 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <title>Problemas de Química - Soluciones Detalladas</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/polyfill/3.111.0/polyfill.min.js"></script>
 
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ChemDoodleWeb/9.5.0/ChemDoodleWeb.css" type="text/css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ChemDoodleWeb/9.5.0/ChemDoodleWeb.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/kekule/dist/themes/default/kekule.css" />
+    <script src="https://unpkg.com/kekule/dist/kekule.js?modules=chem,chemWidget,algorithm,io"></script>
 
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openchemlib/8.10.2/openchemlib-full.js" crossorigin="anonymous"></script>
+
     <script src="datos.js"></script>
 
     <script>
-        // ===== CONFIGURACIÓN CHEMDOODLE =====
+        // ===== CONFIGURACIÓN KEKULE =====
         const ANCHO_MOLECULE = 300;
         const ALTO_MOLECULE = 250;
         
-// =======================================================================
-// REEMPLAZA ESTAS DOS FUNCIONES EN TU ARCO <script> DE INDEX.HTML
-// =======================================================================
-
-// Esperar a que ChemDoodle y su entorno gráfico estén 100% listos
-function esperarChemDoodle() {
-    return new Promise((resolve) => {
-        let intentos = 0;
-        const comprobar = () => {
-            intentos++;
-            // Comprobamos la existencia de la librería y que el módulo de dibujo esté activo
-            if (typeof ChemDoodle !== 'undefined' && ChemDoodle.readSMILES && ChemDoodle.ViewerCanvas) {
-                console.log('✓ ChemDoodle Web cargado y listo para Canvas');
-                resolve(true);
-            } else if (intentos < 100) {
-                setTimeout(comprobar, 50);
-            } else {
-                console.error('✗ ChemDoodle Web no cargó correctamente');
-                resolve(false);
-            }
-        };
-        comprobar();
-    });
-}
-
-function dibujarMoleculasChemDoodle() {
-    // Asegurar disponibilidad absoluta de la librería
-    if (typeof ChemDoodle === 'undefined' || !ChemDoodle.readSMILES || !ChemDoodle.ViewerCanvas) {
-        console.warn('⚠ ChemDoodle no está listo en este instante, reintentando en 150ms...');
-        setTimeout(dibujarMoleculasChemDoodle, 150);
-        return;
-    }
-
-    console.log('🔬 Iniciando renderizado de moléculas con ViewerCanvas...');
-    let conteoMoleculas = 0;
-
-    document.querySelectorAll('[data-smiles]').forEach((contenedor, index) => {
-        const smiles = contenedor.getAttribute('data-smiles');
-        if (!smiles) return;
-
-        // Evitar duplicados
-        if (contenedor.hasAttribute('data-rendered')) {
-            return;
+        // Comprobar y asegurar que Kekule está totalmente disponible
+        function esperarKekule() {
+            return new Promise((resolve) => {
+                let intentos = 0;
+                const comprobar = () => {
+                    intentos++;
+                    if (typeof Kekule !== 'undefined' && Kekule.IO && Kekule.ChemWidget && Kekule.Render) {
+                        console.log('✓ Kekule.js cargado y listo');
+                        resolve(true);
+                    } else if (intentos < 100) {
+                        setTimeout(comprobar, 50);
+                    } else {
+                        console.error('✗ Kekule.js no cargó correctamente');
+                        resolve(false);
+                    }
+                };
+                comprobar();
+            });
         }
 
-        const esSolucion = contenedor.closest('#caja-solucion') || contenedor.getAttribute('data-solucion') === "true";
-        
-        if (esSolucion) {
-            const pasoPadre = contenedor.closest('.paso');
-            if (pasoPadre && !pasoPadre.classList.contains('visible')) {
+        // Aplicar estilos semidesarrollados al viewer de Kekule
+        function aplicarEstiloSemidesarrolladoAlViewer(viewer) {
+            try {
+                const renderConfigs = viewer.getRenderConfigs();
+                if (!renderConfigs) return false;
+
+                const moleculeDisplayCfg = renderConfigs.getMoleculeDisplayConfigs();
+                if (!moleculeDisplayCfg) return false;
+
+                // Mostrar todos los átomos de carbono
+                if (Kekule.Render && Kekule.Render.AtomLabelDisplayMode) {
+                    moleculeDisplayCfg.setAtomDisplayMode(Kekule.Render.AtomLabelDisplayMode.LABEL_ALL);
+                } else {
+                    moleculeDisplayCfg.setAtomDisplayMode(1);
+                }
+
+                // Mostrar hidrógenos implícitos
+                if (Kekule.Render && Kekule.Render.ImplicitHydrogenDisplayLevel) {
+                    moleculeDisplayCfg.setImplicitHydrogenDisplayLevel(Kekule.Render.ImplicitHydrogenDisplayLevel.ALL);
+                } else {
+                    moleculeDisplayCfg.setImplicitHydrogenDisplayLevel(2);
+                }
+
+                return true;
+            } catch (e) {
+                console.error('❌ Error al aplicar estilos Kekule:', e);
+                return false;
+            }
+        }
+
+        // 🛠️ Función Convertidora Local: Usa OpenChemLib detectando el objeto global correcto
+        function convertirSmilesAMolStr(smiles) {
+            try {
+                // 🚀 CORRECCIÓN OBJETO GLOBAL: Buscamos tanto 'OCL' como 'openChemLib'
+                const OclEngine = (typeof OCL !== 'undefined') ? OCL : ((typeof openChemLib !== 'undefined') ? openChemLib : null);
+
+                if (!OclEngine) {
+                    console.error("OpenChemLib no está cargada en ninguna de sus variables globales conocidas (OCL / openChemLib)");
+                    return null;
+                }
+                
+                // Carga la estructura partiendo de la cadena SMILES
+                const mol = OclEngine.Molecule.fromSmiles(smiles);
+                // Fuerza al motor a calcular las coordenadas 2D requeridas para un archivo MOL correcto
+                mol.compute2DCoordinates();
+                // Exporta la molécula en formato clásico de bloque de datos MOL V2000
+                const molfileStr = mol.toMolfile();
+                return molfileStr;
+            } catch (err) {
+                console.error(`Error convirtiendo SMILES (${smiles}) a MOL:`, err);
+                return null;
+            }
+        }
+
+        function dibujarMoleculasKekule() {
+            if (typeof Kekule === 'undefined' || !Kekule.ChemWidget || !Kekule.IO) {
+                console.warn('⚠ Componentes de Kekule no listos en el DOM, reintentando...');
+                setTimeout(dibujarMoleculasKekule, 150);
                 return;
             }
+
+            console.log('🔬 Analizando renderizado seguro de moléculas mediante conversión MOL...');
+
+            document.querySelectorAll('[data-smiles]').forEach((contenedor, index) => {
+                const smiles = contenedor.getAttribute('data-smiles');
+                if (!smiles) return;
+
+                // Evitar duplicar renders sobre un mismo contenedor
+                if (contenedor.hasAttribute('data-rendered')) {
+                    return;
+                }
+
+                // Filtrar si pertenece a un paso oculto dentro de la caja de soluciones
+                const esSolucion = contenedor.closest('#caja-solucion') || contenedor.getAttribute('data-solucion') === "true";
+                if (esSolucion) {
+                    const pasoPadre = contenedor.closest('.paso');
+                    if (pasoPadre && !pasoPadre.classList.contains('visible')) {
+                        return;
+                    }
+                }
+
+                // Definición del color: ENUNCIADO -> Negro (#000000) | SOLUCIÓN -> Rojo (#c01a1a)
+                const colorMol = esSolucion ? '#c01a1a' : '#000000';
+
+                try {
+                    const smilesTrimmed = smiles.trim();
+                    
+                    // Convertimos localmente el SMILES a un bloque MOL utilizando OpenChemLib
+                    const molDataStr = convertirSmilesAMolStr(smilesTrimmed);
+                    
+                    if (!molDataStr) {
+                        contenedor.innerHTML = '<p style="color: #e74c3c; padding: 5px; font-size: 11px;">Error: Conversión local SMILES->MOL fallida</p>';
+                        contenedor.setAttribute('data-rendered', 'true');
+                        return;
+                    }
+
+                    // Cargamos en Kekule usando de forma nativa el formato 'mol' obtenido
+                    let molecule = Kekule.IO.loadFormatData(molDataStr, 'mol');
+                    
+                    if (!molecule || !molecule.getAtomCount || molecule.getAtomCount() === 0) {
+                        console.error(`❌ Molécula inválida o vacía para el bloque MOL derivado de: "${smilesTrimmed}"`);
+                        contenedor.innerHTML = '<p style="color: #e74c3c; padding: 5px; font-size: 11px;">Error: Estructura vacía en Kekule</p>';
+                        contenedor.setAttribute('data-rendered', 'true');
+                        return;
+                    }
+
+                    // Limpiar texto residual del contenedor
+                    contenedor.innerHTML = '';
+
+                    // Crear el contenedor físico en el DOM
+                    const viewerDiv = document.createElement('div');
+                    viewerDiv.id = `kekule-canvas-viewer-${index}`;
+                    viewerDiv.style.width = ANCHO_MOLECULE + 'px';
+                    viewerDiv.style.height = ALTO_MOLECULE + 'px';
+                    viewerDiv.style.border = '1px solid #e2e8f0';
+                    viewerDiv.style.borderRadius = '6px';
+                    viewerDiv.style.backgroundColor = '#ffffff';
+                    viewerDiv.style.display = 'inline-block';
+                    viewerDiv.style.verticalAlign = 'middle';
+                    
+                    contenedor.appendChild(viewerDiv);
+
+                    // Instanciar el visor de Kekule
+                    const viewer = new Kekule.ChemWidget.Viewer(viewerDiv);
+                    viewer.setRenderType(Kekule.Render.RendererType.R2D);
+                    viewer.setEnableDirectInteraction(false);
+                    viewer.setEnableToolButtons(false);
+
+                    // Aplicar colores según el entorno (Enunciado/Solución)
+                    viewer.getDrawStyles().setAtomColor(colorMol);
+                    viewer.getDrawStyles().setBondColor(colorMol);
+
+                    // Forzar el estilo semidesarrollado solicitado
+                    aplicarEstiloSemidesarrolladoAlViewer(viewer);
+
+                    // Inyectar el objeto químico ya procesado como MOL
+                    viewer.setChemObj(molecule);
+                    contenedor.setAttribute('data-rendered', 'true');
+
+                } catch (error) {
+                    console.error('❌ Error crítico renderizando molécula:', smiles, error);
+                    contenedor.innerHTML = '<p style="color: #e74c3c; padding: 5px; font-size: 11px;">Error de visualización</p>';
+                    contenedor.setAttribute('data-rendered', 'true');
+                }
+            });
         }
-
-        const colorMol = esSolucion ? '#c01a1a' : '#000000';
-
-        // Limpieza estricta del contenedor antes de inyectar el canvas
-        contenedor.innerHTML = '';
-
-        try {
-            console.log(`  -> Renderizando SMILES: ${smiles}`);
-            
-            const canvasId = `canvas-mol-${index}`;
-            const canvas = document.createElement('canvas');
-            canvas.id = canvasId;
-            canvas.width = ANCHO_MOLECULE;
-            canvas.height = ALTO_MOLECULE;
-            canvas.style.border = '1px solid #ddd';
-            canvas.style.borderRadius = '4px';
-            canvas.style.backgroundColor = '#fafafa';
-            canvas.style.display = 'inline-block';
-            canvas.style.verticalAlign = 'middle';
-            contenedor.appendChild(canvas);
-
-            // Crear el visor estático oficial
-            const viewer = new ChemDoodle.ViewerCanvas(canvasId, ANCHO_MOLECULE, ALTO_MOLECULE);
-            
-            // CONFIGURACIONES GRÁFICAS DE ESPECIFICACIÓN (Corregidas)
-            viewer.specs.bonds_useColor = false;
-            viewer.specs.atoms_displayStereo_2D = true; // CORREGIDO: "displayStereo_2D" sin doble 'o'
-            viewer.specs.atoms_displayTerminalCarbons_2D = true;
-            viewer.specs.atoms_displayAllCarbons_2D = true;      // Fuerza ver las C centrales
-            viewer.specs.atoms_showImplicitHydrogens_2D = true;  // Fuerza ver los H asociados
-            viewer.specs.bonds_clearLabels = true;               // Quita líneas sobre las letras
-
-            if (colorMol === '#c01a1a') {
-                viewer.specs.atoms_color = colorMol;
-                viewer.specs.bonds_color = colorMol;
-            }
-
-            // Parsear y cargar la molécula
-            const molecule = ChemDoodle.readSMILES(smiles.trim());
-            
-            if (molecule) {
-                viewer.loadMolecule(molecule);
-                conteoMoleculas++;
-                contenedor.setAttribute('data-rendered', 'true');
-                console.log(`    ✓ Éxito dibujo (${conteoMoleculas})`);
-            } else {
-                console.warn(`    ✗ Error de parseo: ${smiles}`);
-                contenedor.innerHTML = '<p style="color: red; padding: 10px; font-size: 11px;">Error al parsear SMILES</p>';
-                contenedor.setAttribute('data-rendered', 'true');
-            }
-
-        } catch (error) {
-            console.error(`    ✗ Excepción en [${smiles}]:`, error.message);
-            contenedor.innerHTML = `<p style="color: red; padding: 10px; font-size: 10px;">Error: ${error.message}</p>`;
-            contenedor.setAttribute('data-rendered', 'true');
-        }
-    });
-
-    console.log(`✓ Proceso terminado. Total moléculas visibles: ${conteoMoleculas}`);
-}
     </script>
-
+    
     <style>
         html, body {
             height: 100%;
@@ -162,165 +215,148 @@ function dibujarMoleculasChemDoodle() {
         h1 {
             margin: 0 0 15px 0; 
             text-align: center;
-            font-size: 26px; 
-            color: #34495e;
+            font-size: 1.8em;
+            color: #1e3c72;
         }
 
         .contenedor-menus {
             display: flex;
-            flex-wrap: nowrap;
-            gap: 8px; 
-            align-items: center;
-            width: 100%;           
-            overflow-x: auto;
-            padding-bottom: 12px;
-            justify-content: flex-start; 
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .menu-desplegable {
-            flex: 0 0 auto;
-            width: auto; 
-            padding: 12px 10px; 
-            border-radius: 8px;
-            border: 1px solid #ced4da;
-            font-size: 15px; 
-            font-weight: 600;
-            color: #495057;
-            background-color: #f8f9fa;
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #2c3e50;
+            font-size: 0.95em;
             cursor: pointer;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .menu-desplegable:hover {
             border-color: #3498db;
-            background-color: #ffffff;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
         }
 
         .menu-desplegable.menu-activo {
             background-color: #3498db;
             color: white;
             border-color: #2980b9;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
         }
 
         .zona-lectura {
-            flex: 1 1 auto; 
-            overflow-y: auto; 
-            padding: 10px 5%; 
-            background-color: #f1f3f5; 
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #f0f4f8;
         }
 
         #caja-visor {
-            background: #ffffff;
-            padding: 50px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 6px solid #3498db; 
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 400px;
+        }
+
+        h2 {
+            color: #1e3c72;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         #mensaje-inicial {
+            padding: 40px 20px;
             text-align: center;
-            color: #7f8c8d;
-            font-size: 18px;
-            padding: 30px;
+            color: #95a5a6;
+            font-size: 1.1em;
         }
 
         #contenido-problema {
             display: none;
         }
 
-        h2 {
-            color: #2c3e50;
-            font-size: 24px;
-            margin-top: 0;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ecf0f1;
-        }
-
         .controles-solucion {
+            display: flex;
+            gap: 10px;
             margin: 30px 0;
+            flex-wrap: wrap;
         }
 
-        #btn-solucion {
-            padding: 15px 35px; 
-            background-color: #27ae60; 
-            color: white; 
-            border: none; 
-            border-radius: 6px; 
-            font-size: 18px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            transition: 0.2s;
-        }
-
-        #btn-solucion:hover {
-            background-color: #229954;
-        }
-
-        #btn-siguiente-paso {
-            padding: 15px 35px;
+        button {
+            padding: 10px 20px;
             background-color: #3498db;
             color: white;
             border: none;
-            border-radius: 6px;
-            font-size: 18px;
+            border-radius: 4px;
             cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-            margin-left: 15px;
+            font-size: 0.95em;
+            transition: background-color 0.2s;
         }
 
-        #btn-siguiente-paso:hover:not(:disabled) {
+        button:hover {
             background-color: #2980b9;
         }
 
-        #btn-siguiente-paso:disabled {
+        button:disabled {
             background-color: #95a5a6;
-            cursor: default;
+            cursor: not-allowed;
         }
 
         #caja-solucion {
             display: none;
-            margin-top: 30px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #c01a1a;
             padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            border-left: 5px solid #27ae60;
+            margin: 20px 0;
+            border-radius: 4px;
         }
 
-        #caja-solucion .paso {
-            display: none; 
-            margin-bottom: 15px;
+        .paso {
+            display: none;
+            margin: 15px 0;
             padding: 15px;
-            background-color: #f8f9fa;
-            border-left: 4px solid #3498db;
-            animation: aparecer 0.4s ease-out;
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
         }
 
-        #caja-solucion .paso.visible {
-            display: block; 
+        .paso.visible {
+            display: block;
         }
 
-        @keyframes aparecer {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .paso h3 {
+            color: #e74c3c;
+            margin-top: 0;
         }
 
         .tabla-ejercicios, .tabla-ejercicios-solucion {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 15px 0;
+            font-size: 0.9em;
         }
 
-        .tabla-ejercicios th { background-color: #2c3e50; color: white; padding: 12px; text-align: left; }
-        .tabla-ejercicios-solucion th { background-color: #27ae60; color: white; padding: 12px; text-align: left; }
-        .tabla-ejercicios td, .tabla-ejercicios-solucion td { padding: 10px; border-bottom: 1px solid #ddd; vertical-align: middle; }
+        .tabla-ejercicios th, .tabla-ejercicios-solucion th {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .tabla-ejercicios td, .tabla-ejercicios-solucion td {
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
         .tabla-ejercicios td:nth-child(odd) { font-weight: bold; color: #e74c3c; width: 40px; }
         .tabla-ejercicios tr:nth-child(even), .tabla-ejercicios-solucion tr:nth-child(even) { background-color: #f9f9f9; }
         
@@ -434,8 +470,8 @@ function dibujarMoleculasChemDoodle() {
             
             MathJax.typesetPromise();
             
-            esperarChemDoodle().then(() => {
-                setTimeout(() => dibujarMoleculasChemDoodle(), 100);
+            esperarKekule().then(() => {
+                setTimeout(() => dibujarMoleculasKekule(), 50);
             });
 
             document.querySelector('.zona-lectura').scrollTop = 0;
@@ -455,8 +491,8 @@ function dibujarMoleculasChemDoodle() {
                 document.querySelectorAll('#caja-solucion .paso').forEach(p => p.classList.remove('visible'));
                 
                 MathJax.typesetPromise();
-                esperarChemDoodle().then(() => {
-                    setTimeout(() => dibujarMoleculasChemDoodle(), 100);
+                esperarKekule().then(() => {
+                    setTimeout(() => dibujarMoleculasKekule(), 50);
                 });
             } else {
                 caja.style.display = 'none';
@@ -475,8 +511,9 @@ function dibujarMoleculasChemDoodle() {
                 boton.innerText = "Siguiente paso ⬇️";
 
                 MathJax.typesetPromise();
-                esperarChemDoodle().then(() => {
-                    setTimeout(() => dibujarMoleculasChemDoodle(), 100);
+                
+                esperarKekule().then(() => {
+                    setTimeout(() => dibujarMoleculasKekule(), 50);
                 });
 
                 const pasosRestantes = contenedor.querySelector('.paso:not(.visible)');
@@ -489,10 +526,10 @@ function dibujarMoleculasChemDoodle() {
 
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', function() {
-                esperarChemDoodle().then(() => inicializarMenus());
+                esperarKekule().then(() => inicializarMenus());
             });
         } else {
-            esperarChemDoodle().then(() => inicializarMenus());
+            esperarKekule().then(() => inicializarMenus());
         }
     </script>
 </body>

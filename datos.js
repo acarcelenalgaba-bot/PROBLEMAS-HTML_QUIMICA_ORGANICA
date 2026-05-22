@@ -288,7 +288,7 @@ const baseDatosProblemas = {
                             </tr>
                             <tr>
                                 <td>e)</td><td>2,3,5-trimetilheptano</td><td><div data-smiles="CCC(C)CC(C)C(C)C" data-solucion="true"></div></td>
-                                <td>f)</td><td>4-etil-5-metiloct-1-ino</td><td><div data-smiles="C\\#CCC(CC)C(C)CCC" data-solucion="true"></div></td>
+                                <td>f)</td><td>4-etil-5-metiloct-1-ino</td><td><div data-smiles="C#CCC(CC)C(C)CCC" data-solucion="true"></div></td>
                             </tr>
                             <tr>
                                 <td>g)</td><td>Metilciclopentano</td><td><div data-smiles="CC1CCCC1" data-solucion="true"></div></td>
@@ -340,11 +340,11 @@ const baseDatosProblemas = {
                     <tr>
                         <td>d)</td><td><div data-smiles="CC=C(CC)CCC(C)CC"></div></td>
                         <td>e)</td><td><div data-smiles="CC(C)(C)CC"></div></td>
-                        <td>f)</td><td><div data-smiles="C\\#CC(CC)CC\\#CCC"></div></td>
+                        <td>f)</td><td><div data-smiles="C#CC(CC)CC#CCC"></div></td>
                     </tr>
                     <tr>
                         <td>g)</td><td><div data-smiles="CC(C)C(C)CC"></div></td>
-                        <td>h)</td><td><div data-smiles="C=CC(C)CC\\#C"></div></td>
+                        <td>h)</td><td><div data-smiles="C=CC(C)CC#C"></div></td>
                         <td>i)</td><td><div data-smiles="CC=CC(C)(CC)C=CC=CC"></div></td>
                     </tr>
                     <tr>
@@ -375,11 +375,11 @@ const baseDatosProblemas = {
                         </tr>
                         <tr>
                             <td>e)</td><td><div data-smiles="CC(C)(C)CC" data-solucion="false"></div></td><td style="color: red;">2,2-dimetilbutano</td>
-                            <td>f)</td><td><div data-smiles="C\\#CC(CC)CC\\#CCC" data-solucion="false"></div></td><td style="color: red;">3-etilocta-1,5-diino</td>
+                            <td>f)</td><td><div data-smiles="C#CC(CC)CC#CCC" data-solucion="false"></div></td><td style="color: red;">3-etilocta-1,5-diino</td>
                         </tr>
                         <tr>
                             <td>g)</td><td><div data-smiles="CC(C)C(C)CC" data-solucion="false"></div></td><td style="color: red;">2,3-dimetilpentano</td>
-                            <td>h)</td><td><div data-smiles="C=CC(C)CC\\#C" data-solucion="false"></div></td><td style="color: red;">3-metilhex-1-en-5-ino</td>
+                            <td>h)</td><td><div data-smiles="C=CC(C)CC#C" data-solucion="false"></div></td><td style="color: red;">3-metilhex-1-en-5-ino</td>
                         </tr>
                         <tr>
                             <td>i)</td><td><div data-smiles="CC=CC(C)(CC)C=CC=CC" data-solucion="false"></div></td><td style="color: red;">7-etil-7-metildeca-2,4,8-trieno</td>
@@ -857,7 +857,7 @@ const baseDatosProblemas = {
                     </tr>
                     <tr>
                         <td>j)</td><td>\\(\\ce{CH3-CONH-CH3}\\)</td>
-                        <td>k)</td><td><div data-smiles="C\\#CC(CCC)C\\#CCC(C)(C)CC"></div></td>
+                        <td>k)</td><td><div data-smiles="C#CC(CCC)C#CCC(C)(C)CC"></div></td>
                         <td>l)</td><td>\\(\\ce{NO2-CH2-CH2-NO2}\\)</td>
                     </tr>
                 </tbody>
@@ -936,7 +936,7 @@ const baseDatosProblemas = {
                         <td>c)</td><td><div data-smiles="CC(C=O)C=O"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td><div data-smiles="C\\#CC(CC)C(C)C\\#CC"></div></td>
+                        <td>d)</td><td><div data-smiles="C#CC(CC)C(C)C#CC"></div></td>
                         <td>e)</td><td><div data-smiles="CCC(=O)C(=O)O"></div></td>
                         <td>f)</td><td><div data-smiles="CC(O)C=O"></div></td>
                     </tr>
