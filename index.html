@@ -5,12 +5,12 @@
     <title>Problemas de Química - Soluciones Detalladas</title>
 
     <!-- 1. MathJax para fórmulas químicas (si lo usas) -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <script src="libs/openchemlib-full.min.js"></script>
-
-    <link rel="stylesheet" href="libs/kekule.css">
+    <!-- Cargar en este orden -->
+    <link rel="stylesheet" href="libs/kekule.min.css">
+    <script src="libs/openchemlib-full.js"></script>
     <script src="libs/kekule.min.js"></script>
 
 
@@ -73,24 +73,29 @@
 
 function convertirSmilesAMolStr(smiles) {
     try {
-        // 1. Crear molécula desde SMILES
+        // 1. Crear molécula desde la cadena SMILES usando OpenChemLib
         const mol = OCL.Molecule.fromSmiles(smiles);
         
-        // 2. Generar coordenadas 2D forzando el layout de la estructura
-        // OCL calcula automáticamente el layout si no tiene coordenadas al invocar métodos de render o exportación estructurada
+        // 2. CREAR EL LAYOUT 2D DE FORMA CORRECTA
+        // Instanciamos el formateador visual de OpenChemLib para que distribuya las 
+        // ramificaciones del alcano/alqueno en un plano bidimensional equilibrado.
+        // Opción 1: Usar la API actualizada de OCL
+        const autoLayout = new OCL.StructureMoleculeAutoLayout(molecule);
+        autoLayout.layout();
         
-        // 3. Opcional: limpiar e hidrógenos (según tu código original)
-        mol.removeHydrogens(); 
+        // 3. EXPORTAR EN FORMATO MOL V2000 ESTÁNDAR
+        // Pasamos 'false' como argumento para asegurar la máxima compatibilidad con Kekule
+        const molfileV2000 = mol.toMolfile(false);
         
-        // 4. Exportar a formato MOL
-        // En muchas versiones de OCL, toMolfile() genera el layout 2D automáticamente si no existe.
-        return mol.toMolfile();
+        return molfileV2000;
         
     } catch (e) {
         console.error(`❌ Error convirtiendo SMILES "${smiles}" a MOL:`, e);
         return null;
     }
 }
+
+
         function dibujarMoleculasKekule() {
             if (typeof Kekule === 'undefined' || !Kekule.ChemWidget || !Kekule.IO) {
                 console.warn('⚠ Componentes de Kekule no listos en el DOM, reintentando...');
