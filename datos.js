@@ -591,7 +591,52 @@ const baseDatosProblemas = {
                 </table>`,
             solucion: `
                 <div class='paso'>
-                   <p style="color: red;">(Espacio preparado para añadir soluciones del bloque de compuestos oxigenados)</p>
+                    <table class="tabla-ejercicios-solucion">
+                        <thead>
+                            <tr>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td><td>Butan-2-ol</td><td><div data-smiles="CCC(O)C" data-solucion="true"></div></td>
+                                <td>b)</td><td>Etanol</td><td><div data-smiles="CCO" data-solucion="true" data-rotation="60"></div></td>
+                            </tr>
+                            <tr>
+                                <td>c)</td><td>Metanol</td><td><div data-smiles="CO" data-solucion="true" data-rotation="60"></div></td>
+                                <td>d)</td><td>Pent-3-en-2-ol</td><td><div data-smiles="CC(O)C=CC" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>e)</td><td>4-metilpentan-1,3-diol</td><td><div data-smiles="CC(C)C(O)CCO" data-solucion="true"></div></td>
+                                <td>f)</td><td>Ciclohexano-1,2,3,4,5,6-hexol</td><td><div data-smiles="C1(O)C(O)C(O)C(O)C(O)C1O" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>g)</td><td>Fenol</td><td><div data-smiles="C1=CC=C(C=C1)O" data-solucion="true"></div></td>
+                                <td>h)</td><td>Etil metil éter</td><td><div data-smiles="CCOC" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>i)</td><td>Dietil éter</td><td><div data-smiles="CCOCC" data-solucion="true"></div></td>
+                                <td>j)</td><td>Isopropil metil éter</td><td><div data-smiles="CC(C)OC" data-solucion="true"></div></td>
+                            </tr>   
+                            <tr>
+                                <td>k)</td><td>Pentan-3-ona</td><td><div data-smiles="CCC(=O)CC" data-solucion="true"></div></td>
+                                <td>l)</td><td>Acetona (propanona)</td><td><div data-smiles="CC(=O)C" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>m)</td><td>Butanona</td><td><div data-smiles="CCC(=O)C" data-solucion="true"></div></td>
+                                <td>n)</td><td>Butanodiona</td><td><div data-smiles="CC(=O)C(=O)C" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>ñ)</td><td>	Formaldehído (metanal)</td><td><div data-smiles="C=O" data-solucion="true"></div></td>
+                                <td>o)</td><td>Etanal</td><td><div data-smiles="CC=O" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>p)</td><td>2,2-dimetilbutanal</td><td><div data-smiles="CCC(C)(C)C=O" data-solucion="true"></div></td>
+                                <td>q)</td><td>Benzaldehído</td><td><div data-smiles="C1=CC=C(C=C1)C=O" data-solucion="true"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             `
         },
