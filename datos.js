@@ -142,7 +142,7 @@ const baseDatosProblemas = {
                     <tr>
                         <td>a)</td><td>\\( \\ce{CH3-CH2-CH2-CH3} \\)</td>
                         <td>b)</td><td>\\( \\ce{CH4} \\)</td>
-                        <td>c)</td><td>\\( \\ce{CH3-(CH2)6-CH3} \\)</td>
+                        <td>c)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH2-CH2-CH2-CH3} \\)</td>
                     </tr>
                     <tr>
                         <td>d)</td><td><div data-smiles="C1CCC1" data-solucion="false"></div></td>
@@ -509,7 +509,36 @@ const baseDatosProblemas = {
             </table>`,
             solucion: `
                 <div class='paso'>
-                    <p style="color: green; font-weight: bold;">Aquí puedes completar los nombres de las soluciones correspondientes al problema 6.</p>
+                <table class="tabla-ejercicios-solucion">
+                    <thead>
+                        <tr>
+                            <th></th><th>Fórmula</th><th>Nombre</th>
+                            <th></th><th>Fórmula</th><th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>a)</td><td><div data-smiles="CCC1=CC=CC=C1C" data-solucion="false"></div></td><td style="color: red;">1-etil-2-metilbenceno (u orto-etilmetilbenceno)</td>
+                        <td>b)</td><td><div data-smiles="CC1=CC(C)=CC(C)=C1" data-solucion="false"></div></td><td style="color: red;">1,3,5-trimetilbenceno</td>
+                    </tr>
+                    <tr>
+                        <td>c)</td><td><div data-smiles="CC1=CC=C(C)C=C1"data-solucion="false"></div></td><td style="color: red;">1,4-dimetilbenceno</td>
+                        <td>d)</td><td><div data-smiles="CC1=CC(C)=CC=C1"data-solucion="false"></div></td><td style="color: red;">1,3-dimetilbenceno</td>
+                    </tr>
+                    <tr>
+                        <td>e)</td><td><div data-smiles="CCC1=CC(CC)=CC=C1" data-solucion="false"></div></td><td style="color: red;">1,3-dietilbenceno</td>
+                        <td>f)</td><td><div data-smiles="C1=CC=C2C=CC=CC2=C1" data-rotation="60"data-solucion="false"></div></td><td style="color: red;">Naftaleno</td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td><div data-smiles="CCC1=C(CC)C(C)=CC=C1" data-solucion="false"></div></td><td style="color: red;">1,2-dietil-3-metilbenceno</td>
+                        <td>h)</td><td><div data-smiles="C1=CC=C2C=C3C=CC=CC3=CC2=C1" data-rotation="60" data-solucion="false"></div></td><td style="color: red;">Antraceno</td>
+                    </tr>
+                    <tr>
+                        <td>i)</td><td><div data-smiles="ClC1=CC=C(Cl)C(Cl)=C1" data-solucion="false"></div></td><td style="color: red;">1,2,4-triclorobenceno</td>
+                        <td>j)</td><td><div data-smiles="C=CC(Cl)(Cl)CCl" data-solucion="false"></div></td><td style="color: red;">3,3,4-triclorobut-1-eno</td>
+                    </tr>
+                </tbody>
+                </table>    
                 </div>
             `
         }
