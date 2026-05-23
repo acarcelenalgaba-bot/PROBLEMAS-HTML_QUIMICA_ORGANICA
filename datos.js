@@ -87,7 +87,7 @@ const baseDatosProblemas = {
                                 <td>j)</td><td>But-2-eno</td><td style="color: red;">\\( \\ce{CH_3-CH=CH-CH_3} \\)</td>
                             </tr>
                             <tr>
-                                <td>k)</td><td>Non-1-eno</td><td style="color: red;">\\( \\ce{CH_2=CH-(CH_2)_7-CH_3} \\)</td>
+                                <td>k)</td><td>Non-1-eno</td><td style="color: red;">\\( \\ce{CH_2=CH-(CH_2)_6-CH_3} \\)</td>
                                 <td>l)</td><td>Eteno</td><td style="color: red;">\\( \\ce{CH_2=CH_2} \\)</td>
                             </tr>
                             <tr>
@@ -142,7 +142,7 @@ const baseDatosProblemas = {
                     <tr>
                         <td>a)</td><td>\\( \\ce{CH3-CH2-CH2-CH3} \\)</td>
                         <td>b)</td><td>\\( \\ce{CH4} \\)</td>
-                        <td>c)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH2-CH2-CH2-CH3} \\)</td>
+                        <td>c)</td><td>\\( \\ce{CH3-(CH2)6-CH3} \\)</td>
                     </tr>
                     <tr>
                         <td>d)</td><td><div data-smiles="C1CCC1" data-solucion="false"></div></td>

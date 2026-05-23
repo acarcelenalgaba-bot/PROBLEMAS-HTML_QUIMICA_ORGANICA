@@ -93,7 +93,6 @@
             }
         }
 
-
         function dibujarMoleculasKekule() {
             // Buscamos todos los contenedores con el atributo data-smiles
             const contenedores = document.querySelectorAll('[data-smiles]');
@@ -127,9 +126,6 @@
                     const viewer = new Kekule.ChemWidget.Viewer(document);
                     viewer.setDimension(ANCHO_MOLECULE + 'px', ALTO_MOLECULE + 'px');
 
-                    // 🔴 NUEVO: Desactivar el auto-ajuste
-                    // viewer.setAutofit(false);
-
                     // Deshabilitar herramientas de edición para que sea solo de visualización estática
                     viewer.setEnableToolbar(false);
                     viewer.setEnableDirectInteraction(false);
@@ -138,9 +134,8 @@
                     // 1. Apagamos el ajuste automático para tomar el control de los píxeles
                     viewer.setAutofit(false);
                     
-                    // 2. Ajustamos el Zoom nativo. 
-                    // 💡 Modifica este número a tu gusto: 
-                    // Si pones 2.0 los enlaces serán más cortos. Si pones 3.0 serán más largos.
+                    // 2. Ajustamos el Zoom nativo.
+                    // Si pones 2.0 los enlaces serán más cortos; 3.0 serán más largos.
                     viewer.setZoom(1.25);
                     
                     // 3. Cargamos el texto MOL en Kekule usando el formato oficial 'mol'
@@ -164,17 +159,38 @@
                 // 4. CONFIGURACIÓN VISUAL: Forzar Fórmula Semidesarrollada
                 try {
                     const displayConfigs = viewer.getRenderConfigs().getMoleculeDisplayConfigs();
+                    const colorConfigs = viewer.getRenderConfigs().getColorConfigs();
                     
                     // Método compatible con Kekule 1.0.3: Cambiar a modo condensado (semidesarrollado)
                     if (typeof displayConfigs.setDefMoleculeDisplayType === 'function') {
                         displayConfigs.setDefMoleculeDisplayType(Kekule.Render.MoleculeDisplayType.CONDENSED);
                     }
+
+                    // Si la versión moderna llegara a estar disponible, la aplicamos
+                    if (typeof displayConfigs.setDefCarbonDisplayState === 'function') {
+                        displayConfigs.setDefCarbonDisplayState(Kekule.Render.NodeLabelDisplayMode.SHOWN);
+                        displayConfigs.setDefHydrogenDisplayState(Kekule.Render.NodeLabelDisplayMode.SHOWN);
+                    }
                     
-                        // Si la versión moderna llegara a estar disponible, la aplicamos
-                        if (typeof displayConfigs.setDefCarbonDisplayState === 'function') {
-                            displayConfigs.setDefCarbonDisplayState(Kekule.Render.NodeLabelDisplayMode.SHOWN);
-                            displayConfigs.setDefHydrogenDisplayState(Kekule.Render.NodeLabelDisplayMode.SHOWN);
+                    // 🔴 DETECTAR SI ES SOLUCIÓN Y CAMBIAR COLOR A ROJO
+                    const esSolucion = contenedor.getAttribute('data-solucion') === 'true';
+                    if (esSolucion && colorConfigs) {
+                        // Cambia el color de los enlaces (bonds) y átomos generales
+                        if (typeof colorConfigs.setUseDirectAtomColor !== 'undefined') {
+                            colorConfigs.setUseDirectAtomColor(false); // Evita que use los colores CPK por defecto (como el gris/negro del carbono)
                         }
+                        colorConfigs.setAtomColor('#ff0000'); // Átomos en rojo
+                        colorConfigs.setBondColor('#ff0000'); // Enlaces en rojo
+                    } else if (colorConfigs) {
+                        // Resetear a colores normales si no es solución (por si acaso reutiliza visores)
+                        if (typeof colorConfigs.setUseDirectAtomColor !== 'undefined') {
+                            colorConfigs.setUseDirectAtomColor(true);
+                        }
+                        colorConfigs.setAtomColor('#000000');
+                        colorConfigs.setBondColor('#000000');
+                    }
+
+
                     } catch (warn) {
                         console.warn("Aviso visual: Usando configuración por defecto de Kekule");
                     }
@@ -197,7 +213,6 @@
             });
         }
 
-    
     </script>
     
     <style>
