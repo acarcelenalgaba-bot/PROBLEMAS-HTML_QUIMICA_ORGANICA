@@ -518,7 +518,7 @@ const baseDatosProblemas = {
                     </thead>
                     <tbody>
                     <tr>
-                        <td>a)</td><td><div data-smiles="CCC1=CC=CC=C1C" data-solucion="false"></div></td><td style="color: red;">1-etil-2-metilbenceno (u orto-etilmetilbenceno)</td>
+                        <td>a)</td><td><div data-smiles="CCC1=CC=CC=C1C" data-solucion="false"></div></td><td style="color: red;">1-etil-2-metilbenceno (u o-etilmetilbenceno)</td>
                         <td>b)</td><td><div data-smiles="CC1=CC(C)=CC(C)=C1" data-solucion="false"></div></td><td style="color: red;">1,3,5-trimetilbenceno</td>
                     </tr>
                     <tr>
