@@ -442,10 +442,10 @@ const baseDatosProblemas = {
                         <tbody>
                             <tr>
                                 <td>a)</td><td>Benceno</td><td><div data-smiles="C1=CC=CC=C1" data-solucion="true"></div></td>
-                                <td>b)</td><td>Naftaleno</td><td><div data-smiles="C1=CC=C2C=CC=CC2=C1" data-solucion="true"></div></td>
+                                <td>b)</td><td>Naftaleno</td><td><div data-smiles="C1=CC=C2C=CC=CC2=C1" data-solucion="true" data-rotation="60"></div></td>
                             </tr>
                             <tr>
-                                <td>c)</td><td>Antraceno</td><td><div data-smiles="C1=CC=C2C=C3C=CC=CC3=CC2=C1" data-solucion="true"></div></td>
+                                <td>c)</td><td>Antraceno</td><td><div data-smiles="C1=CC=C2C=C3C=CC=CC3=CC2=C1" data-solucion="true" data-rotation="60"></div></td>
                                 <td>d)</td><td>2-fenilpentano</td><td><div data-smiles="CCCC(C)C1=CC=CC=C1" data-solucion="true"></div></td>
                             </tr>
                             <tr>
@@ -493,11 +493,11 @@ const baseDatosProblemas = {
                     <tr>
                         <td>d)</td><td><div data-smiles="CC1=CC(C)=CC=C1"></div></td>
                         <td>e)</td><td><div data-smiles="CCC1=CC(CC)=CC=C1"></div></td>
-                        <td>f)</td><td><div data-smiles="C1=CC=C2C=CC=CC2=C1"></div></td>
+                        <td>f)</td><td><div data-smiles="C1=CC=C2C=CC=CC2=C1" data-rotation="60"></div></td>
                     </tr>
                     <tr>
                         <td>g)</td><td><div data-smiles="CCC1=C(CC)C(C)=CC=C1"></div></td>
-                        <td>h)</td><td><div data-smiles="C1=CC=C2C=C3C=CC=CC3=CC2=C1"></div></td>
+                        <td>h)</td><td><div data-smiles="C1=CC=C2C=C3C=CC=CC3=CC2=C1" data-rotation="60"></div></td>
                         <td>i)</td><td><div data-smiles="ClC1=CC=C(Cl)C(Cl)=C1"></div></td>
                     </tr>
                     <tr>

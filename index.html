@@ -18,8 +18,8 @@
 
     <script>
         // ===== CONFIGURACIÓN KEKULE =====
-        const ANCHO_MOLECULE = 300;
-        const ALTO_MOLECULE = 250;
+        const ANCHO_MOLECULE = 250;
+        const ALTO_MOLECULE = 200;
         
         // Comprobar y asegurar que Kekule está totalmente disponible
         function esperarKekule() {
@@ -71,123 +71,133 @@
             }
         }
 
-function convertirSmilesAMolStr(smiles) {
-    try {
-        // 1. Crear molécula desde la cadena SMILES usando OpenChemLib
-        const mol = OCL.Molecule.fromSmiles(smiles);
-        
-        // 2. CREAR EL LAYOUT 2D DE FORMA CORRECTA
-        // Instanciamos el formateador visual de OpenChemLib para que distribuya las 
-        // ramificaciones del alcano/alqueno en un plano bidimensional equilibrado.
-        // Opción 1: Usar la API actualizada de OCL
-        const autoLayout = new OCL.StructureMoleculeAutoLayout(molecule);
-        autoLayout.layout();
-        
-        // 3. EXPORTAR EN FORMATO MOL V2000 ESTÁNDAR
-        // Pasamos 'false' como argumento para asegurar la máxima compatibilidad con Kekule
-        const molfileV2000 = mol.toMolfile(false);
-        
-        return molfileV2000;
-        
-    } catch (e) {
-        console.error(`❌ Error convirtiendo SMILES "${smiles}" a MOL:`, e);
-        return null;
-    }
-}
+        function convertirSmilesAMolStr(smiles) {
+            try {
+                const mol = OCL.Molecule.fromSmiles(smiles);
+                
+                if (typeof mol.inventCoordinates === 'function') {
+                    mol.inventCoordinates();
+                }
+                
+                // TRUCO: Le damos un nombre para evitar que el archivo MOL empiece 
+                // con una línea en blanco, lo que a veces confunde a Kekule.
+                if (typeof mol.setName === 'function') {
+                    mol.setName("Mol");
+                }
+                
+                return mol.toMolfile(false);
+                
+            } catch (e) {
+                console.error(`❌ Error convirtiendo SMILES "${smiles}" a MOL:`, e);
+                return null;
+            }
+        }
 
 
         function dibujarMoleculasKekule() {
-            if (typeof Kekule === 'undefined' || !Kekule.ChemWidget || !Kekule.IO) {
-                console.warn('⚠ Componentes de Kekule no listos en el DOM, reintentando...');
-                setTimeout(dibujarMoleculasKekule, 150);
-                return;
-            }
+            // Buscamos todos los contenedores con el atributo data-smiles
+            const contenedores = document.querySelectorAll('[data-smiles]');
+            
+            if (contenedores.length === 0) return;
 
-            console.log('🔬 Analizando renderizado seguro de moléculas mediante conversión MOL...');
+            console.log(`🔬 Analizando renderizado seguro de moléculas mediante conversión MOL... (Total: ${contenedores.length})`);
 
-            document.querySelectorAll('[data-smiles]').forEach((contenedor, index) => {
-                const smiles = contenedor.getAttribute('data-smiles');
-                if (!smiles) return;
+            contenedores.forEach(contenedor => {
+                // Si ya está renderizado, lo saltamos para evitar bucles o sobreescrituras
+                if (contenedor.getAttribute('data-rendered') === 'true') return;
 
-                // Evitar duplicar renders sobre un mismo contenedor
-                if (contenedor.hasAttribute('data-rendered')) {
-                    return;
-                }
+                const smilesRaw = contenedor.getAttribute('data-smiles');
+                if (!smilesRaw) return;
 
-                // Filtrar si pertenece a un paso oculto dentro de la caja de soluciones
-                const esSolucion = contenedor.closest('#caja-solucion') || contenedor.getAttribute('data-solucion') === "true";
-                if (esSolucion) {
-                    const pasoPadre = contenedor.closest('.paso');
-                    if (pasoPadre && !pasoPadre.classList.contains('visible')) {
-                        return;
-                    }
-                }
-
-                // Definición del color: ENUNCIADO -> Negro (#000000) | SOLUCIÓN -> Rojo (#c01a1a)
-                const colorMol = esSolucion ? '#c01a1a' : '#000000';
+                const smilesTrimmed = smilesRaw.trim();
 
                 try {
-                    const smilesTrimmed = smiles.trim();
-                    
-                    // Convertimos localmente el SMILES a un bloque MOL utilizando OpenChemLib
+                    // 1. Convertimos el SMILES a un bloque de texto MOL usando OpenChemLib
                     const molDataStr = convertirSmilesAMolStr(smilesTrimmed);
-                    
+
                     if (!molDataStr) {
-                        contenedor.innerHTML = '<p style="color: #e74c3c; padding: 5px; font-size: 11px;">Error: Conversión local SMILES->MOL fallida</p>';
+                        contenedor.innerHTML = '<p style="color: #e74c3c; font-size: 11px;">Error: SMILES inválido</p>';
                         contenedor.setAttribute('data-rendered', 'true');
                         return;
                     }
 
-                    // Cargamos en Kekule usando de forma nativa el formato 'mol' obtenido
-                    let molecule = Kekule.IO.loadFormatData(molDataStr, 'mol');
-                    
-                    if (!molecule || !molecule.getAtomCount || molecule.getAtomCount() === 0) {
-                        console.error(`❌ Molécula inválida o vacía para el bloque MOL derivado de: "${smilesTrimmed}"`);
-                        contenedor.innerHTML = '<p style="color: #e74c3c; padding: 5px; font-size: 11px;">Error: Estructura vacía en Kekule</p>';
-                        contenedor.setAttribute('data-rendered', 'true');
-                        return;
-                    }
-
-                    // Limpiar texto residual del contenedor
+                    // 2. Limpiamos el contenedor y creamos el visor de Kekule
                     contenedor.innerHTML = '';
-
-                    // Crear el contenedor físico en el DOM
-                    const viewerDiv = document.createElement('div');
-                    viewerDiv.id = `kekule-canvas-viewer-${index}`;
-                    viewerDiv.style.width = ANCHO_MOLECULE + 'px';
-                    viewerDiv.style.height = ALTO_MOLECULE + 'px';
-                    viewerDiv.style.border = '1px solid #e2e8f0';
-                    viewerDiv.style.borderRadius = '6px';
-                    viewerDiv.style.backgroundColor = '#ffffff';
-                    viewerDiv.style.display = 'inline-block';
-                    viewerDiv.style.verticalAlign = 'middle';
                     
-                    contenedor.appendChild(viewerDiv);
+                    const viewer = new Kekule.ChemWidget.Viewer(document);
+                    viewer.setDimension(ANCHO_MOLECULE + 'px', ALTO_MOLECULE + 'px');
 
-                    // Instanciar el visor de Kekule
-                    const viewer = new Kekule.ChemWidget.Viewer(viewerDiv);
-                    viewer.setRenderType(Kekule.Render.RendererType.R2D);
+                    // 🔴 NUEVO: Desactivar el auto-ajuste
+                    // viewer.setAutofit(false);
+
+                    // Deshabilitar herramientas de edición para que sea solo de visualización estática
+                    viewer.setEnableToolbar(false);
                     viewer.setEnableDirectInteraction(false);
-                    viewer.setEnableToolButtons(false);
 
-                    // Aplicar colores según el entorno (Enunciado/Solución)
-                    viewer.getDrawStyles().setAtomColor(colorMol);
-                    viewer.getDrawStyles().setBondColor(colorMol);
+                    // 🔴 NUEVO CONTROL DE MEDIDA REAL (REEMPLAZA AQUÍ):
+                    // 1. Apagamos el ajuste automático para tomar el control de los píxeles
+                    viewer.setAutofit(false);
+                    
+                    // 2. Ajustamos el Zoom nativo. 
+                    // 💡 Modifica este número a tu gusto: 
+                    // Si pones 2.0 los enlaces serán más cortos. Si pones 3.0 serán más largos.
+                    viewer.setZoom(1.25);
+                    
+                    // 3. Cargamos el texto MOL en Kekule usando el formato oficial 'mol'
+                    const objetoParseado = Kekule.IO.loadFormatData(molDataStr, 'mol');
 
-                    // Forzar el estilo semidesarrollado solicitado
-                    aplicarEstiloSemidesarrolladoAlViewer(viewer);
+                    if (!objetoParseado) {
+                        console.error(`❌ Kekule no pudo leer el bloque MOL de: "${smilesTrimmed}"`);
+                        contenedor.innerHTML = '<p style="color: #e74c3c; font-size: 11px;">Error de lectura en Kekule</p>';
+                        contenedor.setAttribute('data-rendered', 'true');
+                        return;
+                    }
 
-                    // Inyectar el objeto químico ya procesado como MOL
-                    viewer.setChemObj(molecule);
+                    // 🟢 NUEVO: CONTROL DE ROTACIÓN INDEPENDIENTE
+                    // Buscamos si el div actual tiene configurada una rotación en grados
+                    const grados = parseFloat(contenedor.getAttribute('data-rotation')) || 0;
+                    if (grados !== 0) {
+                        const radianes = grados * (Math.PI / 180); // Kekule procesa la rotación en radianes
+                        viewer.rotate2DTo(radianes);
+                    }
+
+                // 4. CONFIGURACIÓN VISUAL: Forzar Fórmula Semidesarrollada
+                try {
+                    const displayConfigs = viewer.getRenderConfigs().getMoleculeDisplayConfigs();
+                    
+                    // Método compatible con Kekule 1.0.3: Cambiar a modo condensado (semidesarrollado)
+                    if (typeof displayConfigs.setDefMoleculeDisplayType === 'function') {
+                        displayConfigs.setDefMoleculeDisplayType(Kekule.Render.MoleculeDisplayType.CONDENSED);
+                    }
+                    
+                        // Si la versión moderna llegara a estar disponible, la aplicamos
+                        if (typeof displayConfigs.setDefCarbonDisplayState === 'function') {
+                            displayConfigs.setDefCarbonDisplayState(Kekule.Render.NodeLabelDisplayMode.SHOWN);
+                            displayConfigs.setDefHydrogenDisplayState(Kekule.Render.NodeLabelDisplayMode.SHOWN);
+                        }
+                    } catch (warn) {
+                        console.warn("Aviso visual: Usando configuración por defecto de Kekule");
+                    }
+
+                    // 5. Inyectamos el objeto químico en el visor y lo añadimos al DOM
+                    viewer.setChemObj(objetoParseado);
+                    viewer.appendToElem(contenedor);
+
+                    // Nos aseguramos de que tanto tu contenedor HTML como la caja que mete Kekule sean transparentes
+                    contenedor.style.backgroundColor = 'transparent';
+
+                    // Marcamos como renderizado con éxito
                     contenedor.setAttribute('data-rendered', 'true');
 
                 } catch (error) {
-                    console.error('❌ Error crítico renderizando molécula:', smiles, error);
-                    contenedor.innerHTML = '<p style="color: #e74c3c; padding: 5px; font-size: 11px;">Error de visualización</p>';
+                    console.error(`❌ Error crítico renderizando molécula: ${smilesTrimmed}`, error);
+                    contenedor.innerHTML = '<p style="color: #e74c3c; font-size: 11px;">Error crítico de renderizado</p>';
                     contenedor.setAttribute('data-rendered', 'true');
                 }
             });
         }
+
+    
     </script>
     
     <style>
