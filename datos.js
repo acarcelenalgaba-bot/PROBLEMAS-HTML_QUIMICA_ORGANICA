@@ -79,7 +79,7 @@ const baseDatosProblemas = {
                                 <td>f)</td><td>Hexano</td><td style="color: red;">\\( \\ce{CH_3-(CH_2)_4-CH_3} \\)</td>
                             </tr>
                             <tr>
-                                <td>g)</td><td>Decano</td><td style="color: red;">\\( \\ce{CH_3-(CH_2)_8-CH_3} \\)</td>
+                                <td>g)</td><td>Decano</td><td style="color: red;"> \\( \\ce{CH_3-(CH_2)_8-CH_3} \\)</td>
                                 <td>h)</td><td>Ciclopentano</td><td><div data-smiles="C1CCCC1" data-solucion="true"></div></td>
                             </tr>
                             <tr>
@@ -160,7 +160,7 @@ const baseDatosProblemas = {
                         <td>l)</td><td>\\( \\ce{CH3-C#CH} \\)</td>
                     </tr>
                     <tr>
-                        <td>m)</td><td><div data-smiles="C1=CC=CCCC=C1" data-solucion="false"></div></td>
+                        <td>m)</td><td><div data-smiles="C1=CC=CCC=C1" data-solucion="false"></div></td>
                         <td>n)</td><td>\\( \\ce{CH#C-CH3} \\)</td>
                         <td>ñ)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH2-CH3} \\)</td>
                     </tr>
@@ -207,7 +207,7 @@ const baseDatosProblemas = {
                             <td>l)</td><td>\\( \\ce{CH3-C#CH} \\)</td><td style="color: red;">Propino</td>
                         </tr>
                         <tr>
-                            <td>m)</td><td><div data-smiles="C1=CC=CCCC=C1" data-solucion="false"></div></td><td style="color: red;">Cicloocta-1,3,6-trieno</td>
+                            <td>m)</td><td><div data-smiles="C1=CC=CCC=C1" data-solucion="false"></div></td><td style="color: red;">Ciclohepta-1,3,6-trieno</td>
                             <td>n)</td><td>\\( \\ce{CH#C-CH3} \\)</td><td style="color: red;">Propino</td>
                         </tr>
                         <tr>
@@ -654,29 +654,61 @@ const baseDatosProblemas = {
                 <tbody>
                     <tr>
                         <td>a)</td><td><div data-smiles="OC1=CC=CC=C1"></div></td>
-                        <td>b)</td><td> \\(\\ce{CH3-CH2-OH}\\)</td>
+                        <td>b)</td><td> <div data-smiles="CCO"></div></td>
                         <td>c)</td><td> <div data-smiles="CC(O)C(O)CC"></div></td>
                     </tr>
                     <tr>
                         <td>d)</td><td> <div data-smiles="CC(C)(O)C(O)CCC"></div> </td>
-                        <td>e)</td><td> \\(\\ce{CH3-O-CH3}\\)</td>
+                        <td>e)</td><td> <div data-smiles="COC"></div></td>
                         <td>f)</td><td><div data-smiles="C1(OC2=CC=CC=C2)=CC=CC=C1"></div></td>
                     </tr>
                     <tr>
                         <td>g)</td><td><div data-smiles="CCOC1=CC=CC=C1"></div></td>
-                        <td>h)</td><td>\\(\\ce{CHO-CH2-CHO}\\)</td>
+                        <td>h)</td><td><div data-smiles="O=CCC=O"></div></td>
                         <td>i)</td><td><div data-smiles="O=CC1=CC=CC=C1"></div></td>
                     </tr>
                     <tr>
-                        <td>j)</td><td>\\(\\ce{CH3-CH2-CH2-CHO}\\)</td>
+                        <td>j)</td><td><div data-smiles="O=CCCC"></div></td>
                         <td>k)</td><td><div data-smiles="CC(=O)CC(C1=CC=CC=C1)C"></div></td>
-                        <td>l)</td><td>\\(\\ce{CH2=C(CH3)-CHO}\\)</td>
+                        <td>l)</td><td><div data-smiles="CC(C)C=O"></div></td>
                     </tr>
                 </tbody>
             </table>`,
             solucion: `
                 <div class='paso'>
-                </div>
+                <table class="tabla-ejercicios-solucion">
+                    <thead>
+                        <tr>
+                            <th></th><th>Fórmula</th><th>Nombre</th>
+                            <th></th><th>Fórmula</th><th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>a)</td><td><div data-smiles="OC1=CC=CC=C1" data-solucion="false"></div></td><td style="color: red;">Fenol</td>
+                        <td>b)</td><td><div data-smiles="CCO" data-solucion="false"></div></td><td style="color: red;">Propanal</td>
+                    </tr>
+                    <tr>
+                        <td>c)</td><td> <div data-smiles="CC(O)C(O)CC" data-solucion="false"></div></td><td style="color: red;">pentano-2,3-diol</td>
+                        <td>d)</td><td> <div data-smiles="CC(C)(O)C(O)CCC" data-solucion="false"></div></td><td style="color: red;">2-metilhexano-2,3-diol</td>
+                    </tr>
+                    <tr>
+                        <td>e)</td><td> <div data-smiles="COC" data-solucion="false"></div></td><td style="color: red;">Dimetiléter</td>
+                        <td>f)</td><td><div data-smiles="C1(OC2=CC=CC=C2)=CC=CC=C1" data-solucion="false"></div></td><td style="color: red;">Difeniléter</td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td><div data-smiles="CCOC1=CC=CC=C1" data-solucion="false"></div></td><td style="color: red;">Etoxibenceno</td>
+                        <td>h)</td><td><div data-smiles="O=CCC=O" data-solucion="false"></div></td><td style="color: red;">propanodial</td>
+                    </tr>
+                    <tr>
+                        <td>i)</td><td><div data-smiles="O=CC1=CC=CC=C1" data-solucion="false"></div></td><td style="color: red;">benzaldehído</td>
+                        <td>j)</td><td><div data-smiles="O=CCCC" data-solucion="false"></div></td><td style="color: red;">butanal</td>
+                    </tr>
+                    <tr>
+                        <td>k)</td><td><div data-smiles="CC(=O)CC(C1=CC=CC=C1)C" data-solucion="false"></div></td><td style="color: red;">4-fenilpentan-2-ona</td>
+                        <td>l)</td><td><div data-smiles="CC(C)C=O" data-solucion="false"></div></td><td style="color: red;">2-metilpropanal</td>
+                    </tr>
+                </tbody>
             `
         },
         {
