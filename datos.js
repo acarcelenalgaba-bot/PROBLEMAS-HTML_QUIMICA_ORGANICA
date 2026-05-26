@@ -908,6 +908,48 @@ const baseDatosProblemas = {
                 </table>`,
             solucion: `
                 <div class='paso'>
+                    <table class="tabla-ejercicios-solucion">
+                        <thead>
+                            <tr>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td><td>Etanamina</td><td><div data-smiles="CCN" data-solucion="true"></div></td>
+                                <td>b)</td><td>Metanamina</td><td><div data-smiles="CN" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>c)</td><td>N-metiletanamina</td><td><div data-smiles="CCNC" data-solucion="true"></div></td>
+                                <td>d)</td><td>N-etil-N-metilpropanamina</td><td><div data-smiles="CCCN(CC)C" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>e)</td><td>Etanamida</td><td><div data-smiles="CC(=O)N" data-solucion="true"></div></td>
+                                <td>f)</td><td>Metanamida</td><td><div data-smiles="C(=O)N" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>g)</td><td>Butanamida</td><td><div data-smiles="CCCC(=O)N" data-solucion="true"></div></td>
+                                <td>h)</td><td>N-fenilpropanamida</td><td><div data-smiles="CCC(=O)NC1=CC=CC=C1" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>i)</td><td>N,N-dietilpropanamida</td><td><div data-smiles="CCC(=O)N(CC)CC" data-solucion="true"></div></td>
+                                <td>j)</td><td>Etanonitrilo</td><td><div data-smiles="CC#N" data-solucion="true"></div></td>
+                            </tr>   
+                            <tr>
+                                <td>k)</td><td>Butanonitrilo</td><td><div data-smiles="CCCC#N" data-solucion="true"></div></td>
+                                <td>l)</td><td>Propanonitrilo</td><td><div data-smiles="CCC#N" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>m)</td><td>1-nitrobutano</td><td><div data-smiles="CCCC[N+](=O)[O-]" data-solucion="true"></div></td>
+                                <td>n)</td><td>Nitroetano</td><td><div data-smiles="CC[N+](=O)[O-]" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>ñ)</td><td>2-cloro-1-nitropentano</td><td><div data-smiles="CCCC(Cl)C[N+](=O)[O-]" data-solucion="true"></div></td>
+                                <td></td><td></td><td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             `
         },
@@ -953,8 +995,46 @@ const baseDatosProblemas = {
             </table>`,
             solucion: `
                 <div class='paso'>
-                </div>
-            `
+                <table class="tabla-ejercicios-solucion">
+                    <thead>
+                        <tr>
+                            <th></th><th>Fórmula</th><th>Nombre</th>
+                            <th></th><th>Fórmula</th><th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>a)</td><td><div data-smiles="CCCNC" data-solucion="false"></div></td><td style="color: red;">N-metilpropan-1-amina</td>
+                        <td>b)</td><td><div data-smiles="CN(C)C" data-solucion="false"></div></td><td style="color: red;">N,N-dimetilmetanamina</td>
+                    </tr>
+                    <tr>
+                        <td>c)</td><td><div data-smiles="CC(C)N" data-solucion="false"></div></td><td style="color: red;">Propan-2-amina</td>
+                        <td>d)</td><td><div data-smiles="C1=CC=C(C=C1)N" data-solucion="false"></div></td><td style="color: red;">Anilina (Benzenamina)</td>
+                    </tr>
+                    <tr>
+                        <td>e)</td><td><div data-smiles="CCCCCCCCC(=O)N" data-solucion="false"></div></td><td style="color: red;">Octanamida</td>
+                        <td>f)</td><td><div data-smiles="C(=O)N" data-solucion="false"></div></td><td style="color: red;">Metanamida</td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td><div data-smiles="CCC(=O)NC" data-solucion="false"></div></td><td style="color: red;">N-metilpropanamida</td>
+                        <td>h)</td><td><div data-smiles="C1=CC=C(C=C1)C(=O)N" data-solucion="false"></div></td><td style="color: red;">Benzamida</td>
+                    </tr>
+                    <tr>
+                        <td>i)</td><td><div data-smiles="CC#N" data-solucion="false"></div></td><td style="color: red;">Etanonitrilo</td>
+                        <td>j)</td><td><div data-smiles="CCC#N" data-solucion="false"></div></td><td style="color: red;">Propanonitrilo</td>
+                    </tr>
+                    <tr>
+                        <td>k)</td><td><div data-smiles="CCCC#N" data-solucion="false"></div></td><td style="color: red;">Butanonitrilo</td>
+                        <td>l)</td><td><div data-smiles="CC[N+](=O)[O-]" data-solucion="false"></div></td><td style="color: red;">Nitroetano</td>
+                    </tr>
+                    <tr>
+                        <td>m)</td><td><div data-smiles="C(C[N+](=O)[O-])[N+](=O)[O-]" data-solucion="false"></div></td><td style="color: red;">1,2-dinitroetano</td>
+                        <td>n)</td><td><div data-smiles="CC(C)(C)[N+](=O)[O-]" data-solucion="false"></div></td><td style="color: red;">2-metil-2-nitropropano</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        `
         }
     ],
     "variados": [
