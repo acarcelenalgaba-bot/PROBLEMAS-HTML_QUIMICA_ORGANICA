@@ -831,7 +831,39 @@ const baseDatosProblemas = {
             </table>`,
             solucion: `
                 <div class='paso'>
-                </div>
+                <table class="tabla-ejercicios-solucion">
+                    <thead>
+                        <tr>
+                            <th></th><th>Fórmula</th><th>Nombre</th>
+                            <th></th><th>Fórmula</th><th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>a)</td><td><div data-smiles="CCC(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido propanoico</td>
+                        <td>b)</td><td><div data-smiles="CC(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido etanoico</td>
+                    </tr>
+                    <tr>
+                        <td>c)</td><td> <div data-smiles="CCOC=O" data-solucion="false"></div></td><td style="color: red;">metanoato de etilo</td>
+                        <td>d)</td><td> <div data-smiles="CC=CCC(C)C(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 2-metilhex-4-enoico</td>
+                    </tr>
+                    <tr>
+                        <td>e)</td><td> <div data-smiles="CC(=O)[O-].[Na+]" data-solucion="false"></div></td><td style="color: red;">Etanoato de sodio</td>
+                        <td>f)</td><td><div data-smiles="CCC(=O)[O-].[K+]" data-solucion="false"></div></td><td style="color: red;">Propanoato de potasio</td>
+                    </tr>
+                    <tr>
+                        <td>g)</td><td><div data-smiles="CC(=O)[O-].CC(=O)[O-].[Ca+2]" data-solucion="false"></div></td><td style="color: red;">Etanoato de calcio</td>
+                        <td>h)</td><td><div data-smiles="CC(C)OC(=O)C(C)C" data-solucion="false"></div></td><td style="color: red;">2-metilpropanoato de isopropilo</td>
+                    </tr>
+                    <tr>
+                        <td>i)</td><td><div data-smiles="CCC(=O)OC" data-solucion="false"></div></td><td style="color: red;">Propanoato de metilo</td>
+                        <td>j)</td><td><div data-smiles="CC(C)OC(=O)C" data-solucion="false"></div></td><td style="color: red;">Etanoato de isopropilo</td>
+                    </tr>
+                    <tr>
+                        <td>k)</td><td><div data-smiles="CCCC(=O)OCCC" data-solucion="false"></div></td><td style="color: red;">Butanoato de propilo</td>
+                        <td>l)</td><td><div data-smiles="CC(=O)OCCC" data-solucion="false"></div></td><td style="color: red;">Etanoato de propilo</td>
+                    </tr>
+                </tbody>
             `
         },
         {
