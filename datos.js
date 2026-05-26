@@ -1080,6 +1080,44 @@ const baseDatosProblemas = {
             </table>`,
             solucion: `
                 <div class='paso'>
+                    <table class="tabla-ejercicios-solucion">
+                        <thead>
+                            <tr>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td><td>3-etilhexa-1,5-diino</td><td><div data-smiles="C#CC(CC)CC#C" data-solucion="true"></div></td>
+                                <td>b)</td><td>Butanodinitrilo</td><td><div data-smiles="N#CCCC#N" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>c)</td><td>But-2-en-1,4-diol</td><td><div data-smiles="OCC=CCO" data-solucion="true"></div></td>
+                                <td>d)</td><td>Tetraclorometano</td><td><div data-smiles="C(Cl)(Cl)(Cl)Cl" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>e)</td><td>Ácido 4-yodopentanoico</td><td><div data-smiles="CC(I)CCC(=O)O" data-solucion="true"></div></td>
+                                <td>f)</td><td>2,3,4-trimetilpentanal</td><td><div data-smiles="CC(C)C(C)C(C)C=O" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>g)</td><td>4,5-dimetilocta-3,6-dien-1-ino</td><td><div data-smiles="CC=CC(C)C(C)=CCC#C" data-solucion="true"></div></td>
+                                <td>h)</td><td>N-metilciclobutilamina</td><td><div data-smiles="CNC1CCC1" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>i)</td><td>Ciclohexi fenil éter</td><td><div data-smiles="C1CCC(CC1)OC2=CC=CC=C2" data-solucion="true"></div></td>
+                                <td>j)</td><td>2-metilpropanamida</td><td><div data-smiles="CC(C)C(=O)N" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>k)</td><td>Naftaleno</td><td><div data-smiles="C1=CC=C2C=CC=CC2=C1" data-solucion="true"></div></td>
+                                <td>l)</td><td>1,3-dinitrobenceno</td><td><div data-smiles="C1=CC(=CC(=C1)[N+](=O)[O-])[N+](=O)[O-]" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>m)</td><td>Propanoato de metilo</td><td><div data-smiles="CCC(=O)OC" data-solucion="true"></div></td>
+                                <td>n)</td><td>Fenilamina</td><td><div data-smiles="NC1=CC=CC=C1" data-solucion="true"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             `
         },
@@ -1120,6 +1158,40 @@ const baseDatosProblemas = {
             </table>`,
             solucion: `
                 <div class='paso'>
+                    <table class="tabla-ejercicios-solucion">
+                        <thead>
+                            <tr>
+                                <th></th><th>Fórmula</th><th>Nombre</th>
+                                <th></th><th>Fórmula</th><th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td><td><div data-smiles="CCC1=CC=CC(CC)=C1" data-solucion="false"></div></td><td style="color: red;">1,3-dietilbenceno</td>
+                                <td>b)</td><td><div data-smiles="CCCC(C)C(Cl)(Cl)C" data-solucion="false"></div></td><td style="color: red;">2,2-dicloro-3-metilhexano</td>
+                            </tr>
+                            <tr>
+                                <td>c)</td><td><div data-smiles="CCC(O)C(O)C" data-solucion="false"></div></td><td style="color: red;">Hexano-2,3-diol</td>
+                                <td>d)</td><td><div data-smiles="CC(C)CC(=O)CC(=O)CCC" data-solucion="false"></div></td><td style="color: red;">2-metilnonano-4,6-diona</td>
+                            </tr>
+                            <tr>
+                                <td>e)</td><td><div data-smiles="CCN(C)C" data-solucion="false"></div></td><td style="color: red;">N,N-dimetiletanamina</td>
+                                <td>f)</td><td><div data-smiles="C1([NH]C2=CC=CC=C2)=CC=CC=C1" data-solucion="false"></div></td><td style="color: red;">Difenilamina</td>
+                            </tr>
+                            <tr>
+                                <td>g)</td><td><div data-smiles="C=CC(=O)C=CC" data-solucion="false"></div></td><td style="color: red;">Hexa-1,4-dien-3-ona</td>
+                                <td>h)</td><td><div data-smiles="CCCC(=O)N" data-solucion="false"></div></td><td style="color: red;">Butanamida</td>
+                            </tr>
+                            <tr>
+                                <td>i)</td><td><div data-smiles="CC(=O)OCCC" data-solucion="false"></div></td><td style="color: red;">Etanoato de propilo</td>
+                                <td>j)</td><td><div data-smiles="CC(=O)NC" data-solucion="false"></div></td><td style="color: red;">N-metiletanamida</td>
+                            </tr>
+                            <tr>
+                                <td>k)</td><td><div data-smiles="C#CC(CCC)C#CCC(C)(C)CC" data-solucion="false"></div></td><td style="color: red;">7,7-dimetil3-propildeca-1,4-diino</td>
+                                <td>l)</td><td><div data-smiles="C(C[N+](=O)[O-])[N+](=O)[O-]" data-solucion="false"></div></td><td style="color: red;">1,2-dinitroetano</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             `
         },
@@ -1170,6 +1242,52 @@ const baseDatosProblemas = {
                 </table>`,
             solucion: `
                 <div class='paso'>
+                    <table class="tabla-ejercicios-solucion">
+                        <thead>
+                            <tr>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                                <th></th><th>Nombre</th><th>Fórmula</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td><td>4-hidroxihexan-3-ona</td><td><div data-smiles="CCC(=O)C(O)CC" data-solucion="true"></div></td>
+                                <td>b)</td><td>Ácido 2-hidroxipropanoico</td><td><div data-smiles="CC(O)C(=O)O" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>c)</td><td>2,3-dihidroxi-1-metilbutanal</td><td><div data-smiles="CC(O)C(O)C(C)C=O" data-solucion="true"></div></td>
+                                <td>d)</td><td>2-hidroxi-3-oxobutanal</td><td><div data-smiles="CC(=O)C(O)C=O" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>e)</td><td>Ácido 4-oxopentanoico</td><td><div data-smiles="CC(=O)CCC(=O)O" data-solucion="true"></div></td>
+                                <td>f)</td><td>3-aminobutan-2-ol</td><td><div data-smiles="CC(O)C(C)N" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>g)</td><td>2-etoxietanol</td><td><div data-smiles="CCOCCO" data-solucion="true"></div></td>
+                                <td>h)</td><td>Ácido fenoxietanoico</td><td><div data-smiles="C1=CC=C(C=C1)OCC(=O)O" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>i)</td><td>2-nitroetanol</td><td><div data-smiles="OCC[N+](=O)[O-]" data-solucion="true"></div></td>
+                                <td>j)</td><td>Ácido 2,3-dihidroxibutanoico</td><td><div data-smiles="CC(O)C(O)C(=O)O" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>k)</td><td>Ácido cianoetanoico</td><td><div data-smiles="N#CCC(=O)O" data-solucion="true"></div></td>
+                                <td>l)</td><td>3-oxopent-4-enal</td><td><div data-smiles="C=CC(=O)CC=O" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>m)</td><td>5-hidroxihexa-1,4-dien-3-ona</td><td><div data-smiles="CC(O)=CC(=O)C=C" data-solucion="true"></div></td>
+                                <td>n)</td><td>3-amino-2-etoxi-4-metilhexanonitrilo</td><td><div data-smiles="CCC(C)C(N)C(OCC)C#N" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>ñ)</td><td>Ácido 2-hidroxi-2-metilbutanoico</td><td><div data-smiles="CCC(C)(O)C(=O)O" data-solucion="true"></div></td>
+                                <td>o)</td><td>3-aminopropanoato de etilo</td><td><div data-smiles="NCCC(=O)OCC" data-solucion="true"></div></td>
+                            </tr>
+                            <tr>
+                                <td>p)</td><td>Ácido 3-ciano-2-metoxibutanoico</td><td><div data-smiles="CC(C#N)C(OC)C(=O)O" data-solucion="true"></div></td>
+                                <td>q)</td><td>3-hidroxiciclohexanona</td><td><div data-smiles="O=C1CC(O)CCC1" data-solucion="true"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             `
         },
@@ -1215,6 +1333,48 @@ const baseDatosProblemas = {
             </table>`,
             solucion: `
                 <div class='paso'>
+                    <table class="tabla-ejercicios-solucion">
+                        <thead>
+                            <tr>
+                                <th></th><th>Fórmula</th><th>Nombre</th>
+                                <th></th><th>Fórmula</th><th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>a)</td><td><div data-smiles="CC(O)CC(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 3-hidroxibutanoico</td>
+                                <td>b)</td><td><div data-smiles="O=CCC(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 3-oxopropanoico</td>
+                            </tr>
+                            <tr>
+                                <td>c)</td><td><div data-smiles="CC(C=O)C=O" data-solucion="false"></div></td><td style="color: red;">2-metilpropanodial</td>
+                                <td>d)</td><td><div data-smiles="C#CC(CC)C(C)C#CC" data-solucion="false"></div></td><td style="color: red;">3-etil-4-metilhepta-1,5-diino</td>
+                            </tr>
+                            <tr>
+                                <td>e)</td><td><div data-smiles="CCC(=O)C(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 2-oxobutanoico</td>
+                                <td>f)</td><td><div data-smiles="CC(O)C=O" data-solucion="false"></div></td><td style="color: red;">2-hidroxipropanal</td>
+                            </tr>
+                            <tr>
+                                <td>g)</td><td><div data-smiles="CC(=O)CC[NH2]" data-solucion="false"></div></td><td style="color: red;">4-aminobutan-2-ona</td>
+                                <td>h)</td><td><div data-smiles="CCC(C1CCCC1)C(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 2-ciclobutilbutanoico</td>
+                            </tr>
+                            <tr>
+                                <td>i)</td><td><div data-smiles="CC1=CC(C)=C2C=CC=CC2=C1" data-solucion="false"></div></td><td style="color: red;">1,3-dimetilnaftaleno</td>
+                                <td>j)</td><td><div data-smiles="CC(C1=CC=CC=C1)CC(=O)C" data-solucion="false"></div></td><td style="color: red;">4-fenilpentan-2-ona</td>
+                            </tr>
+                            <tr>
+                                <td>k)</td><td><div data-smiles="[NH2]C1C=CCC1(O)" data-solucion="false"></div></td><td style="color: red;">2-aminocicloba-3-en-1-ol</td>
+                                <td>l)</td><td><div data-smiles="CCC=CCC(=O)N" data-solucion="false"></div></td><td style="color: red;">Hex-3-enamida</td>
+                            </tr>
+                            <tr>
+                                <td>m)</td><td><div data-smiles="O=CCC(=O)C=C" data-solucion="false"></div></td><td style="color: red;">3-oxohex-5-enal</td>
+                                <td>n)</td><td><div data-smiles="O=C(O)C(O)C(O)C(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 2,3-dihidroxibutandioico</td>
+                            </tr>
+                            <tr>
+                                <td>ñ)</td><td><div data-smiles="CC(=O)C(CC)CC(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 3-etil-4-oxopentanoico</td>
+                                <td></td><td></td><td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             `
         }
