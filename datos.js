@@ -1064,7 +1064,7 @@ const baseDatosProblemas = {
                     <tr>
                         <td>g)</td><td>4,5-dimetilocta-3,6-dien-1-ino</td>
                         <td>h)</td><td>N-metilciclobutilamina</td>
-                        <td>i)</td><td>Ciclohexi fenil éter</td>
+                        <td>i)</td><td>Ciclohexil fenil éter</td>
                     </tr>
                     <tr>
                         <td>j)</td><td>2-metilpropanamida</td>
@@ -1105,7 +1105,7 @@ const baseDatosProblemas = {
                                 <td>h)</td><td>N-metilciclobutilamina</td><td><div data-smiles="CNC1CCC1" data-solucion="true"></div></td>
                             </tr>
                             <tr>
-                                <td>i)</td><td>Ciclohexi fenil éter</td><td><div data-smiles="C1CCC(CC1)OC2=CC=CC=C2" data-solucion="true"></div></td>
+                                <td>i)</td><td>Ciclohexil fenil éter</td><td><div data-smiles="C1CCC(CC1)OC2=CC=CC=C2" data-solucion="true"></div></td>
                                 <td>j)</td><td>2-metilpropanamida</td><td><div data-smiles="CC(C)C(=O)N" data-solucion="true"></div></td>
                             </tr>
                             <tr>
@@ -1322,7 +1322,7 @@ const baseDatosProblemas = {
                     <tr>
                         <td>j)</td><td><div data-smiles="CC(C1=CC=CC=C1)CC(=O)C"></div></td>
                         <td>k)</td><td><div data-smiles="[NH2]C1C=CCC1(O)"></div></td>
-                        <td>l)</td><td>\\(\\ce{CCC=CCC(=O)N}\\)</td>
+                        <td>l)</td><td><div data-smiles="CCC=CCC(=O)N"></div></td>
                     </tr>
                     <tr>
                         <td>m)</td><td><div data-smiles="O=CCC(=O)C=C"></div></td>
