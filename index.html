@@ -213,8 +213,49 @@
             });
         }
 
-    </script>
     
+    function escribirChemfig() {
+        const contenedoresChemfig = document.querySelectorAll('[data-chemfig]');
+        
+        if (contenedoresChemfig.length === 0) return;
+
+        console.log(`🧪 Renderizando mediante librería Chemfig nativa... (Total: ${contenedoresChemfig.length})`);
+
+        contenedoresChemfig.forEach(contenedor => {
+            if (contenedor.getAttribute('data-rendered') === 'true') return;
+
+            let formulaChemfig = contenedor.getAttribute('data-chemfig').trim();
+            if (!formulaChemfig) return;
+
+            try {
+                contenedor.innerHTML = '';
+
+                // Si la cadena no empieza explícitamente con el comando \chemfig, lo añadimos de forma automática
+                if (!formulaChemfig.startsWith('\\chemfig')) {
+                    formulaChemfig = `\\chemfig{${formulaChemfig}}`;
+                }
+
+                // Codificamos la macro completa para la petición HTTP externa
+                const codigoCodificado = encodeURIComponent(formulaChemfig);
+                
+                const moleculaImg = document.createElement('img');
+                // Agregamos la macro para garantizar tipografía recta en los elementos químicos
+                moleculaImg.src = `https://latex.codecogs.com/svg.image?\\textnormal{${codigoCodificado}}`;
+                moleculaImg.alt = formulaChemfig;
+                moleculaImg.style.display = 'block';
+                moleculaImg.style.margin = 'auto'; // Centrado en la cuadrícula de la tabla
+
+                contenedor.appendChild(moleculaImg);
+                contenedor.setAttribute('data-rendered', 'true');
+
+            } catch (error) {
+                console.error(`❌ Error en la macro Chemfig:`, error);
+                contenedor.innerHTML = '<span style="color: red; font-size: 11px;">Error Chemfig</span>';
+                contenedor.setAttribute('data-rendered', 'true');
+            }
+        });
+    }
+    </script>
     <style>
         html, body {
             height: 100%;
@@ -516,6 +557,7 @@
             
             esperarKekule().then(() => {
                 setTimeout(() => dibujarMoleculasKekule(), 50);
+                escribirChemfig();
             });
 
             document.querySelector('.zona-lectura').scrollTop = 0;
@@ -537,6 +579,7 @@
                 MathJax.typesetPromise();
                 esperarKekule().then(() => {
                     setTimeout(() => dibujarMoleculasKekule(), 50);
+                    escribirChemfig();
                 });
             } else {
                 caja.style.display = 'none';
@@ -558,6 +601,7 @@
                 
                 esperarKekule().then(() => {
                     setTimeout(() => dibujarMoleculasKekule(), 50);
+                    escribirChemfig();
                 });
 
                 const pasosRestantes = contenedor.querySelector('.paso:not(.visible)');
@@ -575,6 +619,8 @@
         } else {
             esperarKekule().then(() => inicializarMenus());
         }
+
+
     </script>
 </body>
 </html>

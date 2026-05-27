@@ -140,9 +140,9 @@ const baseDatosProblemas = {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>a)</td><td>\\( \\ce{CH3-CH2-CH2-CH3} \\)</td>
-                        <td>b)</td><td>\\( \\ce{CH4} \\)</td>
-                        <td>c)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH2-CH2-CH2-CH3} \\)</td>
+                        <td>a)</td><td><div data-chemfig="*6(-=-=-=)" data-solucion="false"></div></td>
+                        <td>b)</td><td><div data-chemfig="CH_4" data-solucion="false"></div></td>
+                        <td>c)</td><td><div data-chemfig="[,0.7]CH_3-CH_2-CH_2-CH_2-CH_2-CH_2-CH_2-CH_3" data-solucion="false"></div></td>
                     </tr>
                     <tr>
                         <td>d)</td><td><div data-smiles="C1CCC1" data-solucion="false"></div></td>
