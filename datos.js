@@ -140,12 +140,12 @@ const baseDatosProblemas = {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>a)</td><td><div data-chemfig="*6(-=-=-=)" data-solucion="false"></div></td>
-                        <td>b)</td><td><div data-chemfig="CH_4" data-solucion="false"></div></td>
-                        <td>c)</td><td><div data-chemfig="[,0.7]CH_3-CH_2-CH_2-CH_2-CH_2-CH_2-CH_2-CH_3" data-solucion="false"></div></td>
+                        <td>a)</td><td><div data-chemfig="\\text{CH}_3-\\text{CH}_2-\\text{CH}_2-\\text{CH}_3" data-solucion="false"></div></td>
+                        <td>b)</td><td><div data-chemfig="\\text{CH}_4" data-solucion="false"></div></td>
+                        <td>c)</td><td><div data-chemfig="\\text{CH}_3-\\text{CH}_2-\\text{CH}_2-\\text{CH}_2-\\text{CH}_2-\\text{CH}_2-\\text{CH}_3" data-solucion="false"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td><div data-smiles="C1CCC1" data-solucion="false"></div></td>
+                        <td>d)</td><td><div data-chemfig="CH_2-[:90]CH_2-[:0]CH_2-[:270]CH_2-[:180]" data-solucion="false"></div></td>
                         <td>e)</td><td>\\( \\ce{CH2=CH2} \\)</td>
                         <td>f)</td><td>\\( \\ce{CH3-CH=CH-CH3} \\)</td>
                     </tr>

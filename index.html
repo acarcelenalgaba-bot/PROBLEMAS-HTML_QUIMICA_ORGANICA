@@ -240,10 +240,10 @@
                 
                 const moleculaImg = document.createElement('img');
                 // Agregamos la macro para garantizar tipografía recta en los elementos químicos
-                moleculaImg.src = `https://latex.codecogs.com/svg.image?\\textnormal{${codigoCodificado}}`;
+                moleculaImg.src = `https://latex.codecogs.com/svg.image?${codigoCodificado}`;
                 moleculaImg.alt = formulaChemfig;
                 moleculaImg.style.display = 'block';
-                moleculaImg.style.margin = 'auto'; // Centrado en la cuadrícula de la tabla
+                moleculaImg.style.margin = 'left'; // Centrado en la cuadrícula de la tabla
 
                 contenedor.appendChild(moleculaImg);
                 contenedor.setAttribute('data-rendered', 'true');
