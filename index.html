@@ -214,47 +214,61 @@
         }
 
     
-    function escribirChemfig() {
-        const contenedoresChemfig = document.querySelectorAll('[data-chemfig]');
-        
-        if (contenedoresChemfig.length === 0) return;
+        function escribirChemfig() {
+            const contenedoresChemfig = document.querySelectorAll('[data-chemfig]');
+            
+            if (contenedoresChemfig.length === 0) return;
 
-        console.log(`🧪 Renderizando mediante librería Chemfig nativa... (Total: ${contenedoresChemfig.length})`);
+            console.log(`🧪 Renderizando mediante librería Chemfig nativa... (Total: ${contenedoresChemfig.length})`);
 
-        contenedoresChemfig.forEach(contenedor => {
-            if (contenedor.getAttribute('data-rendered') === 'true') return;
+            contenedoresChemfig.forEach(contenedor => {
+                if (contenedor.getAttribute('data-rendered') === 'true') return;
 
-            let formulaChemfig = contenedor.getAttribute('data-chemfig').trim();
-            if (!formulaChemfig) return;
+                let formulaChemfig = contenedor.getAttribute('data-chemfig').trim();
+                if (!formulaChemfig) return;
 
-            try {
-                contenedor.innerHTML = '';
+                // ESTA LÍNEA FUERZA TIPOGRAFÍA RECTA Y SUBÍNDICES PERFECTOS EN CODECOGS
+                formulaChemfig = `\\rm ${formulaChemfig}`;
 
-                // Si la cadena no empieza explícitamente con el comando \chemfig, lo añadimos de forma automática
-                if (!formulaChemfig.startsWith('\\chemfig')) {
-                    formulaChemfig = `\\chemfig{${formulaChemfig}}`;
+                // 1. Comprobar si es solución (evalúa como true si el atributo es "true")
+                const esSolucion = contenedor.getAttribute('data-solucion') === 'true';
+
+                try {
+                    contenedor.innerHTML = '';
+
+                    // Si la cadena no empieza explícitamente con el comando \chemfig, lo añadimos de forma automática
+                    if (!formulaChemfig.startsWith('\\chemfig')) {
+                        formulaChemfig = `\\chemfig{${formulaChemfig}}`;
+                    }
+
+                    // 2. Si es solución, envolvemos toda la macro en el comando de color de LaTeX
+                    // CodeCogs soporta \color{red}{...} por defecto.
+                    if (esSolucion) {
+                        formulaChemfig = `\\color{red}{${formulaChemfig}}`;
+                    } else {
+                        // Opcional: Asegurar que sea negro explícitamente si el entorno global tuviera otro color
+                        formulaChemfig = `\\color{black}{${formulaChemfig}}`;
+                    }
+
+                    // Codificamos la macro completa para la petición HTTP externa
+                    const codigoCodificado = encodeURIComponent(formulaChemfig);
+                    
+                    const moleculaImg = document.createElement('img');
+                    moleculaImg.src = `https://latex.codecogs.com/svg.image?${codigoCodificado}`;
+                    moleculaImg.alt = formulaChemfig;
+                    moleculaImg.style.display = 'block';
+                    moleculaImg.style.margin = 'left'; 
+
+                    contenedor.appendChild(moleculaImg);
+                    contenedor.setAttribute('data-rendered', 'true');
+
+                } catch (error) {
+                    console.error(`❌ Error en la macro Chemfig:`, error);
+                    contenedor.innerHTML = '<span style="color: red; font-size: 11px;">Error Chemfig</span>';
+                    contenedor.setAttribute('data-rendered', 'true');
                 }
-
-                // Codificamos la macro completa para la petición HTTP externa
-                const codigoCodificado = encodeURIComponent(formulaChemfig);
-                
-                const moleculaImg = document.createElement('img');
-                // Agregamos la macro para garantizar tipografía recta en los elementos químicos
-                moleculaImg.src = `https://latex.codecogs.com/svg.image?${codigoCodificado}`;
-                moleculaImg.alt = formulaChemfig;
-                moleculaImg.style.display = 'block';
-                moleculaImg.style.margin = 'left'; // Centrado en la cuadrícula de la tabla
-
-                contenedor.appendChild(moleculaImg);
-                contenedor.setAttribute('data-rendered', 'true');
-
-            } catch (error) {
-                console.error(`❌ Error en la macro Chemfig:`, error);
-                contenedor.innerHTML = '<span style="color: red; font-size: 11px;">Error Chemfig</span>';
-                contenedor.setAttribute('data-rendered', 'true');
-            }
-        });
-    }
+            });
+        }
     </script>
     <style>
         html, body {
