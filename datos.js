@@ -67,7 +67,7 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td>Metano</td><td><div data-chemfig="\\text{CH}_4" data-solucion="true"></div></td>
+                                <td>a)</td><td>Metano</td><td><div data-chemfig="CH_4" data-solucion="true"></div></td>
                                 <td>b)</td><td>Etano</td><td><div data-chemfig="\\text{CH}_3-\\text{CH}_3" data-solucion="true"></div></td>
                             </tr>
                             <tr>
