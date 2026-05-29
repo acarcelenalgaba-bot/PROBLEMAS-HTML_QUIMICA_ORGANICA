@@ -161,13 +161,13 @@ const baseDatosProblemas = {
                         <td>l)</td><td><div data-chemfig="{CH_3-C \\equiv CH}" data-solucion="false"></div></td>
                     </tr>
                     <tr>
-                        <td>m)</td><td><div data-smiles="C1=CC=CCC=C1" data-solucion="false"></div></td>
-                        <td>n)</td><td>\\( \\ce{CH#C-CH3} \\)</td>
-                        <td>ñ)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH2-CH3} \\)</td>
+                        <td>m)</td><td><div data-chemfig="*8(-=--=-=-)" data-solucion="false" data-longitud="1.75em"></div></td>
+                        <td>n)</td><td><div data-chemfig="{CH \\equiv C - CH_3}" data-solucion="false"></div></td>
+                        <td>ñ)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td>
                     </tr>
                     <tr>
-                        <td>o)</td><td>\\( \\ce{CH2=CH-CH2-CH=CH-CH3} \\)</td>
-                        <td>p)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH3} \\)</td>
+                        <td>o)</td><td><div data-chemfig="{CH_2=CH-CH_2-CH=CH-CH_3}" data-solucion="false"></div></td>
+                        <td>p)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td>
                         <td></td><td></td>
                     </tr>
                 </tbody>
@@ -208,7 +208,7 @@ const baseDatosProblemas = {
                             <td>l)</td><td>\\( \\ce{CH3-C#CH} \\)</td><td style="color: red;">Propino</td>
                         </tr>
                         <tr>
-                            <td>m)</td><td><div data-smiles="C1=CC=CCC=C1" data-solucion="false"></div></td><td style="color: red;">Ciclohepta-1,3,6-trieno</td>
+                            <td>m)</td><td><div data-smiles="C1=CC=CCC=C1" data-solucion="false"></div></td><td style="color: red;">Cicloocta-1,3,6-trieno</td>
                             <td>n)</td><td>\\( \\ce{CH#C-CH3} \\)</td><td style="color: red;">Propino</td>
                         </tr>
                         <tr>
