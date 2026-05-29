@@ -80,7 +80,7 @@ const baseDatosProblemas = {
                             </tr>
                             <tr>
                                 <td>g)</td><td>Decano</td><td><div data-chemfig="{CH_3-(CH_2)_8-CH_3}" data-solucion="true"></div></td>
-                                <td>h)</td><td>Ciclopentano</td><td><div data-chemfig="{CH_2}*5(-{CH_2}-{CH_2}-{CH_2}-{CH_2}-)" data-solucion="true"></div></td>
+                                <td>h)</td><td>Ciclopentano</td><td><div data-chemfig="{CH_2}*5(-{CH_2}-{CH_2}-{CH_2}-{CH_2}-)" data-solucion="true" data-longitud="2.75em"></div></td>
                             </tr>
                             <tr>
                                 <td>i)</td><td>Propeno</td><td><div data-chemfig="{CH_2}={CH}-{CH_3}" data-solucion="true"></div></td>
@@ -91,7 +91,7 @@ const baseDatosProblemas = {
                                 <td>l)</td><td>Eteno</td><td><div data-chemfig="{CH_2}={CH_2}" data-solucion="true"></div></td>
                             </tr>
                             <tr>
-                                <td>m)</td><td>Ciclopenteno</td><td><div data-chemfig="{CH_2}*5(-{CH_2}-{CH}={CH}-{CH_2}-{CH_2}-)" data-solucion="true"></div></td>
+                                <td>m)</td><td>Ciclopenteno</td><td><div data-chemfig="{CH_2}*5(-{CH_2}-{CH}={CH}-{CH_2}-{CH_2}-)" data-solucion="true" data-longitud="2.75em"></div></td>
                                 <td>n)</td><td>Penta-1,3-dieno</td><td><div data-chemfig="{CH_2}={CH}-{CH}={CH}-{CH_3}" data-solucion="true"></div></td>
                             </tr>
                             <tr>
@@ -107,7 +107,7 @@ const baseDatosProblemas = {
                                 <td>s)</td><td>Pent-2-ino</td><td><div data-chemfig="{CH_3-C \\equiv C-CH_2-CH_3}" data-solucion="true"></div></td>
                             </tr>
                             <tr>
-                                <td>t)</td><td>Ciclohexeno</td><td><div data-chemfig="{CH_2}*6(-{CH_2}-{CH}={CH}-{CH_2}-{CH_2}-{CH_2}-)" data-solucion="true"></div></td>
+                                <td>t)</td><td>Ciclohexeno</td><td><div data-chemfig="{CH_2}*6(-{CH_2}-{CH}={CH}-{CH_2}-{CH_2}-{CH_2}-)" data-solucion="true" data-longitud="2.5em"></div></td>
                                 <td>u)</td><td>Hex-3-eno</td><td><div data-chemfig="{CH_3-CH_2-CH=CH-CH_2-CH_3}" data-solucion="true"></div></td>
                             </tr>
                             <tr>
@@ -119,7 +119,8 @@ const baseDatosProblemas = {
                                 <td>y)</td><td>Pent-2-eno</td><td><div data-chemfig="{CH_3-CH=CH-CH_2-CH_3}" data-solucion="true"></div></td>
                             </tr>
                             <tr>
-                                <td>z)</td><td>Ciclobuta-1,3-dieno </td><td><div data-chemfig="{CH_2}*4(-{CH_2}={CH_2}-{CH_2}={CH_2}-)" data-solucion="true"></div></td>
+                                <td>z)</td><td>Ciclobuta-1,3-dieno</td><td>
+                                <div data-chemfig="*4(CH=CH-CH=CH-)" data-solucion="true" data-longitud="1.75em"></div></td>
                                 <td></td><td></td><td></td> 
                             </tr>
                         </tbody>

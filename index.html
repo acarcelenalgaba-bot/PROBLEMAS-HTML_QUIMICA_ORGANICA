@@ -234,9 +234,21 @@
                 try {
                     contenedor.innerHTML = '';
 
+                    // LEER LA LONGITUD PERSONALIZADA (si no existe, no hace nada)
+                    const longitudEnlace = contenedor.getAttribute('data-longitud'); // Ejemplo: "2em" o "4em"
+                    let configuracionLongitud = '';
+                    
+                    if (longitudEnlace) {
+                        configuracionLongitud = `\\setchemfig{atom sep=${longitudEnlace}}`;
+                    }
                     // Si la cadena no empieza explícitamente con el comando \chemfig, lo añadimos de forma automática
                     if (!formulaChemfig.startsWith('\\chemfig')) {
                         formulaChemfig = `\\chemfig{${formulaChemfig}}`;
+                    }
+
+                    // Unimos la configuración de longitud con la fórmula si se ha definido
+                    if (configuracionLongitud) {
+                        formulaChemfig = `${configuracionLongitud}${formulaChemfig}`;
                     }
 
                     // 2. Si es solución, envolvemos toda la macro en el comando de color de LaTeX
