@@ -120,7 +120,7 @@ const baseDatosProblemas = {
                             </tr>
                             <tr>
                                 <td>z)</td><td>Ciclobuta-1,3-dieno</td><td>
-                                <div data-chemfig="*4(CH=CH-CH=CH-)" data-solucion="true" data-longitud="1.75em"></div></td>
+                                <div data-chemfig="{CH}*4(-{CH}={CH}-{CH}={CH}-)" data-solucion="true" data-longitud="2.5em"></div></td>
                                 <td></td><td></td><td></td> 
                             </tr>
                         </tbody>
@@ -162,12 +162,12 @@ const baseDatosProblemas = {
                     </tr>
                     <tr>
                         <td>m)</td><td><div data-chemfig="*8(-=--=-=-)" data-solucion="false" data-longitud="1.75em"></div></td>
-                        <td>n)</td><td><div data-chemfig="{CH \\equiv C - CH_3}" data-solucion="false"></div></td>
-                        <td>ñ)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td>
+                        <td>n)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td>
+                        <td>ñ)</td><td><div data-chemfig="{CH_2=CH-CH_2-CH=CH-CH_3}" data-solucion="false"></div></td>
                     </tr>
                     <tr>
-                        <td>o)</td><td><div data-chemfig="{CH_2=CH-CH_2-CH=CH-CH_3}" data-solucion="false"></div></td>
-                        <td>p)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td>
+                        <td>o)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td>
+                        <td></td><td></td>
                         <td></td><td></td>
                     </tr>
                 </tbody>
@@ -184,40 +184,36 @@ const baseDatosProblemas = {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>a)</td><td>\\( \\ce{CH3-CH2-CH2-CH3} \\)</td><td style="color: red;">Butano</td>
-                            <td>b)</td><td>\\( \\ce{CH4} \\)</td><td style="color: red;">Metano</td>
+                            <td>a)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_3}" data-solucion="false"></div></td><td style="color: red;">Butano</td>
+                            <td>b)</td><td><div data-chemfig="{CH_4}" data-solucion="false"></div></td><td style="color: red;">Metano</td>
                         </tr>
                         <tr>
-                            <td>c)</td><td>\\( \\ce{CH3-(CH2)6-CH3} \\)</td><td style="color: red;">Octano</td>
-                            <td>d)</td><td><div data-smiles="C1CCC1" data-solucion="false"></div></td><td style="color: red;">Ciclobutano</td>
+                            <td>c)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td><td style="color: red;">Octano</td>
+                            <td>d)</td><td><div data-chemfig="*4(CH_2-CH_2-CH_2-CH_2-)" data-solucion="false" data-longitud="1.75em"></div></td><td style="color: red;">Ciclobutano</td>
                         </tr>
                         <tr>
-                            <td>e)</td><td>\\( \\ce{CH2=CH2} \\)</td><td style="color: red;">Eteno</td>
-                            <td>f)</td><td>\\( \\ce{CH3-CH=CH-CH3} \\)</td><td style="color: red;">But-2-eno</td>
+                            <td>e)</td><td><div data-chemfig="{CH_2=CH_2}" data-solucion="false"></div></td><td style="color: red;">Eteno</td>
+                            <td>f)</td><td><div data-chemfig="{CH_3-CH=CH-CH_3}" data-solucion="false"></div></td><td style="color: red;">But-2-eno</td>
                         </tr>
                         <tr>
-                            <td>g)</td><td>\\( \\ce{CH3-CH2-CH3} \\)</td><td style="color: red;">Propano</td>
-                            <td>h)</td><td>\\( \\ce{CH2=CH-CH=CH-CH3} \\)</td><td style="color: red;">Penta-1,3-dieno</td>
+                            <td>g)</td><td><div data-chemfig="{CH_3-CH_2-CH_3}" data-solucion="false"></div></td><td style="color: red;">Propano</td>
+                            <td>h)</td><td><div data-chemfig="{CH_2=CH-CH=CH-CH_3}" data-solucion="false"></div></td><td style="color: red;">Penta-1,3-dieno</td>
                         </tr>
                         <tr>
-                            <td>i)</td><td>\\( \\ce{CH2=CH-CH3} \\)</td><td style="color: red;">Propeno</td>
-                            <td>j)</td><td>\\( \\ce{CH3-CH3} \\)</td><td style="color: red;">Etano</td>
+                            <td>i)</td><td><div data-chemfig="{CH_2=CH-CH_3}" data-solucion="false"></div></td><td style="color: red;">Propeno</td>
+                            <td>j)</td><td><div data-chemfig="{CH_3-CH_3}" data-solucion="false"></div></td><td style="color: red;">Etano</td>
                         </tr>
                         <tr>
-                            <td>k)</td><td><div data-smiles="C1=CCCC1" data-solucion="false"></div></td><td style="color: red;">Ciclopenteno</td>
-                            <td>l)</td><td>\\( \\ce{CH3-C#CH} \\)</td><td style="color: red;">Propino</td>
+                            <td>k)</td><td><div data-chemfig="*5([:17.5]=----)" data-solucion="false" data-longitud="1.75em"></div></td><td style="color: red;">Ciclopenteno</td>
+                            <td>l)</td><td><div data-chemfig="{CH_3-C \\equiv CH}" data-solucion="false"></div></td><td style="color: red;">Propino</td>
                         </tr>
                         <tr>
-                            <td>m)</td><td><div data-smiles="C1=CC=CCC=C1" data-solucion="false"></div></td><td style="color: red;">Cicloocta-1,3,6-trieno</td>
-                            <td>n)</td><td>\\( \\ce{CH#C-CH3} \\)</td><td style="color: red;">Propino</td>
+                            <td>m)</td><td><div data-chemfig="*8(-=--=-=-)" data-solucion="false" data-longitud="1.75em"></div></td><td style="color: red;">Cicloocta-1,3,6-trieno</td>
+                            <td>n)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td><td style="color: red;">Hexano</td>
                         </tr>
                         <tr>
-                            <td>ñ)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH2-CH3} \\)</td><td style="color: red;">Hexano</td>
-                            <td>o)</td><td>\\( \\ce{CH2=CH-CH2-CH=CH-CH3} \\)</td><td style="color: red;">Hexa-1,4-dieno</td>
-                        </tr>
-                        <tr>
-                            <td>p)</td><td>\\( \\ce{CH3-CH2-CH2-CH2-CH3} \\)</td><td style="color: red;">Pentano</td>
-                            <td></td><td></td>
+                            <td>ñ)</td><td><div data-chemfig="{CH_2=CH-CH_2-CH=CH-CH_3}" data-solucion="false"></div></td><td style="color: red;">Hexa-1,4-dieno</td>
+                            <td>o)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td><td style="color: red;">Pentano</td>
                         </tr>
                     </tbody>
                 </table>    
