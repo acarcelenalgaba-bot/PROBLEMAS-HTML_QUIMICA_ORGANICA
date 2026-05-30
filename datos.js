@@ -289,14 +289,14 @@ const baseDatosProblemas = {
                             </tr>
                             <tr>
                                 <td>g)</td><td>Metilciclopentano</td><td><div data-chemfig="*5([:17.5]---(-[2]CH_{3})--)" data-solucion="true" data-longitud="2.25em"></div></td>
-                                <td>h)</td><td>2,2,7,7-tetrametilnonano</td><td><div data-smiles="CC(C)(C)CCCCCC(C)(C)C" data-solucion="true"></div></td>
+                                <td>h)</td><td>2,2,7,7-tetrametilnonano</td><td><div data-chemfig="CH_{3}-C(-[2]CH_{3})(-[6]CH_{3})-CH_2-CH_{2}-CH_2-CH_2-C(-[2]CH_{3})(-[6]CH_{3})-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>i)</td><td>2,3-dimetilbutano</td><td><div data-smiles="CC(C)C(C)C" data-solucion="true"></div></td>
-                                <td>j)</td><td>1,6-dimetilciclohexa-1,3-dieno</td><td><div data-smiles="CC1=CC=CCC1C" data-solucion="true"></div></td>
+                                <td>i)</td><td>2,3-dimetilbutano</td><td><div data-chemfig="CH_{3}-CH(-[2]CH_{3})-CH(-[6]CH_{3})-CH_{3}" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>j)</td><td>1,6-dimetilciclohexa-1,3-dieno</td><td><div data-chemfig="*6((-[5]CH_{3})--=-=(-[3]CH_{3})-)" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>   
                             <tr>
-                                <td>k)</td><td>5-isopropil-3-metiloctano</td><td><div data-smiles="CCCC(C(C)C)CC(C)CC" data-solucion="true"></div></td>
+                                <td>k)</td><td>5-isopropil-3-metiloctano</td><td><div data-chemfig="CH_{3}-CH_{2}-CH(-[2]CH_{3})-CH_{2}-CH(-[6]CH(-[4]CH_{3})-CH_{3})-CH_{2}-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2.25em"></div></td>
                                 <td>l)</td><td>4-etil-2,4-dimetilhexano</td><td><div data-smiles="CCC(C)(CC)CC(C)C" data-solucion="true"></div></td>
                             </tr>
                             <tr>
