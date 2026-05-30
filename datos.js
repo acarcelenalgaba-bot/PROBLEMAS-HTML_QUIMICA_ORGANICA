@@ -276,12 +276,12 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td>Metilpropano</td><td><div data-smiles="CC(C)C" data-solucion="true"></div></td>
-                                <td>b)</td><td>Metilbutano</td><td><div data-smiles="CCC(C)C" data-solucion="true"></div></td>
+                                <td>a)</td><td>Metilpropano</td><td><div data-chemfig="{CH_3}-CH(-[:90]CH_3)-{CH_3}" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>b)</td><td>Metilbutano</td><td><div data-chemfig="{CH_3}-CH(-[:90]CH_3)-{CH_2}-{CH_3}" data-solucion="true" data-longitud="2.25em"></td>
                             </tr>
                             <tr>
-                                <td>c)</td><td>3-metilpentano</td><td><div data-smiles="CCC(C)CC" data-solucion="true"></div></td>
-                                <td>d)</td><td>3-metilhex-1-eno</td><td><div data-smiles="C=CC(C)CCC" data-solucion="true"></div></td>
+                                <td>c)</td><td>3-metilpentano</td><td><div data-chemfig="CH_3-CH(-[:90]CH_3)-CH_2-CH_3" data-solucion="true" data-longitud="2.25em"></td>
+                                <td>d)</td><td>3-metilhex-1-eno</td><td><div data-chemfig="CH_2 = CH-CH(-[:90]CH_3)-CH_2-CH_2-CH_3" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
                                 <td>e)</td><td>2,3,5-trimetilheptano</td><td><div data-smiles="CCC(C)CC(C)C(C)C" data-solucion="true"></div></td>
