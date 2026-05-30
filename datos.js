@@ -142,7 +142,7 @@ const baseDatosProblemas = {
                 <tbody>
                     <tr>
                         <td>a)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_3}" data-solucion="false"></div></td>
-                        <td>b)</td><td><div data-chemfig="{CH_4}" data-solucion="false"></div></td>
+                        <td>b)</td><td><div data-chemfig="CH_{4}" data-solucion="false"></div></td>
                         <td>c)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_2-CH_2-CH_2-CH_3}" data-solucion="false"></div></td>
                     </tr>
                     <tr>
@@ -276,19 +276,19 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td>Metilpropano</td><td><div data-chemfig="{CH_3}-CH(-[:90]CH_3)-{CH_3}" data-solucion="true" data-longitud="2.25em"></div></td>
-                                <td>b)</td><td>Metilbutano</td><td><div data-chemfig="{CH_3}-CH(-[:90]CH_3)-{CH_2}-{CH_3}" data-solucion="true" data-longitud="2.25em"></td>
+                                <td>a)</td><td>Metilpropano</td><td><div data-chemfig="CH_{3}-CH(-[:90]CH_{3})-CH_{3}" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>b)</td><td>Metilbutano</td><td><div data-chemfig="CH_{3}-CH(-[:90]CH_{3})-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2.25em"></td>
                             </tr>
                             <tr>
-                                <td>c)</td><td>3-metilpentano</td><td><div data-chemfig="CH_3-CH(-[:90]CH_3)-CH_2-CH_3" data-solucion="true" data-longitud="2.25em"></td>
-                                <td>d)</td><td>3-metilhex-1-eno</td><td><div data-chemfig="CH_2 = CH-CH(-[:90]CH_3)-CH_2-CH_2-CH_3" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>c)</td><td>3-metilpentano</td><td><div data-chemfig="CH_{3}-CH(-[:90]CH_{3})-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2.25em"></td>
+                                <td>d)</td><td>3-metilhex-1-eno</td><td><div data-chemfig="CH_{2} = CH-CH(-[:90]CH_{3})-CH_{2}-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>e)</td><td>2,3,5-trimetilheptano</td><td><div data-smiles="CCC(C)CC(C)C(C)C" data-solucion="true"></div></td>
-                                <td>f)</td><td>4-etil-5-metiloct-1-ino</td><td><div data-smiles="C#CCC(CC)C(C)CCC" data-solucion="true"></div></td>
+                                <td>e)</td><td>2,3,5-trimetilheptano</td><td><div data-chemfig="CH_{3} - CH(-[:90]CH_{3})-CH(-[:90]CH_{3})-CH_{2}-CH(-[:90]CH_{3})-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>f)</td><td>4-etil-5-metiloct-1-ino</td><td><div data-chemfig="CH \\equiv C - CH_2 - CH(-[2]CH_{2}-CH_{3})-CH(-[6]CH_{3})-CH_{2}-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>g)</td><td>Metilciclopentano</td><td><div data-smiles="CC1CCCC1" data-solucion="true"></div></td>
+                                <td>g)</td><td>Metilciclopentano</td><td><div data-chemfig="*5([:17.5]---(-[2]CH_{3})--)" data-solucion="true" data-longitud="2.25em"></div></td>
                                 <td>h)</td><td>2,2,7,7-tetrametilnonano</td><td><div data-smiles="CC(C)(C)CCCCCC(C)(C)C" data-solucion="true"></div></td>
                             </tr>
                             <tr>
