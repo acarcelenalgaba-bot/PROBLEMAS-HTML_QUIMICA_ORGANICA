@@ -330,22 +330,22 @@ const baseDatosProblemas = {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>a)</td><td><div data-smiles="CC(C)CC"></div></td>
-                        <td>b)</td><td><div data-smiles="C=CC(CC)CC=CC"></div></td>
-                        <td>c)</td><td><div data-smiles="CC(C)C(C)C"></div></td>
+                        <td>a)</td><td><div data-chemfig="H_3C-CH(-[2]CH_3)-CH_3" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>b)</td><td><div data-chemfig="H_2C=CH-CH(-[2]CH_2-CH_3)-CH_2-CH=CH-CH_3" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>c)</td><td><div data-chemfig="CH_3-CH(-[2]CH_3)-CH(-[6]CH_3)-CH_3" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td><div data-smiles="CC=C(CC)CCC(C)CC"></div></td>
-                        <td>e)</td><td><div data-smiles="CC(C)(C)CC"></div></td>
-                        <td>f)</td><td><div data-smiles="C#CC(CC)CC#CCC"></div></td>
+                        <td>d)</td><td><div data-chemfig="CH_3-CH=C(-[2]CH_2-CH_3)-CH_2-CH_2-CH(-[2]CH_3)-CH_2-CH_3" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>e)</td><td><div data-chemfig="CH_3-C(-[2]CH_3)(-[6]CH_3)-CH_2-CH_3" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>f)</td><td><div data-chemfig="CH \\equiv C - CH(-[2]CH_2-CH_3)-CH_2-C \\equiv C - CH_2-CH_3" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>g)</td><td><div data-smiles="CC(C)C(C)CC"></div></td>
-                        <td>h)</td><td><div data-smiles="C=CC(C)CC#C"></div></td>
-                        <td>i)</td><td><div data-smiles="CC=CC(C)(CC)C=CC=CC"></div></td>
+                        <td>g)</td><td><div data-chemfig="CH_3-CH(-[2]CH_3)-CH(-[6]CH_3)-CH_2-CH_3" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>h)</td><td><div data-chemfig="CH_2=CH-CH(-[2]CH_3)-CH_2-C \\equiv CH" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>i)</td><td><div data-chemfig="CH_3-CH(-[2]CH_3)-CH(-[6]CH_3)-CH(-[2]CH_2-CH_3)-CH_2-C \\equiv CH" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>j)</td><td><div data-smiles="CC=C(CC)CCC(C)CC"></div></td>
+                        <td>j)</td><td><div data-chemfig="CH_3-CH=CH-C(-[2]CH_2-CH_2-CH_3)(-[6]CH_3)-CH=CH-CH=CH-CH_3" data-solucion="false" data-longitud="2.25em"></div></td>
                         <td></td><td></td>
                         <td></td><td></td>
                     </tr>
@@ -363,24 +363,24 @@ const baseDatosProblemas = {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>a)</td><td><div data-smiles="CC(C)CC" data-solucion="false"></div></td><td style="color: red;">Metilbutano</td>
-                            <td>b)</td><td><div data-smiles="C=CC(CC)CC=CC" data-solucion="false"></div></td><td style="color: red;">3-etilhepta-1,5-dieno</td>
+                            <td>a)</td><td><div data-chemfig="H_3C-CH(-[2]CH_3)-CH_3" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Metilpropano</td>
+                            <td>b)</td><td><div data-chemfig="H_2C=CH-CH(-[2]CH_2-CH_3)-CH_2-CH=CH-CH_3" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">3-etilhepta-1,5-dieno</td>
                         </tr>
                         <tr>
-                            <td>c)</td><td><div data-smiles="CC(C)C(C)C" data-solucion="false"></div></td><td style="color: red;">2,3-dimetilbutano</td>
-                            <td>d)</td><td><div data-smiles="CC=C(CC)CCC(C)CC" data-solucion="false"></div></td><td style="color: red;">3-etil-6-metiloct-2-eno</td>
+                            <td>c)</td><td><div data-chemfig="CH_3-CH(-[2]CH_3)-CH(-[6]CH_3)-CH_3" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">2,3-dimetilbutano</td>
+                            <td>d)</td><td><div data-chemfig="CH_3-CH=C(-[2]CH_2-CH_3)-CH_2-CH_2-CH(-[2]CH_3)-CH_2-CH_3" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">3-etil-6-metiloct-2-eno</td>
                         </tr>
                         <tr>
-                            <td>e)</td><td><div data-smiles="CC(C)(C)CC" data-solucion="false"></div></td><td style="color: red;">2,2-dimetilbutano</td>
-                            <td>f)</td><td><div data-smiles="C#CC(CC)CC#CCC" data-solucion="false"></div></td><td style="color: red;">3-etilocta-1,5-diino</td>
+                            <td>e)</td><td><div data-chemfig="CH_3-C(-[2]CH_3)(-[6]CH_3)-CH_2-CH_3" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">2,2-dimetilbutano</td>
+                            <td>f)</td><td><div data-chemfig="CH \\equiv C - CH(-[2]CH_2-CH_3)-CH_2-C \\equiv C-CH_2-CH_3" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">3-etilocta-1,5-diino</td>
                         </tr>
                         <tr>
-                            <td>g)</td><td><div data-smiles="CC(C)C(C)CC" data-solucion="false"></div></td><td style="color: red;">2,3-dimetilpentano</td>
-                            <td>h)</td><td><div data-smiles="C=CC(C)CC#C" data-solucion="false"></div></td><td style="color: red;">3-metilhex-1-en-5-ino</td>
+                            <td>g)</td><td><div data-chemfig="CH_3-CH(-[2]CH_3)-CH(-[6]CH_3)-CH_2-CH_3" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">2,3-dimetilpentano</td>
+                            <td>h)</td><td><div data-chemfig="CH_2=CH-CH(-[2]CH_3)-CH_2-C \\equiv CH" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">3-metilhex-1-en-5-ino</td>
                         </tr>
                         <tr>
-                            <td>i)</td><td><div data-smiles="CC=CC(C)(CC)C=CC=CC" data-solucion="false"></div></td><td style="color: red;">7-etil-7-metildeca-2,4,8-trieno</td>
-                            <td>j)</td><td><div data-smiles="CC=C(CC)CCC(C)CC" data-solucion="false"></div></td><td style="color: red;">3-etil-6-metiloct-2-eno</td>
+                            <td>i)</td><td><div data-chemfig="CH_3-CH(-[2]CH_3)-CH(-[6]CH_3)-CH(-[2]CH_2-CH_3)-CH_2-C \\equiv CH" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">4-etil-5,6-dimetilhepta-1-ino</td>
+                            <td>j)</td><td><div data-chemfig="CH_3-CH=CH-C(-[2]CH_2-CH_2-CH_3)(-[6]CH_3)-CH=CH-CH=CH-CH_3" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">6-metil-6-propilnona-2,4,7-trieno</td>
                         </tr>
                     </tbody>
                 </table>    
