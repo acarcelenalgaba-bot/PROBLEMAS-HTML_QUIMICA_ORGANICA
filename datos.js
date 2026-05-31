@@ -438,12 +438,12 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td>Benceno</td><td><div data-smiles="C1=CC=CC=C1" data-solucion="true"></div></td>
-                                <td>b)</td><td>Naftaleno</td><td><div data-smiles="C1=CC=C2C=CC=CC2=C1" data-solucion="true" data-rotation="60"></div></td>
+                                <td>a)</td><td>Benceno</td><td><div data-chemfig="*6(=-=-=-)" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>b)</td><td>Naftaleno</td><td><div data-chemfig="*6(-=-=-*6(-=-=-=))" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>c)</td><td>Antraceno</td><td><div data-smiles="C1=CC=C2C=C3C=CC=CC3=CC2=C1" data-solucion="true" data-rotation="60"></div></td>
-                                <td>d)</td><td>2-fenilpentano</td><td><div data-smiles="CCCC(C)C1=CC=CC=C1" data-solucion="true"></div></td>
+                                <td>c)</td><td>Antraceno</td><td><div data-chemfig="" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>d)</td><td>2-fenilpentano</td><td><div data-chemfig="CH_{3}-CH_{2}-CH_{2}-CH(-[2]([2,0.6]*6(=-=-=-)))-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
                                 <td>e)</td><td>o-dimetilbenceno</td><td><div data-smiles="CC1=C(C)C=CC=C1" data-solucion="true"></div></td>
