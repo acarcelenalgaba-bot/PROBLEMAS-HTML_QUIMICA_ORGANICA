@@ -442,7 +442,7 @@ const baseDatosProblemas = {
                                 <td>b)</td><td>Naftaleno</td><td><div data-chemfig="*6(-=-=-*6(-=-=-=))" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>c)</td><td>Antraceno</td><td><div data-chemfig="" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>c)</td><td>Antraceno</td><td><div data-chemfig="*6(-=*6(-=-=-)-=-*6(-=-=-=))" data-solucion="true" data-longitud="2.25em"></div></td>
                                 <td>d)</td><td>2-fenilpentano</td><td><div data-chemfig="CH_{3}-CH_{2}-CH_{2}-CH(-[2]([2,0.6]*6(=-=-=-)))-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
