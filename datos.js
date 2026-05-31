@@ -297,19 +297,19 @@ const baseDatosProblemas = {
                             </tr>   
                             <tr>
                                 <td>k)</td><td>5-isopropil-3-metiloctano</td><td><div data-chemfig="CH_{3}-CH_{2}-CH(-[2]CH_{3})-CH_{2}-CH(-[6]CH(-[4]CH_{3})-CH_{3})-CH_{2}-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2.25em"></div></td>
-                                <td>l)</td><td>4-etil-2,4-dimetilhexano</td><td><div data-smiles="CCC(C)(CC)CC(C)C" data-solucion="true"></div></td>
+                                <td>l)</td><td>4-etil-2,4-dimetilhexano</td><td><div data-chemfig="H_3C-CH(-[2]CH_3)-CH_2-C(-[2]CH_3)(-[6]CH_2-CH_3)-CH_2-CH_3" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>m)</td><td>Etilciclobutano</td><td><div data-smiles="CCC1CCC1" data-solucion="true"></div></td>
-                                <td>n)</td><td>3-etil-2,5-dimetilheptano</td><td><div data-smiles="CCC(C)CC(CC)C(C)C" data-solucion="true"></div></td>
+                                <td>m)</td><td>Etilciclobutano</td><td><div data-chemfig="CH_2*4(-CH_2-CH(-CH_2-[0]CH_3)-CH_2-CH_2-)" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>n)</td><td>3-etil-2,5-dimetilheptano</td><td><div data-chemfig="H_3C-CH(-[2]CH_3)-CH(-[6]CH_2-CH_3)-CH_2-CH(-[2]CH_3)-CH_2-CH_3" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>ñ)</td><td>4,6-dietil-2,4,8-trimetilnonano</td><td><div data-smiles="CC(C)CC(C)(CC)CC(CC)CC(C)C" data-solucion="true"></div></td>
-                                <td>o)</td><td>5,5-dietil-2-metil-4-propildecano</td><td><div data-smiles="CCCCCC(CC)(CC)C(CCC)CC(C)C" data-solucion="true"></div></td>
+                                <td>ñ)</td><td>4,6-dietil-2,4,8-trimetilnonano</td><td><div data-chemfig="H_3C-CH(-[2]CH_3)-CH_2-C(-[2]CH_3)(-[6]CH_2-[4]CH_3)-CH_2-CH(-[6]CH_2-CH_3)-CH_2-CH(-[2]CH_3)-CH_3" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>o)</td><td>5,5-dietil-2-metil-4-propildecano</td><td><div data-chemfig="H_3C-CH(-[2]CH_3)-CH_2-CH(-[6]CH_2-[4]CH_2-[4]CH_3)-C(-[2]CH_2-CH_3)(-[6]CH_2-CH_3)-CH_2-CH_2-CH_2-CH_2-CH_3" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>p)</td><td>4-ciclopropilheptano</td><td><div data-smiles="CCCC(CCC)1CC1" data-solucion="true"></div></td>
-                                <td>q)</td><td>5-terc-butilnonano</td><td><div data-smiles="CCCCC(CCCC)C(C)(C)C" data-solucion="true"></div></td>
+                                <td>p)</td><td>4-ciclopropilheptano</td><td><div data-chemfig="H_3C-CH_2-CH_2-CH(-[6]CH*3(-CH_2-CH_2-))-CH_2-CH_2-CH_3" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>q)</td><td>5-terc-butilnonano</td><td><div data-chemfig="H_3C-CH_2-CH_2-CH_2-CH(-[6]C(-[4]CH_3)(-[0]CH_3)(-[6]CH_3))-CH_2-CH_2-CH_2-CH_3" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                         </tbody>
                     </table>
