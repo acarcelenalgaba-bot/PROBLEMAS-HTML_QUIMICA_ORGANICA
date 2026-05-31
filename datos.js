@@ -446,24 +446,24 @@ const baseDatosProblemas = {
                                 <td>d)</td><td>2-fenilpentano</td><td><div data-chemfig="CH_{3}-CH_{2}-CH_{2}-CH(-[2]([2,0.6]*6(=-=-=-)))-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>e)</td><td>o-dimetilbenceno</td><td><div data-smiles="CC1=C(C)C=CC=C1" data-solucion="true"></div></td>
-                                <td>f)</td><td>Hexametilbenceno</td><td><div data-smiles="CC1=C(C)C(C)=C(C)C(C)=C1C" data-solucion="true"></div></td>
+                                <td>e)</td><td>o-dimetilbenceno</td><td><div data-chemfig="*6(=-(-[0]CH_3)=(-[0]CH_3)-=-)" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>f)</td><td>Hexametilbenceno</td><td><div data-chemfig="*6((-[5]CH_3)=(-[6]CH_3)-(-[7]CH_3)=(-[1]CH_3)-(-[2]CH_3)=(-[3]CH_3)-)" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>g)</td><td>m-dimetilbenceno</td><td><div data-smiles="CC1=CC(C)=CC=C1" data-solucion="true"></div></td>
-                                <td>h)</td><td>p-etilmetilbenceno</td><td><div data-smiles="CCC1=CC=C(C)C=C1" data-solucion="true"></div></td>
+                                <td>g)</td><td>m-dimetilbenceno</td><td><div data-chemfig="*6(=-(-[7]CH_{3})=-(-[2]CH_{3})=-)" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>h)</td><td>p-etilmetilbenceno</td><td><div data-chemfig="*6(=-(-[:330]CH_{2}-CH_{3})=-=(-[:145]CH_{3})-)" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>i)</td><td>3-fenilhexano</td><td><div data-smiles="CCCC(CC)C1=CC=CC=C1" data-solucion="true"></div></td>
-                                <td>j)</td><td>p-dipropilbenceno</td><td><div data-smiles="CCCC1=CC=C(CCC)C=C1" data-solucion="true"></div></td>
+                                <td>i)</td><td>3-fenilhexano</td><td><div data-chemfig="CH_{3}-CH_{2}-CH_{2}-CH(-[2]([2,0.6]*6(=-=-=-)))-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>j)</td><td>p-dipropilbenceno</td><td><div data-chemfig="*6([:90]=(-[0]CH_{2}-CH_{2}-CH_{3})-=-(-[4]CH_2-CH_2-CH_3)=-)" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>   
                             <tr>
-                                <td>k)</td><td>Metilbenceno</td><td><div data-smiles="CC1=CC=CC=C1" data-solucion="true"></div></td>
-                                <td>l)</td><td>Etenilbenceno</td><td><div data-smiles="C=CC1=CC=CC=C1" data-solucion="true"></div></td>
+                                <td>k)</td><td>Metilbenceno</td><td><div data-chemfig="*6([:0]=-(-[:315]CH_{3})=-=-)" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>l)</td><td>Etenilbenceno</td><td><div data-chemfig="*6([:90]=-=-(-[:180]CH=CH_{2})=-)" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>m)</td><td>2-cloropropano</td><td><div data-smiles="CC(Cl)C" data-solucion="true"></div></td>
-                                <td>n)</td><td>o-bromoclorobenceno</td><td><div data-smiles="ClC1=C(Br)C=CC=C1" data-solucion="true"></div></td>
+                                <td>m)</td><td>2-cloropropano</td><td><div data-chemfig="CH_{3}-CH(-[2]Cl)-CH_{3}" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>n)</td><td>o-bromoclorobenceno</td><td><div data-chemfig="*6(=-(-[0]Cl)=(-[0]Br)-=-)" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                         </tbody>
                     </table>
