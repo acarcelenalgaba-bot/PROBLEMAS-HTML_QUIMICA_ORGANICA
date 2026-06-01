@@ -483,18 +483,18 @@ const baseDatosProblemas = {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>a)</td><td><div data-smiles="CCC1=CC=CC=C1C"></div></td>
-                        <td>b)</td><td><div data-smiles="CC1=CC(C)=CC(C)=C1"></div></td>
-                        <td>c)</td><td><div data-smiles="CC1=CC=C(C)C=C1"></div></td>
+                        <td>a)</td><td><div data-chemfig="*6(=-=(-[1]CH_{3})-(-[2]CH_{2}-[4]CH_{3})=-)" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>b)</td><td><div data-chemfig="*6((-[5]CH_{3})=-(-[7]CH_{3})=-(-[2]CH_{3})=-)" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>c)</td><td><div data-chemfig="*6(=(-[6]CH_{3})-=-(-[2]CH_{3})=-)" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td><div data-smiles="CC1=CC(C)=CC=C1"></div></td>
-                        <td>e)</td><td><div data-smiles="CCC1=CC(CC)=CC=C1"></div></td>
-                        <td>f)</td><td><div data-smiles="C1=CC=C2C=CC=CC2=C1" data-rotation="60"></div></td>
+                        <td>d)</td><td><div data-chemfig="*6(=-(-[7]CH_{3})=-(-[2]CH_{3})=-)" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>e)</td><td><div data-chemfig="*6(=-(-[7]CH_{2}-[0]CH_{3})=-(-[2]CH_{2}-[0]CH_{3})=-)" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>f)</td><td><div data-chemfig="*6(-=-=-*6(-=-=-=))" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>g)</td><td><div data-smiles="CCC1=C(CC)C(C)=CC=C1"></div></td>
-                        <td>h)</td><td><div data-smiles="C1=CC=C2C=C3C=CC=CC3=CC2=C1" data-rotation="60"></div></td>
+                        <td>g)</td><td><div data-chemfig="*6(=(-[6]CH_{3})-(-[7]CH_{2}-[0]CH_{3})=(-[1]CH_{2}-[0]CH_{3})-=-)" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>h)</td><td><div data-chemfig="*6(-=*6(-=-=-)-=-*6(-=-=-=))" data-solucion="false" data-longitud="2.25em"></div></td>
                         <td>i)</td><td><div data-smiles="ClC1=CC=C(Cl)C(Cl)=C1"></div></td>
                     </tr>
                     <tr>
