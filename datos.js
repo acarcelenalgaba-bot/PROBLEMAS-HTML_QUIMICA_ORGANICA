@@ -597,40 +597,40 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td>Butan-2-ol</td><td><div data-smiles="CCC(O)C" data-solucion="true"></div></td>
-                                <td>b)</td><td>Etanol</td><td><div data-smiles="CCO" data-solucion="true" data-rotation="60"></div></td>
+                                <td>a)</td><td>Butan-2-ol</td><td><div data-chemfig="CH_{3}-CH(-[2]OH)-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>b)</td><td>Etanol</td><td><div data-chemfig="CH_{3}-CH_{2}-OH" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>c)</td><td>Metanol</td><td><div data-smiles="CO" data-solucion="true" data-rotation="60"></div></td>
-                                <td>d)</td><td>Pent-3-en-2-ol</td><td><div data-smiles="CC(O)C=CC" data-solucion="true"></div></td>
+                                <td>c)</td><td>Metanol</td><td><div data-chemfig="CH_{3}-OH" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>d)</td><td>Pent-3-en-2-ol</td><td><div data-chemfig="CH_{3}-CH(-[2]OH)-CH=CH-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>e)</td><td>4-metilpentan-1,3-diol</td><td><div data-smiles="CC(C)C(O)CCO" data-solucion="true"></div></td>
-                                <td>f)</td><td>Ciclohexano-1,2,3,4,5,6-hexol</td><td><div data-smiles="C1(O)C(O)C(O)C(O)C(O)C1O" data-solucion="true"></div></td>
+                                <td>e)</td><td>4-metilpentan-1,3-diol</td><td><div data-chemfig="CH_{3}-CH(-[2]CH_{3})-CH(-[2]OH)-CH_{2}-CH_{2}-OH" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>f)</td><td>Ciclohexano-1,2,3,4,5,6-hexol</td><td><div data-chemfig="*6((-[5]OH)-(-[6]OH)-(-[7]OH)-(-[1]OH)-(-[2]OH)-(-[3]OH)-)" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>g)</td><td>Fenol</td><td><div data-smiles="C1=CC=C(C=C1)O" data-solucion="true"></div></td>
-                                <td>h)</td><td>Etil metil éter</td><td><div data-smiles="CCOC" data-solucion="true"></div></td>
+                                <td>g)</td><td>Fenol</td><td><div data-chemfig="*6(=-=(-[1]OH)-=-)" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>h)</td><td>Etil metil éter</td><td><div data-chemfig="CH_{3}-CH_{2}-O-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>i)</td><td>Dietil éter</td><td><div data-smiles="CCOCC" data-solucion="true"></div></td>
-                                <td>j)</td><td>Isopropil metil éter</td><td><div data-smiles="CC(C)OC" data-solucion="true"></div></td>
+                                <td>i)</td><td>Dietil éter</td><td><div data-chemfig="CH_{3}-CH_{2}-O-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>j)</td><td>Isopropil metil éter</td><td><div data-chemfig="CH_{3}-CH(-[2]CH_{3})-O-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>   
                             <tr>
-                                <td>k)</td><td>Pentan-3-ona</td><td><div data-smiles="CCC(=O)CC" data-solucion="true"></div></td>
-                                <td>l)</td><td>Acetona (propanona)</td><td><div data-smiles="CC(=O)C" data-solucion="true"></div></td>
+                                <td>k)</td><td>Pentan-3-ona</td><td><div data-chemfig="CH_{3}-CH_{2}-C(=[2]O)-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>l)</td><td>Acetona (propanona)</td><td><div data-chemfig="CH_{3}-C(=[2]O)-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>m)</td><td>Butanona</td><td><div data-smiles="CCC(=O)C" data-solucion="true"></div></td>
-                                <td>n)</td><td>Butanodiona</td><td><div data-smiles="CC(=O)C(=O)C" data-solucion="true"></div></td>
+                                <td>m)</td><td>Butanona</td><td><div data-chemfig="CH_{3}-CH_{2}-CO-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>n)</td><td>Butanodiona</td><td><div data-chemfig="CH_{3}-C(=[2]O)-C(=[2]O)-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>ñ)</td><td>	Formaldehído (metanal)</td><td><div data-smiles="C=O" data-solucion="true"></div></td>
-                                <td>o)</td><td>Etanal</td><td><div data-smiles="CC=O" data-solucion="true"></div></td>
+                                <td>ñ)</td><td>	Formaldehído (metanal)</td><td><div data-chemfig="HC(-[7]H)(=[1]O)" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>o)</td><td>Etanal</td><td><div data-chemfig="CH_{3}-CHO" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>p)</td><td>2,2-dimetilbutanal</td><td><div data-smiles="CCC(C)(C)C=O" data-solucion="true"></div></td>
-                                <td>q)</td><td>Benzaldehído</td><td><div data-smiles="C1=CC=C(C=C1)C=O" data-solucion="true"></div></td>
+                                <td>p)</td><td>2,2-dimetilbutanal</td><td><div data-chemfig="CH_{3}-CH_{2}-C(-[2]CH_{3})(-[6]CH_{2})-CHO" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>q)</td><td>Benzaldehído</td><td><div data-chemfig="*6(=-=(-[1]CHO)-=-)" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                         </tbody>
                     </table>
