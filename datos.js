@@ -759,32 +759,32 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td>Ácido propanoico</td><td><div data-smiles="CCC(=O)O" data-solucion="true"></div></td>
-                                <td>b)</td><td>Ácido metanoico</td><td><div data-smiles="C(=O)O" data-solucion="true" data-rotation="60"></div></td>
+                                <td>a)</td><td>Ácido propanoico</td><td><div data-chemfig="CH_{3}-CH_{2}-COOH" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>b)</td><td>Ácido metanoico</td><td><div data-chemfig="H-COOH" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>c)</td><td>Ácido but-2-enoico</td><td><div data-smiles="CC=CC(=O)O" data-solucion="true" data-rotation="60"></div></td>
-                                <td>d)</td><td>Ácido propanodioico</td><td><div data-smiles="C(C(=O)O)C(=O)O" data-solucion="true"></div></td>
+                                <td>c)</td><td>Ácido but-2-enoico</td><td><div data-chemfig="CH_{3}-CH=CH-COOH" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>d)</td><td>Ácido propanodioico</td><td><div data-chemfig="COOH-CH_{2}-COOH" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>e)</td><td>Ácido benzoico</td><td><div data-smiles="C1=CC=C(C=C1)C(=O)O" data-solucion="true"></div></td>
-                                <td>f)</td><td>Etanoato de sodio</td><td><div data-smiles="CC(=O)[O-].[Na+]" data-solucion="true"></div></td>
+                                <td>e)</td><td>Ácido benzoico</td><td><div data-chemfig="*6(=-=(-[1]COOH)-=-)" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>f)</td><td>Etanoato de sodio</td><td><div data-chemfig="CH_{3}-COO^{-}[Na^{+}]" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>g)</td><td>Etanoato de calcio</td><td><div data-smiles="CC(=O)[O-].CC(=O)[O-].[Ca+2]" data-solucion="true"></div></td>
-                                <td>h)</td><td>Propanoato de potasio</td><td><div data-smiles="CCC(=O)[O-].[K+]" data-solucion="true"></div></td>
+                                <td>g)</td><td>Etanoato de calcio</td><td><div data-chemfig="CH_{3}-COO - Ca - OOC- CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>h)</td><td>Propanoato de potasio</td><td><div data-chemfig="CH_{3}-CH_{2}-COO - K" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>i)</td><td>Butanoato de sodio</td><td><div data-smiles="CCCC(=O)[O-].[Na+]" data-solucion="true"></div></td>
-                                <td>j)</td><td>Butanoato de etilo</td><td><div data-smiles="CCCC(=O)OCC" data-solucion="true"></div></td>
+                                <td>i)</td><td>Butanoato de sodio</td><td><div data-chemfig="CH_{3}-CH_{2}-CH_{2}-COO - Na" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>j)</td><td>Butanoato de etilo</td><td><div data-chemfig="CH_{3}-CH_{2}-CH_{2}-COO - CH_{2}-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>   
                             <tr>
-                                <td>k)</td><td>Etanoato de etilo</td><td><div data-smiles="CC(=O)OCC" data-solucion="true"></div></td>
-                                <td>l)</td><td>3-bromobutanoato de metilo</td><td><div data-smiles="CC(CC(=O)OC)Br" data-solucion="true"></div></td>
+                                <td>k)</td><td>Etanoato de etilo</td><td><div data-chemfig="CH_{3}-COO-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>l)</td><td>3-bromobutanoato de metilo</td><td><div data-chemfig="CH_{3}-CH(-[2]Br)-CH_{2}-COO - CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>m)</td><td>2-metilbutanoato de etilo</td><td><div data-smiles="CCC(C)C(=O)OCC" data-solucion="true"></div></td>
-                                <td>n)</td><td>Metanoato de metilo</td><td><div data-smiles="C(=O)OC" data-solucion="true"></div></td>
+                                <td>m)</td><td>2-metilbutanoato de etilo</td><td><div data-chemfig="CH_{3}-CH_{2}-CH(-[2]CH_{3})-COO-CH_{2}-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>n)</td><td>Metanoato de metilo</td><td><div data-chemfig="H-COO-CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                         </tbody>
                     </table>
