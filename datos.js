@@ -964,28 +964,28 @@ const baseDatosProblemas = {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>a)</td><td>\\(\\ce{CH3-CH2-CH2-NH-CH3}\\)</td>
-                        <td>b)</td><td>\\(\\ce{(CH3)3-N}\\)</td>
-                        <td>c)</td><td>\\(\\ce{CH3-CH(CH3)-NH2}\\)</td>
+                        <td>a)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-NH-CH_3}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>b)</td><td><div data-chemfig="{(CH_3)_3-N}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>c)</td><td><div data-chemfig="CH_{3}-CH(-[2]CH_{3})-NH_{2}" data-solucion="false" data-longitud="2em"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td>\\(\\ce{C6H5-NH2}\\)</td>
-                        <td>e)</td><td>\\(\\ce{CH3-(CH2)6-CONH2}\\)</td>
-                        <td>f)</td><td>\\(\\ce{H-CONH2}\\)</td>
+                        <td>d)</td><td><div data-chemfig="*6(=-=-(-[2]NH_{2})=-)" data-solucion="false" data-longitud="1.75em"></div></td>
+                        <td>e)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_2-CH_2-CH_2-CO-NH_2}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>f)</td><td><div data-chemfig="{H-CO-NH_2}" data-solucion="false" data-longitud="2em"></div></td>
                     </tr>
                     <tr>
-                        <td>g)</td><td>\\(\\ce{CH3-CH2-CONH-CH3}\\)</td>
-                        <td>h)</td><td>\\(\\ce{C6H5-CONH2}\\)</td>
-                        <td>i)</td><td>\\(\\ce{CH3-C#N}\\)</td>
+                        <td>g)</td><td><div data-chemfig="{CH_3-CH_2-CO-NH-CH_3}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>h)</td><td><div data-chemfig="*6(=-=-(-[2]CO-[0]NH_{2})=-)" data-solucion="false" data-longitud="1.75em"></div></td>
+                        <td>i)</td><td><div data-chemfig="{CH_3- C\\equiv N}" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>j)</td><td>\\(\\ce{CH3-CH2-C#N}\\)</td>
-                        <td>k)</td><td>\\(\\ce{N#C-CH2-CH2-CH3}\\)</td>
-                        <td>l)</td><td>\\(\\ce{CH3-CH2-NO2}\\)</td>
+                        <td>j)</td><td><div data-chemfig="{CH_3-CH_2-C \\equiv N}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>k)</td><td><div data-chemfig="{N \\equiv C - CH_2-CH_2- CH_3}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>l)</td><td><div data-chemfig="{CH_3-CH_2-NO_2}" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>m)</td><td>\\(\\ce{NO2-CH2-CH2-NO2}\\)</td>
-                        <td>n)</td><td>\\(\\ce{CH3-C(CH3)2-NO2}\\)</td>
+                        <td>m)</td><td><div data-chemfig="{NO_2-CH_2-CH_2-NO_2}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>n)</td><td><div data-chemfig="CH_{3}-C(-[6]CH_{3})(-[2]CH_{3})-NH_{2}" data-solucion="false" data-longitud="2.25em"></div></td>
                         <td></td><td></td>
                     </tr>
                 </tbody>
