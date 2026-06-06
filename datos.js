@@ -1086,32 +1086,32 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td>3-etilhexa-1,5-diino</td><td><div data-smiles="C#CC(CC)CC#C" data-solucion="true"></div></td>
-                                <td>b)</td><td>Butanodinitrilo</td><td><div data-smiles="N#CCCC#N" data-solucion="true"></div></td>
+                                <td>a)</td><td>3-etilhexa-1,5-diino</td><td><div data-chemfig="CH \\equiv C-CH(-[2]CH_{3})- CH_{2}-C \\equiv CH" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>b)</td><td>Butanodinitrilo</td><td><div data-chemfig="{N \\equiv C - CH_2-CH_2- C \\equiv N}" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>c)</td><td>But-2-en-1,4-diol</td><td><div data-smiles="OCC=CCO" data-solucion="true"></div></td>
-                                <td>d)</td><td>Tetraclorometano</td><td><div data-smiles="C(Cl)(Cl)(Cl)Cl" data-solucion="true"></div></td>
+                                <td>c)</td><td>But-2-en-1,4-diol</td><td><div data-chemfig="{HO - CH_2 - CH =  CH - CH_{2} - OH}" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>d)</td><td>Tetraclorometano</td><td><div data-chemfig="CCl_{4}" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>e)</td><td>Ácido 4-yodopentanoico</td><td><div data-smiles="CC(I)CCC(=O)O" data-solucion="true"></div></td>
-                                <td>f)</td><td>2,3,4-trimetilpentanal</td><td><div data-smiles="CC(C)C(C)C(C)C=O" data-solucion="true"></div></td>
+                                <td>e)</td><td>Ácido 4-yodopentanoico</td><td><div data-chemfig="CH_{3} - CH(-[2]I) - CH_{2} - CH_{2} - COOH" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>f)</td><td>2,3,4-trimetilpentanal</td><td><div data-chemfig="CH_{3} - CH(-[2]CH_{3})-CH(-[2]CH_{3}) - CH(-[2]CH_{3}) - CHO" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>g)</td><td>4,5-dimetilocta-3,6-dien-1-ino</td><td><div data-smiles="CC=CC(C)C(C)=CCC#C" data-solucion="true"></div></td>
-                                <td>h)</td><td>N-metilciclobutilamina</td><td><div data-smiles="CNC1CCC1" data-solucion="true"></div></td>
+                                <td>g)</td><td>4,5-dimetilocta-3,6-dien-1-ino</td><td><div data-chemfig="CH_3 - CH = CH - CH(-[2]CH_3) - C (-[2]CH_3) = CH - C \\equiv CH" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>h)</td><td>N-metilciclobutilamina</td><td><div data-chemfig="CH_3 - NH - *4(----)" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>i)</td><td>Ciclohexil fenil éter</td><td><div data-smiles="C1CCC(CC1)OC2=CC=CC=C2" data-solucion="true"></div></td>
-                                <td>j)</td><td>2-metilpropanamida</td><td><div data-smiles="CC(C)C(=O)N" data-solucion="true"></div></td>
+                                <td>i)</td><td>Ciclohexil fenil éter</td><td><div data-chemfig="*6([:150]------) - O - *6(=-=-=-)" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>j)</td><td>2-metilpropanamida</td><td><div data-chemfig="CH_{3} - CH(-[2]CH_{3}) - CO-NH_{2}" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>k)</td><td>Naftaleno</td><td><div data-smiles="C1=CC=C2C=CC=CC2=C1" data-solucion="true"></div></td>
-                                <td>l)</td><td>1,3-dinitrobenceno</td><td><div data-smiles="C1=CC(=CC(=C1)[N+](=O)[O-])[N+](=O)[O-]" data-solucion="true"></div></td>
+                                <td>k)</td><td>Naftaleno</td><td><div data-chemfig="*6(-=-=-*6(-=-=-=))" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>l)</td><td>1,3-dinitrobenceno</td><td><div data-chemfig="*6(=-(-[7]NO_{2})=-(-[2]NO_{2})=-)" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                             <tr>
-                                <td>m)</td><td>Propanoato de metilo</td><td><div data-smiles="CCC(=O)OC" data-solucion="true"></div></td>
-                                <td>n)</td><td>Fenilamina</td><td><div data-smiles="NC1=CC=CC=C1" data-solucion="true"></div></td>
+                                <td>m)</td><td>Propanoato de metilo</td><td><div data-chemfig="{CH_3 - CH_2 - COO - CH_3}" data-solucion="true" data-longitud="2.25em"></div></td>
+                                <td>n)</td><td>Fenilamina</td><td><div data-chemfig="*6(=-=(-[1]NH_{2})-=-)" data-solucion="true" data-longitud="2.25em"></div></td>
                             </tr>
                         </tbody>
                     </table>
