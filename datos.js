@@ -1001,32 +1001,32 @@ const baseDatosProblemas = {
                     </thead>
                     <tbody>
                     <tr>
-                        <td>a)</td><td><div data-smiles="CCCNC" data-solucion="false"></div></td><td style="color: red;">N-metilpropan-1-amina</td>
-                        <td>b)</td><td><div data-smiles="CN(C)C" data-solucion="false"></div></td><td style="color: red;">N,N-dimetilmetanamina</td>
+                        <td>a)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-NH-CH_3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">N-metilpropan-1-amina</td>
+                        <td>b)</td><td><div data-chemfig="{(CH_3)_3-N}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">N,N-dimetilmetanamina</td>
                     </tr>
                     <tr>
-                        <td>c)</td><td><div data-smiles="CC(C)N" data-solucion="false"></div></td><td style="color: red;">Propan-2-amina</td>
-                        <td>d)</td><td><div data-smiles="C1=CC=C(C=C1)N" data-solucion="false"></div></td><td style="color: red;">Anilina (Benzenamina)</td>
+                        <td>c)</td><td><div data-chemfig="CH_{3}-CH(-[2]CH_{3})-NH_{2}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">Propan-2-amina</td>
+                        <td>d)</td><td><div data-chemfig="*6(=-=-(-[2]NH_{2})=-)" data-solucion="false" data-longitud="1.75em"></div></td><td style="color: red;">Anilina (Benzenamina)</td>
                     </tr>
                     <tr>
-                        <td>e)</td><td><div data-smiles="CCCCCCCCC(=O)N" data-solucion="false"></div></td><td style="color: red;">Octanamida</td>
-                        <td>f)</td><td><div data-smiles="C(=O)N" data-solucion="false"></div></td><td style="color: red;">Metanamida</td>
+                        <td>e)</td><td><div data-chemfig="{CH_3-CH_2-CH_2-CH_2-CH_2-CH_2-CH_2-CO-NH_2}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Octanamida</td>
+                        <td>f)</td><td><div data-chemfig="{H-CO-NH_2}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">Metanamida</td>
                     </tr>
                     <tr>
-                        <td>g)</td><td><div data-smiles="CCC(=O)NC" data-solucion="false"></div></td><td style="color: red;">N-metilpropanamida</td>
-                        <td>h)</td><td><div data-smiles="C1=CC=C(C=C1)C(=O)N" data-solucion="false"></div></td><td style="color: red;">Benzamida</td>
+                        <td>g)</td><td><div data-chemfig="{CH_3-CH_2-CO-NH-CH_3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">N-metilpropanamida</td>
+                        <td>h)</td><td><div data-chemfig="*6(=-=-(-[2]CO-[0]NH_{2})=-)" data-solucion="false" data-longitud="1.75em"></div></td><td style="color: red;">Benzamida</td>
                     </tr>
                     <tr>
-                        <td>i)</td><td><div data-smiles="CC#N" data-solucion="false"></div></td><td style="color: red;">Etanonitrilo</td>
-                        <td>j)</td><td><div data-smiles="CCC#N" data-solucion="false"></div></td><td style="color: red;">Propanonitrilo</td>
+                        <td>i)</td><td><div data-chemfig="{CH_3- C\\equiv N}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Etanonitrilo</td>
+                        <td>j)</td><td><div data-chemfig="{CH_3-CH_2-C \\equiv N}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Propanonitrilo</td>
                     </tr>
                     <tr>
-                        <td>k)</td><td><div data-smiles="CCCC#N" data-solucion="false"></div></td><td style="color: red;">Butanonitrilo</td>
-                        <td>l)</td><td><div data-smiles="CC[N+](=O)[O-]" data-solucion="false"></div></td><td style="color: red;">Nitroetano</td>
+                        <td>k)</td><td><div data-chemfig="{N \\equiv C - CH_2-CH_2- CH_3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Butanonitrilo</td>
+                        <td>l)</td><td><div data-chemfig="{CH_3-CH_2-NO_2}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Nitroetano</td>
                     </tr>
                     <tr>
-                        <td>m)</td><td><div data-smiles="C(C[N+](=O)[O-])[N+](=O)[O-]" data-solucion="false"></div></td><td style="color: red;">1,2-dinitroetano</td>
-                        <td>n)</td><td><div data-smiles="CC(C)(C)[N+](=O)[O-]" data-solucion="false"></div></td><td style="color: red;">2-metil-2-nitropropano</td>
+                        <td>m)</td><td><div data-chemfig="{NO_2-CH_2-CH_2-NO_2}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">1,2-dinitroetano</td>
+                        <td>n)</td><td><div data-chemfig="CH_{3}-C(-[6]CH_{3})(-[2]CH_{3})-NH_{2}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">2-metil-2-nitropropano</td>
                     </tr>
                 </tbody>
             </table>
