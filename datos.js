@@ -1184,7 +1184,7 @@ const baseDatosProblemas = {
                                 <td>j)</td><td><div data-chemfig="{CH_3-CO-NH-CH_3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">N-metiletanamida</td>
                             </tr>
                             <tr>
-                                <td>k)</td><td><div data-chemfig="CH \\equiv C - CH(-[2]CH_{2}-[4]CH_{2}-[4]CH_{3})-CH_2- C \\equiv C- C(-[2]CH_{3})(-[6]CH_{3}) - CH_{2} - CH_{3}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">7,7-dimetil3-propildeca-1,4-diino</td>
+                                <td>k)</td><td><div data-chemfig="CH \\equiv C - CH(-[2]CH_{2}-[4]CH_{2}-[4]CH_{3})-CH_2- C \\equiv C- C(-[2]CH_{3})(-[6]CH_{3}) - CH_{2} - CH_{3}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">7,7-dimetil-3-propilnona-1,5-diino</td>
                                 <td>l)</td><td><div data-chemfig="{NO_2-CH_2-CH_2-NO_2}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">1,2-dinitroetano</td>
                             </tr>
                         </tbody>
