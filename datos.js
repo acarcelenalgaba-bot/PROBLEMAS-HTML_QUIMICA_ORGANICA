@@ -1132,24 +1132,24 @@ const baseDatosProblemas = {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>a)</td><td><div data-smiles="CCC1=CC=CC(CC)=C1"></div></td>
-                        <td>b)</td><td><div data-smiles="CCCC(C)C(Cl)(Cl)C"></div></td>
-                        <td>c)</td><td><div data-smiles="CCC(O)C(O)C"></div></td>
+                        <td>a)</td><td><div data-chemfig="*6(=(-[6]CH_{2}-[0]CH_{3})-=(-[1]CH_{2}-[0]CH_{3})-=-)" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>b)</td><td><div data-chemfig="CH_{3} - CH_{2} - C(-[2]Cl)(-[6]Cl) - CH(-[2]CH_{2}-[0]CH_{3}) - CH_{3}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>c)</td><td><div data-chemfig="CH_{3} - CH_{2} - CH(-[2]OH) - CH(-[2]OH) - CH_{3}" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td><div data-smiles="CC(C)CC(=O)CC(=O)CCC"></div></td>
-                        <td>e)</td><td><div data-smiles="CCN(C)C"></div></td>
-                        <td>f)</td><td><div data-smiles="C1([NH]C2=CC=CC=C2)=CC=CC=C1"></div></td>
+                        <td>d)</td><td><div data-chemfig="CH_{3}-CH_{2}-CH_{2}-C(=[2]O)-CH_{2}-C(=[2]O)-CH_{2}-CH(-[2]CH_{3})-CH_{3}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>e)</td><td><div data-chemfig="{(}CH_{3}{)}_{3} - N" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>f)</td><td><div data-chemfig="*6([:0]=-=(-[1]NH-[7]*6([:-30]=-=-=-))-=-)" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>g)</td><td><div data-smiles="C=CC(=O)C=CC"></div></td>
-                        <td>h)</td><td><div data-smiles="CCCC(=O)N"></div></td>
-                        <td>i)</td><td>\\(\\ce{CH3-COO-CH2-CH2-CH3}\\)</td>
+                        <td>g)</td><td><div data-chemfig="CH_{2}=CH-C(=[2]O)-CH=CH-CH_{3}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>h)</td><td><div data-chemfig="{CH_{3}-CH_{2}-CH_{2}-CO-NH_{2}}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>i)</td><td><div data-chemfig="{CH_3-COO-CH_2-CH_2-CH_3}" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>j)</td><td>\\(\\ce{CH3-CONH-CH3}\\)</td>
-                        <td>k)</td><td><div data-smiles="C#CC(CCC)C#CCC(C)(C)CC"></div></td>
-                        <td>l)</td><td>\\(\\ce{NO2-CH2-CH2-NO2}\\)</td>
+                        <td>j)</td><td><div data-chemfig="{CH_3-CO-NH-CH_3}" data-solucion="false" data-longitud="2.25em"></div></td>
+                        <td>k)</td><td><div data-chemfig="CH \\equiv C - CH(-[2]CH_{2}-[4]CH_{2}-[4]CH_{3})-CH_2- C \\equiv C- C(-[2]CH_{3})(-[6]CH_{3}) - CH_{2} - CH_{3}" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>l)</td><td><div data-chemfig="{NO_2-CH_2-CH_2-NO_2}" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                 </tbody>
             </table>`,
@@ -1164,28 +1164,28 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td><div data-smiles="CCC1=CC=CC(CC)=C1" data-solucion="false"></div></td><td style="color: red;">1,3-dietilbenceno</td>
-                                <td>b)</td><td><div data-smiles="CCCC(C)C(Cl)(Cl)C" data-solucion="false"></div></td><td style="color: red;">2,2-dicloro-3-metilhexano</td>
+                                <td>a)</td><td><div data-chemfig="*6(=(-[6]CH_{2}-[0]CH_{3})-=(-[1]CH_{2}-[0]CH_{3})-=-)" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">1,3-dietilbenceno</td>
+                                <td>b)</td><td><div data-chemfig="CH_{3} - CH_{2} - C(-[2]Cl)(-[6]Cl) - CH(-[2]CH_{2}-[0]CH_{3}) - CH_{3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">3,3-dicloro-4-metilhexano</td>
                             </tr>
                             <tr>
-                                <td>c)</td><td><div data-smiles="CCC(O)C(O)C" data-solucion="false"></div></td><td style="color: red;">Hexano-2,3-diol</td>
-                                <td>d)</td><td><div data-smiles="CC(C)CC(=O)CC(=O)CCC" data-solucion="false"></div></td><td style="color: red;">2-metilnonano-4,6-diona</td>
+                                <td>c)</td><td><div data-chemfig="CH_{3} - CH_{2} - CH(-[2]OH) - CH(-[2]OH) - CH_{3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Hexano-2,3-diol</td>
+                                <td>d)</td><td><div data-chemfig="CH_{3}-CH_{2}-CH_{2}-C(=[2]O)-CH_{2}-C(=[2]O)-CH_{2}-CH(-[2]CH_{3})-CH_{3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">2-metilnonano-4,6-diona</td>
                             </tr>
                             <tr>
-                                <td>e)</td><td><div data-smiles="CCN(C)C" data-solucion="false"></div></td><td style="color: red;">N,N-dimetiletanamina</td>
-                                <td>f)</td><td><div data-smiles="C1([NH]C2=CC=CC=C2)=CC=CC=C1" data-solucion="false"></div></td><td style="color: red;">Difenilamina</td>
+                                <td>e)</td><td><div data-chemfig="{(}CH_{3}{)}_{3} - N" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">N,N-dimetiletanamina</td>
+                                <td>f)</td><td><div data-chemfig="*6([:0]=-=(-[1]NH-[7]*6([:-30]=-=-=-))-=-)" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Difenilamina</td>
                             </tr>
                             <tr>
-                                <td>g)</td><td><div data-smiles="C=CC(=O)C=CC" data-solucion="false"></div></td><td style="color: red;">Hexa-1,4-dien-3-ona</td>
-                                <td>h)</td><td><div data-smiles="CCCC(=O)N" data-solucion="false"></div></td><td style="color: red;">Butanamida</td>
+                                <td>g)</td><td><div data-chemfig="CH_{2}=CH-C(=[2]O)-CH=CH-CH_{3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Hexa-1,4-dien-3-ona</td>
+                                <td>h)</td><td><div data-chemfig="{CH_{3}-CH_{2}-CH_{2}-CO-NH_{2}}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Butanamida</td>
                             </tr>
                             <tr>
-                                <td>i)</td><td><div data-smiles="CC(=O)OCCC" data-solucion="false"></div></td><td style="color: red;">Etanoato de propilo</td>
-                                <td>j)</td><td><div data-smiles="CC(=O)NC" data-solucion="false"></div></td><td style="color: red;">N-metiletanamida</td>
+                                <td>i)</td><td><div data-chemfig="{CH_3-COO-CH_2-CH_2-CH_3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">Etanoato de propilo</td>
+                                <td>j)</td><td><div data-chemfig="{CH_3-CO-NH-CH_3}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">N-metiletanamida</td>
                             </tr>
                             <tr>
-                                <td>k)</td><td><div data-smiles="C#CC(CCC)C#CCC(C)(C)CC" data-solucion="false"></div></td><td style="color: red;">7,7-dimetil3-propildeca-1,4-diino</td>
-                                <td>l)</td><td><div data-smiles="C(C[N+](=O)[O-])[N+](=O)[O-]" data-solucion="false"></div></td><td style="color: red;">1,2-dinitroetano</td>
+                                <td>k)</td><td><div data-chemfig="CH \\equiv C - CH(-[2]CH_{2}-[4]CH_{2}-[4]CH_{3})-CH_2- C \\equiv C- C(-[2]CH_{3})(-[6]CH_{3}) - CH_{2} - CH_{3}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">7,7-dimetil3-propildeca-1,4-diino</td>
+                                <td>l)</td><td><div data-chemfig="{NO_2-CH_2-CH_2-NO_2}" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">1,2-dinitroetano</td>
                             </tr>
                         </tbody>
                     </table>
