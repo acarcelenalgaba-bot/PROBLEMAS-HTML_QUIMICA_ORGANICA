@@ -1248,40 +1248,40 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td>4-hidroxihexan-3-ona</td><td><div data-smiles="CCC(=O)C(O)CC" data-solucion="true"></div></td>
-                                <td>b)</td><td>Ácido 2-hidroxipropanoico</td><td><div data-smiles="CC(O)C(=O)O" data-solucion="true"></div></td>
+                                <td>a)</td><td>4-hidroxihexan-3-ona</td><td><div data-chemfig="CH_{3} - CH_{2} - CO - CH(-[2]OH)-CH_2- CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>b)</td><td>Ácido 2-hidroxipropanoico</td><td><div data-chemfig="CH_{3} - CH(-[2]OH)- COOH" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>c)</td><td>2,3-dihidroxi-1-metilbutanal</td><td><div data-smiles="CC(O)C(O)C(C)C=O" data-solucion="true"></div></td>
-                                <td>d)</td><td>2-hidroxi-3-oxobutanal</td><td><div data-smiles="CC(=O)C(O)C=O" data-solucion="true"></div></td>
+                                <td>c)</td><td>2,3-dihidroxi-2-metilbutanal</td><td><div data-chemfig="CHO - C(-[2]OH)(-[6]CH_{3})-CH(-[2]OH)- CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>d)</td><td>2-hidroxi-3-oxobutanal</td><td><div data-chemfig="CHO - CH(-[2]OH) - CO - CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>e)</td><td>Ácido 4-oxopentanoico</td><td><div data-smiles="CC(=O)CCC(=O)O" data-solucion="true"></div></td>
-                                <td>f)</td><td>3-aminobutan-2-ol</td><td><div data-smiles="CC(O)C(C)N" data-solucion="true"></div></td>
+                                <td>e)</td><td>Ácido 4-oxopentanoico</td><td><div data-chemfig="{CH_{3} - CO - CH_{2} - CH_{2} - COOH}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>f)</td><td>3-aminobutan-2-ol</td><td><div data-chemfig="CH_{3}- CH(-[2]NH_{2})- CH(-[2]OH) - CH_{3}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>g)</td><td>2-etoxietanol</td><td><div data-smiles="CCOCCO" data-solucion="true"></div></td>
-                                <td>h)</td><td>Ácido fenoxietanoico</td><td><div data-smiles="C1=CC=C(C=C1)OCC(=O)O" data-solucion="true"></div></td>
+                                <td>g)</td><td>2-etoxietanol</td><td><div data-chemfig="{CH_{3}-CH_{2}-O-CH_{2}-CH_{2}-OH}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>h)</td><td>Ácido fenoxietanoico</td><td><div data-chemfig="([4]*6([:150]=-=-=-)) - O - CH_{2}-COOH" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>i)</td><td>2-nitroetanol</td><td><div data-smiles="OCC[N+](=O)[O-]" data-solucion="true"></div></td>
-                                <td>j)</td><td>Ácido 2,3-dihidroxibutanoico</td><td><div data-smiles="CC(O)C(O)C(=O)O" data-solucion="true"></div></td>
+                                <td>i)</td><td>2-nitroetanol</td><td><div data-chemfig="{NO_{2}- CH_{2}-CH_{2}-OH}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>j)</td><td>Ácido 2,3-dihidroxibutanoico</td><td><div data-chemfig="CH_{3}-CH(-[2]OH)-CH(-[2]OH)-COOH" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>k)</td><td>Ácido cianoetanoico</td><td><div data-smiles="N#CCC(=O)O" data-solucion="true"></div></td>
-                                <td>l)</td><td>3-oxopent-4-enal</td><td><div data-smiles="C=CC(=O)CC=O" data-solucion="true"></div></td>
+                                <td>k)</td><td>Ácido cianoetanoico</td><td><div data-chemfig="{CN - CH_{2}-COOH}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>l)</td><td>3-oxopent-4-enal</td><td><div data-chemfig="{CH_{2}=CH-CO-CH_{2}-CHO}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>m)</td><td>5-hidroxihexa-1,4-dien-3-ona</td><td><div data-smiles="CC(O)=CC(=O)C=C" data-solucion="true"></div></td>
-                                <td>n)</td><td>3-amino-2-etoxi-4-metilhexanonitrilo</td><td><div data-smiles="CCC(C)C(N)C(OCC)C#N" data-solucion="true"></div></td>
+                                <td>m)</td><td>5-hidroxihexa-1,4-dien-3-ona</td><td><div data-chemfig="CH_{3}-C(-[2]OH)=CH-CO-CH=CH_{2}" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>n)</td><td>3-amino-2-etoxi-4-metilhexanonitrilo</td><td><div data-chemfig="CH_{3}-CH_{2}-CH(-[2]CH_{3})-CH(-[2]NH_{2})-CH(-[2]O-[0]CH_{2}-CH_{3})-CN" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>ñ)</td><td>Ácido 2-hidroxi-2-metilbutanoico</td><td><div data-smiles="CCC(C)(O)C(=O)O" data-solucion="true"></div></td>
-                                <td>o)</td><td>3-aminopropanoato de etilo</td><td><div data-smiles="NCCC(=O)OCC" data-solucion="true"></div></td>
+                                <td>ñ)</td><td>Ácido 2-hidroxi-2-metilbutanoico</td><td><div data-chemfig="CH_{3}-CH_{2}-C(-[2]CH_{3})(-[6]OH)-COOH" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>o)</td><td>3-aminopropanoato de etilo</td><td><div data-chemfig="{NH_{2}-CH_{2}-CH_{2}-COO-CH_{2}-CH_{3}}" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                             <tr>
-                                <td>p)</td><td>Ácido 3-ciano-2-metoxibutanoico</td><td><div data-smiles="CC(C#N)C(OC)C(=O)O" data-solucion="true"></div></td>
-                                <td>q)</td><td>3-hidroxiciclohexanona</td><td><div data-smiles="O=C1CC(O)CCC1" data-solucion="true"></div></td>
+                                <td>p)</td><td>Ácido 3-ciano-2-metoxibutanoico</td><td><div data-chemfig="CH_3-CH(-[2]CN)-CH(-[2]O-[0]CH_{3})-COOH" data-solucion="true" data-longitud="2em"></div></td>
+                                <td>q)</td><td>3-hidroxiciclohexanona</td><td><div data-chemfig="*6(--(-[7]OH)--(=[2]O)--)" data-solucion="true" data-longitud="2em"></div></td>
                             </tr>
                         </tbody>
                     </table>
