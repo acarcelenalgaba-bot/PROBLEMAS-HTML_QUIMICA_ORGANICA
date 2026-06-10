@@ -1302,29 +1302,29 @@ const baseDatosProblemas = {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>a)</td><td><div data-smiles="CC(O)CC(=O)O"></div></td>
-                        <td>b)</td><td><div data-smiles="O=CCC(=O)O"></div></td>
-                        <td>c)</td><td><div data-smiles="CC(C=O)C=O"></div></td>
+                        <td>a)</td><td><div data-chemfig="{CH_{3}-CHOH-CH_{2}-COOH}" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>b)</td><td><div data-chemfig="{CHO-CH_{2}-CH_{2}-COOH}" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>c)</td><td><div data-chemfig="CHO-CH(-[2]CH_{3})-CHO" data-solucion="false" data-longitud="2em"></div></td>
                     </tr>
                     <tr>
-                        <td>d)</td><td><div data-smiles="C#CC(CC)C(C)C#CC"></div></td>
-                        <td>e)</td><td><div data-smiles="CCC(=O)C(=O)O"></div></td>
-                        <td>f)</td><td><div data-smiles="CC(O)C=O"></div></td>
+                        <td>d)</td><td><div data-chemfig="CH \\equiv C - CH(-[2]CH_{2}-[0]CH_{3})-CH(-[6]CH_{3})-C \\equiv C - CH_{3}" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>e)</td><td><div data-chemfig="{CH_{3}-CH_{2}-CO-COOH}" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>f)</td><td><div data-chemfig="CH_{3}-CH(-[2]OH)-CHO" data-solucion="false" data-longitud="2em"></div></td>
                     </tr>
                     <tr>
-                        <td>g)</td><td><div data-smiles="CC(=O)CC[NH2]"></div></td>
-                        <td>h)</td><td><div data-smiles="CCC(C1CCCC1)C(=O)O"></div></td>
-                        <td>i)</td><td><div data-smiles="CC1=CC(C)=C2C=CC=CC2=C1"></div></td>
+                        <td>g)</td><td><div data-chemfig="{CH_{3}-CO-CH_{2}-CH_{2}-NH_{2}}" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>h)</td><td><div data-chemfig="CH_{3}-CH_{2}-CH(-[6]*5(-----))-COOH" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>i)</td><td><div data-chemfig="*6(-=-=-*6(-=(-[3]CH_{3})-=(-[6]CH_{3})-=))" data-solucion="false" data-longitud="2.25em"></div></td>
                     </tr>
                     <tr>
-                        <td>j)</td><td><div data-smiles="CC(C1=CC=CC=C1)CC(=O)C"></div></td>
-                        <td>k)</td><td><div data-smiles="[NH2]C1C=CCC1(O)"></div></td>
-                        <td>l)</td><td><div data-smiles="CCC=CCC(=O)N"></div></td>
+                        <td>j)</td><td><div data-chemfig="CH_{3}-CH(-[6]*6(=-=-=-))-CH_{2}-CO-CH_{3}" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>k)</td><td><div data-chemfig="*5(-=-(-[2]OH)-(-[3]NH_{2})-)" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>l)</td><td><div data-chemfig="{CH_{3}-CH_{2}-CH=CH-CH_{2}-CO-NH_{2}}" data-solucion="false" data-longitud="2em"></div></td>
                     </tr>
                     <tr>
-                        <td>m)</td><td><div data-smiles="O=CCC(=O)C=C"></div></td>
-                        <td>n)</td><td><div data-smiles="O=C(O)C(O)C(O)C(=O)O"></div></td>
-                        <td>ñ)</td><td><div data-smiles="CC(=O)C(CC)CC(=O)O"></div></td>
+                        <td>m)</td><td><div data-chemfig="{CHO-CH_{2}-CO-CH=CH_{2}}" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>n)</td><td><div data-chemfig="COOH-CH(-[2]OH)-CH(-[2]OH)-COOH" data-solucion="false" data-longitud="2em"></div></td>
+                        <td>ñ)</td><td><div data-chemfig="CH_{2}-CO-CH(-[2]CH_{2}-CH_{3})-CH_{2}-COOH" data-solucion="false" data-longitud="2em"></div></td>
                     </tr>                    
                 </tbody>
             </table>`,
