@@ -1339,35 +1339,35 @@ const baseDatosProblemas = {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>a)</td><td><div data-smiles="CC(O)CC(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 3-hidroxibutanoico</td>
-                                <td>b)</td><td><div data-smiles="O=CCC(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 3-oxopropanoico</td>
+                                <td>a)</td><td><div data-chemfig="{CH_{3}-CHOH-CH_{2}-COOH}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">Ácido 3-hidroxibutanoico</td>
+                                <td>b)</td><td><div data-chemfig="{CHO-CH_{2}-CH_{2}-COOH}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">Ácido 3-oxopropanoico</td>
                             </tr>
                             <tr>
-                                <td>c)</td><td><div data-smiles="CC(C=O)C=O" data-solucion="false"></div></td><td style="color: red;">2-metilpropanodial</td>
-                                <td>d)</td><td><div data-smiles="C#CC(CC)C(C)C#CC" data-solucion="false"></div></td><td style="color: red;">3-etil-4-metilhepta-1,5-diino</td>
+                                <td>c)</td><td><div data-chemfig="CHO-CH(-[2]CH_{3})-CHO" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">2-metilpropanodial</td>
+                                <td>d)</td><td><div data-chemfig="CH \\equiv C - CH(-[2]CH_{2}-[0]CH_{3})-CH(-[6]CH_{3})-C \\equiv C - CH_{3}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">3-etil-4-metilhepta-1,5-diino</td>
                             </tr>
                             <tr>
-                                <td>e)</td><td><div data-smiles="CCC(=O)C(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 2-oxobutanoico</td>
-                                <td>f)</td><td><div data-smiles="CC(O)C=O" data-solucion="false"></div></td><td style="color: red;">2-hidroxipropanal</td>
+                                <td>e)</td><td><div data-chemfig="{CH_{3}-CH_{2}-CO-COOH}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">Ácido 2-oxobutanoico</td>
+                                <td>f)</td><td><div data-chemfig="CH_{3}-CH(-[2]OH)-CHO" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">2-hidroxipropanal</td>
                             </tr>
                             <tr>
-                                <td>g)</td><td><div data-smiles="CC(=O)CC[NH2]" data-solucion="false"></div></td><td style="color: red;">4-aminobutan-2-ona</td>
-                                <td>h)</td><td><div data-smiles="CCC(C1CCCC1)C(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 2-ciclobutilbutanoico</td>
+                                <td>g)</td><td><div data-chemfig="{CH_{3}-CO-CH_{2}-CH_{2}-NH_{2}}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">4-aminobutan-2-ona</td>
+                                <td>h)</td><td><div data-chemfig="CH_{3}-CH_{2}-CH(-[6]*5(-----))-COOH" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">Ácido 2-ciclobutilbutanoico</td>
                             </tr>
                             <tr>
-                                <td>i)</td><td><div data-smiles="CC1=CC(C)=C2C=CC=CC2=C1" data-solucion="false"></div></td><td style="color: red;">1,3-dimetilnaftaleno</td>
-                                <td>j)</td><td><div data-smiles="CC(C1=CC=CC=C1)CC(=O)C" data-solucion="false"></div></td><td style="color: red;">4-fenilpentan-2-ona</td>
+                                <td>i)</td><td><div data-chemfig="*6(-=-=-*6(-=(-[3]CH_{3})-=(-[6]CH_{3})-=))" data-solucion="false" data-longitud="2.25em"></div></td><td style="color: red;">1,3-dimetilnaftaleno</td>
+                                <td>j)</td><td><div data-chemfig="CH_{3}-CH(-[6]*6(=-=-=-))-CH_{2}-CO-CH_{3}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">4-fenilpentan-2-ona</td>
                             </tr>
                             <tr>
-                                <td>k)</td><td><div data-smiles="[NH2]C1C=CCC1(O)" data-solucion="false"></div></td><td style="color: red;">2-aminocicloba-3-en-1-ol</td>
-                                <td>l)</td><td><div data-smiles="CCC=CCC(=O)N" data-solucion="false"></div></td><td style="color: red;">Hex-3-enamida</td>
+                                <td>k)</td><td><div data-chemfig="*5(-=-(-[2]OH)-(-[3]NH_{2})-)" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">2-aminocicloba-3-en-1-ol</td>
+                                <td>l)</td><td><div data-chemfig="{CH_{3}-CH_{2}-CH=CH-CH_{2}-CO-NH_{2}}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">Hex-3-enamida</td>
                             </tr>
                             <tr>
-                                <td>m)</td><td><div data-smiles="O=CCC(=O)C=C" data-solucion="false"></div></td><td style="color: red;">3-oxohex-5-enal</td>
-                                <td>n)</td><td><div data-smiles="O=C(O)C(O)C(O)C(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 2,3-dihidroxibutandioico</td>
+                                <td>m)</td><td><div data-chemfig="{CHO-CH_{2}-CO-CH=CH_{2}}" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">3-oxohex-5-enal</td>
+                                <td>n)</td><td><div data-chemfig="COOH-CH(-[2]OH)-CH(-[2]OH)-COOH" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">Ácido 2,3-dihidroxibutandioico</td>
                             </tr>
                             <tr>
-                                <td>ñ)</td><td><div data-smiles="CC(=O)C(CC)CC(=O)O" data-solucion="false"></div></td><td style="color: red;">Ácido 3-etil-4-oxopentanoico</td>
+                                <td>ñ)</td><td><div data-chemfig="CH_{2}-CO-CH(-[2]CH_{2}-CH_{3})-CH_{2}-COOH" data-solucion="false" data-longitud="2em"></div></td><td style="color: red;">Ácido 3-etil-4-oxopentanoico</td>
                                 <td></td><td></td><td></td>
                             </tr>
                         </tbody>
